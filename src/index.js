@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "semantic-ui-css/semantic.min.css";
 import {
   Route,
   NavLink,
@@ -20,8 +21,12 @@ import Success from "./components/Success";
 import Students from "./components/Students";
 import Student from "./components/Student";
 import Messages from "./components/Messages";
+import Admins from "./components/Admins";
+import Message from "./components/Message";
+import EditStudent from "./components/EditStudent";
 
 import * as serviceWorker from "./serviceWorker";
+import Admin from "./components/Admin";
 
 const Routing = () => {
   const styles = {
@@ -127,8 +132,12 @@ const Routing = () => {
       <br />
       <div>
         <Switch>
-          <Route path="/students/:studentId" component={Student} />
+          <Route exact path="/students/:studentId" component={Student} />
+          <Route path="/messages/:messageId" component={Message} />
+          <Route path="/admins/:adminId" component={Admin} />
+          <Route path="/students/edit/:studentId" component={EditStudent} />
           <Route path="/messages" component={Messages} />
+          <Route path="/admins" component={Admins} />
           <Route path="/students" component={Students} />
           <Route path="/success" component={Success} />
           <Route path="/profile" component={Profile} />

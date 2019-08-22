@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import StudentsForm from "./StudentsForm";
+import AdminsForm from "./AdminsForm";
 import AdminPanel from "./AdminPanel";
 
-class Messages extends Component {
+class Admins extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      students: []
+      admins: []
     };
   }
   componentDidMount() {
-    fetch("http://localhost:4000/students", {
+    fetch("http://localhost:4000/admins", {
       method: "GET",
       credentials: "include"
     })
@@ -20,7 +20,7 @@ class Messages extends Component {
       })
       .then(data => {
         console.log(data);
-        this.setState({ students: data });
+        this.setState({ admins: data });
       })
       .catch(error => {
         console.log(`Failed to fetch profile data ${error}`);
@@ -43,13 +43,13 @@ class Messages extends Component {
         border: "1px solid blue"
       }
     };
-    const studentsRender = this.state.students.map(item => (
+    const adminsRender = this.state.admins.map(item => (
       <div>
         <h4>
           {item.firstname} {item.lastname}{" "}
           <Link
             to={{
-              pathname: `/students/${item._id}`
+              pathname: `/admins/${item._id}`
             }}
           >
             view more
@@ -63,15 +63,15 @@ class Messages extends Component {
         <br />
         <div style={styles.container}>
           <div style={styles.students}>
-            <h1 style={{ textDecoration: "underline" }}>Students</h1>
-            <div>{studentsRender}</div>
+            <h1 style={{ textDecoration: "underline" }}>Admins</h1>
+            <div>{adminsRender}</div>
           </div>
           <div style={styles.form}>
-            <StudentsForm />
+            <AdminsForm />
           </div>
         </div>
       </div>
     );
   }
 }
-export default Messages;
+export default Admins;

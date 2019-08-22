@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-//import "./style.css";
+import { Link } from "react-router-dom";
+import AdminPanel from "./AdminPanel";
 
 class Messages extends Component {
   constructor(props) {
@@ -28,14 +29,22 @@ class Messages extends Component {
   render() {
     const messagesRender = this.state.messages.map(item => (
       <div>
-        <h2>{item.name} </h2>
-        <h4>{item.email}</h4>
-        <p>{item.message}</p>
+        <h3>
+          {item.name}{" "}
+          <Link
+            to={{
+              pathname: `/messages/${item._id}`
+            }}
+          >
+            view more
+          </Link>{" "}
+        </h3>
       </div>
     ));
     return (
       <div>
-        <h3>Viewing messages from mindset guests</h3>
+        <AdminPanel />
+        <h1>Messsages</h1>
         <div>{messagesRender}</div>
       </div>
     );

@@ -18,7 +18,7 @@ class Profile extends Component {
       })
       .then(data => {
         console.log(data);
-        this.setState({ profile: data.user });
+        this.setState({ profile: data.username });
       })
       .catch(error => {
         console.log(`Failed to fetch profile data ${error}`);
