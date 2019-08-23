@@ -47,7 +47,7 @@ SILVER PINK: #C9ADA7
   justify-content: center;
 }
 
-.form-wrapper {
+/*.form-wrapper {
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -100,10 +100,10 @@ input::placeholder {
   font-size: 1.2em;
   font-weight: lighter;
   color: #bbb;
-}
+}*/
 
-button {
-  /*min-width: 100%;*/
+/*button {
+  
   cursor: pointer;
   margin-right: 0.25em;
   margin-top: 0.5em;
@@ -147,3 +147,4 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
 }
+*/

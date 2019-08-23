@@ -7,7 +7,8 @@ import AdminPanel from "./AdminPanel";
 const width = "auto",
   height = "75vh";
 const Container = styled.div`
-  border: 1px solid red;
+  border: 1px solid blue;
+  border-radius: 3px;
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -103,7 +104,6 @@ class App extends Component {
         ) : (
           ""
         )}
-        <br />
         <Carousel defaultWait={2000} /*wait for 1000 milliseconds*/>
           <Slide right>
             <div>
