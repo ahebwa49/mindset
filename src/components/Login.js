@@ -2,6 +2,7 @@ import React from "react";
 import {
   Button,
   Form,
+  Icon,
   Grid,
   Header,
   Message,
@@ -43,8 +44,8 @@ class Login extends React.Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
-        this.props.history.push("/");
+        //console.log(data);
+        window.location.assign("/");
       })
       .catch(err => {
         console.log(`failed to post${err}`);
@@ -110,6 +111,17 @@ class Login extends React.Component {
                 <Button color="blue" fluid size="large">
                   Login
                 </Button>
+                <Message>
+                  Login with{" "}
+                  <Button color="github">
+                    <a
+                      style={{ textDecoration: "none", color: "black" }}
+                      href="http://localhost:4000/auth/github"
+                    >
+                      <Icon name="github" /> Github
+                    </a>
+                  </Button>
+                </Message>
               </Form>
             </Segment>
             <Message>

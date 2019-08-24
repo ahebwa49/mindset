@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AdminPanel from "./AdminPanel";
+import { Icon, Label, Menu, Table } from "semantic-ui-react";
 
 class Messages extends Component {
   constructor(props) {
@@ -27,10 +28,13 @@ class Messages extends Component {
   }
 
   render() {
+    var date = new Date();
     const messagesRender = this.state.messages.map(item => (
-      <div>
-        <h3>
-          {item.name}{" "}
+      <Table.Row>
+        <Table.Cell>{item.name}</Table.Cell>
+        <Table.Cell>{item.email}</Table.Cell>
+        <Table.Cell>{date.getTime()}</Table.Cell>
+        <Table.Cell>
           <Link
             to={{
               pathname: `/messages/${item._id}`
@@ -38,14 +42,43 @@ class Messages extends Component {
           >
             view more
           </Link>{" "}
-        </h3>
-      </div>
+        </Table.Cell>
+      </Table.Row>
     ));
+
     return (
       <div>
         <AdminPanel />
-        <h1>Messsages</h1>
-        <div>{messagesRender}</div>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Email</Table.HeaderCell>
+              <Table.HeaderCell>Date</Table.HeaderCell>
+              <Table.HeaderCell>Actions</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          {messagesRender}
+          {this.state.messages.length}
+          <Table.Footer>
+            <Table.Row>
+              <Table.HeaderCell colSpan="4">
+                <Menu floated="right" pagination>
+                  <Menu.Item as="a" icon>
+                    <Icon name="chevron left" />
+                  </Menu.Item>
+                  <Menu.Item as="a">1</Menu.Item>
+                  <Menu.Item as="a">2</Menu.Item>
+                  <Menu.Item as="a">3</Menu.Item>
+                  <Menu.Item as="a">4</Menu.Item>
+                  <Menu.Item as="a" icon>
+                    <Icon name="chevron right" />
+                  </Menu.Item>
+                </Menu>
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Footer>
+        </Table>
       </div>
     );
   }

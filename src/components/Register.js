@@ -43,8 +43,8 @@ class Register extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
-        this.props.history.push("/");
+        //console.log(data);
+        window.location.assign("/");
       })
       .catch(err => {
         console.log(`failed to post${err}`);
