@@ -10,7 +10,7 @@ class Message extends Component {
     const {
       match: { params }
     } = this.props;
-    fetch(`http://localhost:4000/messages/${params.messageId}`, {
+    fetch(`http://localhost:4000/messages/message/${params.messageId}`, {
       method: "GET",
       credentials: "include"
     })

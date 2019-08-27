@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AdminPanel from "./AdminPanel";
-import { Icon, Label, Menu, Table } from "semantic-ui-react";
+import { Icon, Menu, Table } from "semantic-ui-react";
 
 class Messages extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [],
+      currentPage: 1,
+      count: ""
     };
+    this.incrementPage = this.incrementPage.bind(this);
+    this.decrementPage = this.decrementPage.bind(this);
   }
-  componentDidMount() {
-    fetch("http://localhost:4000/messages", {
+  incrementPage() {
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    });
+    fetch(`http://localhost:4000/messages/page/${this.state.currentPage + 1}`, {
       method: "GET",
       credentials: "include"
     })
@@ -19,8 +26,56 @@ class Messages extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ messages: data });
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+  }
+  decrementPage() {
+    this.setState({
+      currentPage: this.state.currentPage - 1
+    });
+    fetch(`http://localhost:4000/messages/page/${this.state.currentPage - 1}`, {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ messages: data });
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+  }
+  componentWillMount() {
+    fetch(`http://localhost:4000/messages/page/${this.state.currentPage}`, {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ messages: data });
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+
+    fetch(`http://localhost:4000/messages`, {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          count: data.length
+        });
       })
       .catch(error => {
         console.log(`Failed to fetch profile data ${error}`);
@@ -28,16 +83,18 @@ class Messages extends Component {
   }
 
   render() {
-    var date = new Date();
+    const size = 4;
+    const pages = Math.ceil(this.state.count / size);
+
     const messagesRender = this.state.messages.map(item => (
       <Table.Row>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.email}</Table.Cell>
-        <Table.Cell>{date.getTime()}</Table.Cell>
+        <Table.Cell>{new Date().toLocaleTimeString()}</Table.Cell>
         <Table.Cell>
           <Link
             to={{
-              pathname: `/messages/${item._id}`
+              pathname: `/messages/message/${item._id}`
             }}
           >
             view more
@@ -59,19 +116,29 @@ class Messages extends Component {
             </Table.Row>
           </Table.Header>
           {messagesRender}
-          {this.state.messages.length}
+
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan="4">
                 <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
+                  <Menu.Item
+                    as="a"
+                    onClick={this.decrementPage}
+                    disabled={this.state.currentPage <= 1}
+                    icon
+                  >
                     <Icon name="chevron left" />
                   </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a">2</Menu.Item>
-                  <Menu.Item as="a">3</Menu.Item>
-                  <Menu.Item as="a">4</Menu.Item>
-                  <Menu.Item as="a" icon>
+                  <Menu.Item as="a">{this.state.currentPage}</Menu.Item>
+                  <Menu.Item as="a">of</Menu.Item>
+                  <Menu.Item as="a">{pages}</Menu.Item>
+
+                  <Menu.Item
+                    as="a"
+                    onClick={this.incrementPage}
+                    disabled={this.state.currentPage >= pages}
+                    icon
+                  >
                     <Icon name="chevron right" />
                   </Menu.Item>
                 </Menu>

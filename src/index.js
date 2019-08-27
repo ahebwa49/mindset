@@ -11,7 +11,6 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import NotFound from "./components/NotFound";
-import Profile from "./components/Profile";
 import Success from "./components/Success";
 import Students from "./components/Students";
 import Student from "./components/Student";
@@ -20,7 +19,6 @@ import Admins from "./components/Admins";
 import Message from "./components/Message";
 import EditStudent from "./components/EditStudent";
 import NavMenu from "./components/Menu";
-
 import * as serviceWorker from "./serviceWorker";
 import Admin from "./components/Admin";
 
@@ -30,16 +28,23 @@ const Routing = () => {
       <NavMenu />
       <div>
         <Switch>
-          <Route exact path="/students/:studentId" component={Student} />
-          <Route path="/messages/:messageId" component={Message} />
-          <Route path="/admins/:adminId" component={Admin} />
+          <Route
+            exact
+            path="/students/student/:studentId"
+            component={Student}
+          />
+          <Route
+            exact
+            path="/messages/message/:messageId"
+            component={Message}
+          />
+          <Route path="/admins/admin/:adminId" component={Admin} />
           <Route path="/students/edit/:studentId" component={EditStudent} />
-          <Route path="/messages" component={Messages} />
+          <Route exact path="/messages" component={Messages} />
           <Route path="/menu" component={NavMenu} />
           <Route path="/admins" component={Admins} />
           <Route path="/students" component={Students} />
           <Route path="/success" component={Success} />
-          <Route path="/profile" component={Profile} />
           <Route exact path="/" component={App} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />

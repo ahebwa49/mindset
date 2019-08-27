@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AdminsForm from "./AdminsForm";
 import AdminPanel from "./AdminPanel";
+import { Icon, Menu, Table } from "semantic-ui-react";
 
 class Admins extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      admins: []
+      admins: [],
+      currentPage: 1,
+      count: ""
     };
+    this.incrementPage = this.incrementPage.bind(this);
+    this.decrementPage = this.decrementPage.bind(this);
   }
-  componentDidMount() {
-    fetch("http://localhost:4000/admins", {
+  incrementPage() {
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    });
+    fetch(`http://localhost:4000/admins/page/${this.state.currentPage + 1}`, {
       method: "GET",
       credentials: "include"
     })
@@ -19,8 +26,56 @@ class Admins extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ admins: data });
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+  }
+  decrementPage() {
+    this.setState({
+      currentPage: this.state.currentPage - 1
+    });
+    fetch(`http://localhost:4000/admins/page/${this.state.currentPage - 1}`, {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ admins: data });
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+  }
+  componentWillMount() {
+    fetch(`http://localhost:4000/admins/page/${this.state.currentPage}`, {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ admins: data });
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+
+    fetch(`http://localhost:4000/admins`, {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          count: data.length
+        });
       })
       .catch(error => {
         console.log(`Failed to fetch profile data ${error}`);
@@ -28,48 +83,69 @@ class Admins extends Component {
   }
 
   render() {
-    const styles = {
-      container: {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gridColumnGap: "20px"
-      },
-      students: {
-        display: "grid",
-        border: "1px solid red"
-      },
-      form: {
-        display: "grid",
-        border: "1px solid blue"
-      }
-    };
+    const size = 4;
+    const pages = Math.ceil(this.state.count / size);
+
     const adminsRender = this.state.admins.map(item => (
-      <div>
-        <h4>
-          {item.firstname} {item.lastname}{" "}
+      <Table.Row>
+        <Table.Cell>{item.firstname}</Table.Cell>
+        <Table.Cell>{item.lastname}</Table.Cell>
+        <Table.Cell>{new Date().toLocaleTimeString()}</Table.Cell>
+        <Table.Cell>
           <Link
             to={{
-              pathname: `/admins/${item._id}`
+              pathname: `/admins/admin/${item._id}`
             }}
           >
             view more
-          </Link>
-        </h4>
-      </div>
+          </Link>{" "}
+        </Table.Cell>
+      </Table.Row>
     ));
+
     return (
       <div>
         <AdminPanel />
-        <br />
-        <div style={styles.container}>
-          <div style={styles.students}>
-            <h1 style={{ textDecoration: "underline" }}>Admins</h1>
-            <div>{adminsRender}</div>
-          </div>
-          <div style={styles.form}>
-            <AdminsForm />
-          </div>
-        </div>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>fistname</Table.HeaderCell>
+              <Table.HeaderCell>lastname</Table.HeaderCell>
+              <Table.HeaderCell>Date</Table.HeaderCell>
+              <Table.HeaderCell>Actions</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          {adminsRender}
+
+          <Table.Footer>
+            <Table.Row>
+              <Table.HeaderCell colSpan="4">
+                <Menu floated="right" pagination>
+                  <Menu.Item
+                    as="a"
+                    onClick={this.decrementPage}
+                    disabled={this.state.currentPage <= 1}
+                    icon
+                  >
+                    <Icon name="chevron left" />
+                  </Menu.Item>
+                  <Menu.Item as="a">{this.state.currentPage}</Menu.Item>
+                  <Menu.Item as="a">of</Menu.Item>
+                  <Menu.Item as="a">{pages}</Menu.Item>
+
+                  <Menu.Item
+                    as="a"
+                    onClick={this.incrementPage}
+                    disabled={this.state.currentPage >= pages}
+                    icon
+                  >
+                    <Icon name="chevron right" />
+                  </Menu.Item>
+                </Menu>
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Footer>
+        </Table>
       </div>
     );
   }
