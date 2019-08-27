@@ -19,6 +19,7 @@ import Admins from "./components/Admins";
 import Message from "./components/Message";
 import EditStudent from "./components/EditStudent";
 import NavMenu from "./components/Menu";
+import Dashboard from "./components/Dashboard";
 import * as serviceWorker from "./serviceWorker";
 import Admin from "./components/Admin";
 
@@ -44,6 +45,7 @@ const Routing = () => {
           <Route path="/menu" component={NavMenu} />
           <Route path="/admins" component={Admins} />
           <Route path="/students" component={Students} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/success" component={Success} />
           <Route exact path="/" component={App} />
           <Route path="/about" component={About} />

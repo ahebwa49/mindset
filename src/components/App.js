@@ -103,7 +103,7 @@ class App extends Component {
           <AdminPanel />
         ) : (
           ""
-        )}
+        )}       
         <Carousel defaultWait={2000} /*wait for 1000 milliseconds*/>
           <Slide right>
             <div>

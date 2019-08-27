@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AdminPanel from "./AdminPanel";
-import { Icon, Menu, Table } from "semantic-ui-react";
+import { Button, Icon, Menu, Table } from "semantic-ui-react";
+import StudentsForm from "./StudentsForm";
 
 class Students extends Component {
   constructor(props) {
     super(props);
     this.state = {
       students: [],
+      showStudentForm: false,
       currentPage: 1,
       count: ""
     };
     this.incrementPage = this.incrementPage.bind(this);
     this.decrementPage = this.decrementPage.bind(this);
+    this.addStudent = this.addStudent.bind(this);
   }
   incrementPage() {
     this.setState({
@@ -81,7 +83,12 @@ class Students extends Component {
         console.log(`Failed to fetch profile data ${error}`);
       });
   }
-
+  addStudent() {
+    this.setState({
+      showStudentForm: !this.state.showStudentForm
+    });
+    console.log(this.state.showStudentForm);
+  }
   render() {
     const size = 4;
     const pages = Math.ceil(this.state.count / size);
@@ -105,7 +112,7 @@ class Students extends Component {
 
     return (
       <div>
-        <AdminPanel />
+        {/** <AdminPanel />*/}
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -120,6 +127,16 @@ class Students extends Component {
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan="4">
+                <Button
+                  floated="left"
+                  icon
+                  labelPosition="left"
+                  primary
+                  size="small"
+                  onClick={this.addStudent}
+                >
+                  <Icon name="user" /> Add Student
+                </Button>
                 <Menu floated="right" pagination>
                   <Menu.Item
                     as="a"
@@ -146,6 +163,7 @@ class Students extends Component {
             </Table.Row>
           </Table.Footer>
         </Table>
+        {this.state.showStudentForm && <StudentsForm />}
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AdminPanel from "./AdminPanel";
-import { Icon, Menu, Table } from "semantic-ui-react";
+import AdminsForm from "./AdminsForm";
+import { Button, Icon, Menu, Table } from "semantic-ui-react";
 
 class Admins extends Component {
   constructor(props) {
@@ -9,10 +9,12 @@ class Admins extends Component {
     this.state = {
       admins: [],
       currentPage: 1,
+      showAdminForm: false,
       count: ""
     };
     this.incrementPage = this.incrementPage.bind(this);
     this.decrementPage = this.decrementPage.bind(this);
+    this.addAdmin = this.addAdmin.bind(this);
   }
   incrementPage() {
     this.setState({
@@ -82,6 +84,11 @@ class Admins extends Component {
       });
   }
 
+  addAdmin() {
+    this.setState({
+      showAdminForm: !this.state.showAdminForm
+    });
+  }
   render() {
     const size = 4;
     const pages = Math.ceil(this.state.count / size);
@@ -105,7 +112,7 @@ class Admins extends Component {
 
     return (
       <div>
-        <AdminPanel />
+        {/** <AdminPanel />*/}
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -120,6 +127,16 @@ class Admins extends Component {
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan="4">
+                <Button
+                  floated="left"
+                  icon
+                  labelPosition="left"
+                  primary
+                  size="small"
+                  onClick={this.addAdmin}
+                >
+                  <Icon name="user" /> Add Admin
+                </Button>
                 <Menu floated="right" pagination>
                   <Menu.Item
                     as="a"
@@ -146,6 +163,7 @@ class Admins extends Component {
             </Table.Row>
           </Table.Footer>
         </Table>
+        {this.state.showAdminForm && <AdminsForm />}
       </div>
     );
   }

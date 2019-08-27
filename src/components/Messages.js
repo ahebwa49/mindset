@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AdminPanel from "./AdminPanel";
 import { Icon, Menu, Table } from "semantic-ui-react";
 
 class Messages extends Component {
@@ -105,7 +104,7 @@ class Messages extends Component {
 
     return (
       <div>
-        <AdminPanel />
+        {/**<AdminPanel /> */}
         <Table celled>
           <Table.Header>
             <Table.Row>
