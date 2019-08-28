@@ -1,5 +1,6 @@
 import React from "react";
 import Zoom from "react-reveal/Zoom"; // Importing Zoom effect
+import Footer from "./Footer";
 
 const About = () => {
   const styles = {
@@ -78,7 +79,7 @@ const About = () => {
           />
         </div>
       </Zoom>
-      <div />
+      <Footer />
     </div>
   );
 };

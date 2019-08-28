@@ -1,5 +1,6 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import Footer from "./Footer";
 
 const Services = () => {
   const styles = {
@@ -80,6 +81,7 @@ const Services = () => {
           />
         </div>
       </Fade>
+      <Footer />
     </div>
   );
 };

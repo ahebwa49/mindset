@@ -1,96 +1,156 @@
 import React from "react";
+import Footer from "./Footer";
+
+import {
+  Icon,
+  Form,
+  Segment,
+  Grid,
+  Header,
+  Message,
+  TextArea,
+  Button
+} from "semantic-ui-react";
 
 class Contact extends React.Component {
-  onSubmit = () => {
-    this.props.history.push("/Success");
-  };
-  render() {
-    const styles = {
-      heading: {
-        display: "grid",
-        justifyItems: "center",
-        justifySelf: "center",
-        border: "1px solid red",
-        width: "80vw",
-        height: "auto",
-        textAlign: "center",
-        marginLeft: "auto",
-        marginRight: "auto"
-      },
-      info: {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        border: "1px solid green",
-        //fontSize: "1.2em",
-        width: "80vw",
-        marginLeft: "auto",
-        marginRight: "auto"
-      },
-      address: {
-        display: "grid",
-        justifyItems: "center",
-        border: "1px solid orange"
-      },
-      contact: {
-        display: "grid",
-        justifyItems: "center",
-        border: "1px solid orange"
-      },
-      messageDiv: {
-        display: "grid",
-        border: "1px solid red",
-        justifyItems: "center",
-        justifySelf: "center",
-        width: "100%"
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      message: ""
     };
+    this.handleFirstnameChange = this.handleFirstnameChange.bind(this);
+    this.handleLastnameChange = this.handleLastnameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleMessageChange = this.handleMessageChange.bind(this);
+  }
+  onSubmit = () => {
+    document.querySelector(".form").classList.add("loading");
+    const data = {
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      email: this.state.email,
+      message: this.state.message
+    };
+    fetch("http://localhost:4000/messages", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    })
+      .then(response => {
+        document.querySelector(".form").classList.remove("loading");
+        document.querySelector(".message").classList.remove("success");
+        this.setState({
+          firstname: "",
+          lastname: "",
+          email: "",
+          message: ""
+        });
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(`failed to send message${err}`);
+        document.querySelector(".form").classList.add("err");
+      });
+  };
+  handleFirstnameChange(e) {
+    this.setState({
+      firstname: e.target.value
+    });
+  }
+  handleLastnameChange(e) {
+    this.setState({
+      lastname: e.target.value
+    });
+  }
+  handleEmailChange(e) {
+    this.setState({
+      email: e.target.value
+    });
+  }
+  handleMessageChange(e) {
+    this.setState({
+      message: e.target.value
+    });
+  }
+  render() {
     return (
       <div>
-        <div style={styles.heading}>
-          <h1>Contact Us</h1>
-          <p>Feel free to contact us for any inquiries</p>
-        </div>
-        <div style={styles.info}>
-          <div style={styles.address}>
-            <h1>address</h1>
-            <p>
-              The Innovation Village Plot 31 Ntinda - Kisaasi Road, Ntinda
-              Shopping Complex, Block B&C 3rd Floor, Kampala Kampala, Uganda
-            </p>
-          </div>
-          <div style={styles.contact}>
-            <h1>contacts</h1>
-            Phone: +256704679017 Email: info@mindset-group.org
-          </div>
-        </div>
-        <br />
-        <div style={styles.heading}>
-          <h2>LEAVE US A MESSAGE</h2>
-          <form action="http://localhost:4000/messages" method="POST">
-            <div style={styles.messageDiv}>
-              <label htmlFor="name">
-                Name
-                <input type="text" name="name" placeholder="name" size="26" />
-              </label>
-              <label htmlFor="email">
-                Email
-                <input type="text" name="email" placeholder="email" size="26" />
-              </label>
-              <br />
-              <label htmlFor="message">
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows="8"
-                  cols="60"
-                />
-              </label>
-              <button onSubmit={this.onSubmit} id="messageBtn" type="submit">
-                submit
-              </button>
-            </div>
-          </form>
-        </div>
+        <Segment>
+          <Header as="h2" icon textAlign="center">
+            <Icon name="talk" />
+            Let's talk
+            <Header.Subheader>
+              Please feel free to leave us a message
+            </Header.Subheader>
+          </Header>
+          <Grid centered columns={2}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Message
+              </Header>
+              <Segment>
+                <Form size="large" onSubmit={this.onSubmit} className="form">
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="firstname"
+                    value={this.state.firstname}
+                    onChange={this.handleFirstnameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="lastname"
+                    value={this.state.lastname}
+                    onChange={this.handleLastnameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="mail"
+                    iconPosition="left"
+                    placeholder="email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    required
+                  />
+                  <Form.Field
+                    fluid
+                    control={TextArea}
+                    placeholder="Tell us more..."
+                    value={this.state.message}
+                    onChange={this.handleMessageChange}
+                    required
+                  />
+
+                  <Message
+                    className="message"
+                    success
+                    info
+                    header="Success!"
+                    content="Your message has been delivered!"
+                  />
+                  <Button color="blue" fluid size="large">
+                    Submit
+                  </Button>
+                </Form>
+              </Segment>
+            </Grid.Column>
+          </Grid>
+        </Segment>
+        <Footer />
       </div>
     );
   }

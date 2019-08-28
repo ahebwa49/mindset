@@ -4,7 +4,7 @@ import AdminPanel from "./AdminPanel";
 class Message extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", message: "" };
+    this.state = { firstname: "", lastname: "", email: "", message: "" };
   }
   componentDidMount() {
     const {
@@ -20,7 +20,8 @@ class Message extends Component {
       .then(data => {
         console.log(data);
         this.setState({
-          name: data.name,
+          firstname: data.firstname,
+          lastname: data.lastname,
           email: data.email,
           message: data.message
         });
@@ -35,7 +36,8 @@ class Message extends Component {
       <div>
         <AdminPanel />
         <h1>Message</h1>
-        <h3>Name: {this.state.name}</h3>
+        <h3>Firstname: {this.state.firstname}</h3>
+        <h3>Lastname: {this.state.lastname}</h3>
         <p>Email: {this.state.email}</p>
         <p>{this.state.message}</p>
       </div>

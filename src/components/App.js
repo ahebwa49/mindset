@@ -1,76 +1,10 @@
 import React, { Component } from "react";
-import makeCarousel from "react-reveal/makeCarousel";
-import Slide from "react-reveal/Slide";
-import styled, { css } from "styled-components";
 import AdminPanel from "./AdminPanel";
-
-const width = "auto",
-  height = "75vh";
-const Container = styled.div`
-  border: 1px solid blue;
-  border-radius: 3px;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  width: ${width};
-`;
-const Children = styled.div`
-  width: ${width};
-  position: relative;
-  height: ${height};
-`;
-const Arrow = styled.div`
-  text-shadow: 1px 1px 1px #fff;
-  z-index: 100;
-  line-height: ${height};
-  text-align: center;
-  position: absolute;
-  top: 0;
-  width: 10%;
-  font-size: 3em;
-  cursor: pointer;
-  user-select: none;
-  ${props =>
-    props.right
-      ? css`
-          left: 90%;
-        `
-      : css`
-          left: 0%;
-        `}
-`;
-const Dot = styled.span`
-  font-size: 1.5em;
-  cursor: pointer;
-  text-shadow: 1px 1px 1px #fff;
-  user-select: none;
-`;
-const Dots = styled.span`
-  text-align: center;
-  width: ${width};
-  z-index: 100;
-`;
-const CarouselUI = ({ position, total, handleClick, children }) => (
-  <Container>
-    <Children>
-      {children}
-      <Arrow onClick={handleClick} data-position={position - 1}>
-        {"<"}
-      </Arrow>
-      <Arrow right onClick={handleClick} data-position={position + 1}>
-        {">"}
-      </Arrow>
-    </Children>
-    <Dots>
-      {Array(...Array(total)).map((val, index) => (
-        <Dot key={index} onClick={handleClick} data-position={index}>
-          {index === position ? "● " : "○ "}
-        </Dot>
-      ))}
-    </Dots>
-  </Container>
-);
-const Carousel = makeCarousel(CarouselUI);
+import CarouselComponent from "./CarouselComponent";
+import SuccessStories2 from "./SuccessStories2";
+import SuccessStories3 from "./SuccessStories3";
+import Footer from "./Footer";
+import { Button, Card, Header, Image } from "semantic-ui-react";
 
 class App extends Component {
   constructor(props) {
@@ -95,6 +29,9 @@ class App extends Component {
       });
   }
   render() {
+    const description =
+      "Scratch is a block-based visual programming language and online community targeted primarily at children. Users of the site can create online projects using a block-like interface.";
+
     return (
       <div>
         {this.state.role_id === "SUPERADMIN" ? (
@@ -103,33 +40,44 @@ class App extends Component {
           <AdminPanel />
         ) : (
           ""
-        )}       
-        <Carousel defaultWait={2000} /*wait for 1000 milliseconds*/>
-          <Slide right>
-            <div>
-              <h1>THINK</h1>
-              <p>Slide Description</p>
-            </div>
-          </Slide>
-          <Slide right>
-            <div>
-              <h1>CODE</h1>
-              <p>Slide Description</p>
-            </div>
-          </Slide>
-          <Slide right>
-            <div>
-              <h1>CREATE</h1>
-              <p>Slide Description</p>
-            </div>
-          </Slide>
-          <Slide right>
-            <div>
-              <h1>SOLVE</h1>
-              <p>Slide Description</p>
-            </div>
-          </Slide>
-        </Carousel>
+        )}
+        <CarouselComponent />
+        <br />
+        <Header
+          as="h2"
+          style={{ fontSize: "2.5em", transform: "skewX(-12deg)" }}
+          textAlign="center"
+        >
+          MIND-BLOWING COURSES THAT CHANGE CHILDREN'S LIVES!
+        </Header>
+        <br />
+        <Card.Group centered>
+          <Card>
+            <Card.Content header="Scratch" textAlign="center" />
+            <Image src="/static/scratch.png" wrapped ui={false} />
+            <Card.Content description={description} />
+            <Button primary>view course</Button>
+          </Card>
+          <Card>
+            <Card.Content header="Progate" textAlign="center" />
+            <Image src="/static/scratch.png" wrapped ui={false} />
+            <Card.Content description={description} />
+            <Button primary>view course</Button>
+          </Card>
+          <Card>
+            <Card.Content header="Mind Sweeper" textAlign="center" />
+            <Image src="/static/scratch.png" wrapped ui={false} />
+            <Card.Content description={description} />
+            <Button primary>view course</Button>
+          </Card>
+        </Card.Group>
+        <br />
+        <Header as="h3" style={{ fontSize: "2em" }} textAlign="center">
+          SUCCESS STORIES
+        </Header>
+        <SuccessStories2 />
+        <SuccessStories3 />
+        <Footer />
       </div>
     );
   }

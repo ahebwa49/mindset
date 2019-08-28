@@ -87,8 +87,8 @@ class Messages extends Component {
 
     const messagesRender = this.state.messages.map(item => (
       <Table.Row>
-        <Table.Cell>{item.name}</Table.Cell>
-        <Table.Cell>{item.email}</Table.Cell>
+        <Table.Cell>{item.firstname}</Table.Cell>
+        <Table.Cell>{item.lastname}</Table.Cell>
         <Table.Cell>{new Date().toLocaleTimeString()}</Table.Cell>
         <Table.Cell>
           <Link
@@ -108,8 +108,8 @@ class Messages extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Email</Table.HeaderCell>
+              <Table.HeaderCell>Firstname</Table.HeaderCell>
+              <Table.HeaderCell>Lastname</Table.HeaderCell>
               <Table.HeaderCell>Date</Table.HeaderCell>
               <Table.HeaderCell>Actions</Table.HeaderCell>
             </Table.Row>

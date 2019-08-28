@@ -64,19 +64,6 @@ class Login extends React.Component {
   }
   render() {
     return (
-      /*
-          <div>
-            <button>
-              {/*eslint-disable-next-line*/
-      /*<a
-                style={{ textDecoration: "none", color: "white" }}
-                href="http://localhost:4000/auth/github"
-              >
-                Login with Github
-              </a>
-            </button>
-          </div>
-          */
       <div>
         <br />
         <Grid centered columns={3}>
