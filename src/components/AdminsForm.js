@@ -33,8 +33,6 @@ class AdminsForm extends Component {
       password: this.state.password,
       role_id: this.state.role_id
     };
-    console.log("ready to submit AdminsForm");
-    console.log(data);
     document.querySelector(".form").classList.add("loading");
 
     fetch("http://localhost:4000/admins", {
@@ -46,16 +44,31 @@ class AdminsForm extends Component {
       credentials: "include"
     })
       .then(response => {
-        document.querySelector(".form").classList.remove("loading");
-        console.log("Successfully inserted document");
-        return response.json();
+        if (response.ok) {
+          document.querySelector(".form").classList.remove("loading");
+          return response.json();
+        }
+        return response.json().then(body => {
+          document.querySelector(".form").classList.remove("loading");
+          throw new Error(body.error);
+        });
       })
       .then(data => {
-        window.location.assign("/admins");
+        document.querySelector(".successMessage").classList.remove("success");
+        this.setState({
+          firstname: "",
+          lastname: "",
+          password: "",
+          role_id: "",
+          username: "",
+          error: ""
+        });
       })
-      .catch(err => {
-        console.log(`failed to post${err}`);
-        document.querySelector(".form").classList.add("err");
+      .catch(error => {
+        this.setState({
+          error: error.message
+        });
+        document.querySelector(".errorMessage").classList.remove("error");
       });
   }
   handleFirstnameChange(e) {
@@ -148,9 +161,18 @@ class AdminsForm extends Component {
                   />
                 </Form.Group>
                 <Message
+                  className="successMessage"
+                  positive
+                  success
+                  header="Success!"
+                  content="Admin has been successfully added"
+                />
+                <Message
+                  className="errorMessage"
+                  negative
                   error
-                  header="Action Forbidden"
-                  content="Failed to add student."
+                  header="Forbidden!"
+                  content={this.state.error}
                 />
 
                 <Button color="blue" fluid size="large">

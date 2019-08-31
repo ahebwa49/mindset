@@ -6,6 +6,7 @@ import {
   Grid,
   Header,
   Message,
+  Responsive,
   Segment
 } from "semantic-ui-react";
 
@@ -14,7 +15,8 @@ class Register extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      error: ""
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -25,8 +27,6 @@ class Register extends Component {
       username: this.state.username,
       password: this.state.password
     };
-    console.log("ready to register");
-    console.log(data);
     document.querySelector(".form").classList.add("loading");
 
     fetch("http://localhost:4000/register", {
@@ -38,17 +38,23 @@ class Register extends Component {
       credentials: "include"
     })
       .then(response => {
-        document.querySelector(".form").classList.remove("loading");
-        console.log("Successfully loged in");
-        return response.json();
+        if (response.ok) {
+          document.querySelector(".form").classList.remove("loading");
+          return response.json();
+        }
+        return response.json().then(body => {
+          document.querySelector(".form").classList.remove("loading");
+          throw new Error(body.error);
+        });
       })
       .then(data => {
-        //console.log(data);
         window.location.assign("/");
       })
-      .catch(err => {
-        console.log(`failed to post${err}`);
-        document.querySelector(".form").classList.add("err");
+      .catch(error => {
+        document.querySelector(".errorMessage").classList.remove("error");
+        this.setState({
+          error: error.message
+        });
       });
   }
   handleUsernameChange(e) {
@@ -65,48 +71,144 @@ class Register extends Component {
     return (
       <div>
         <br />
-        <Grid centered columns={3}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Register
-            </Header>
-            <Segment>
-              <Form size="large" className="form" onSubmit={this.onSubmit}>
-                <Form.Input
-                  fluid
-                  icon="user"
-                  iconPosition="left"
-                  placeholder="Email address"
-                  value={this.state.username}
-                  onChange={this.handleUsernameChange}
-                  required
-                />
-                <Form.Input
-                  fluid
-                  icon="lock"
-                  iconPosition="left"
-                  placeholder="Password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.handlePasswordChange}
-                  required
-                />
-                <Message
-                  error
-                  header="Action Forbidden"
-                  content="You can only sign up for an account once with a given e-mail address."
-                />
+        <Responsive {...Responsive.onlyMobile}>
+          <Grid centered columns={1}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Register
+              </Header>
+              <Segment>
+                <Form size="large" className="form" onSubmit={this.onSubmit}>
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Email address"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                    required
+                  />
+                  <Message
+                    className="errorMessage"
+                    negative
+                    error
+                    header=""
+                    content={this.state.error}
+                  />
 
-                <Button color="blue" fluid size="large">
-                  Register
-                </Button>
-              </Form>
-            </Segment>
-            <Message>
-              Registered already? <Link to="/login">Sign In</Link>
-            </Message>
-          </Grid.Column>
-        </Grid>
+                  <Button color="blue" fluid size="large">
+                    Register
+                  </Button>
+                </Form>
+              </Segment>
+              <Message>
+                Registered already? <Link to="/login">Sign In</Link>
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
+        <Responsive {...Responsive.onlyTablet}>
+          <Grid centered columns={2}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Register
+              </Header>
+              <Segment>
+                <Form size="large" className="form" onSubmit={this.onSubmit}>
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Email address"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                    required
+                  />
+                  <Message
+                    className="errorMessage"
+                    negative
+                    error
+                    header=""
+                    content={this.state.error}
+                  />
+
+                  <Button color="blue" fluid size="large">
+                    Register
+                  </Button>
+                </Form>
+              </Segment>
+              <Message>
+                Registered already? <Link to="/login">Sign In</Link>
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
+        <Responsive {...Responsive.onlyComputer}>
+          <Grid centered columns={1}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Register
+              </Header>
+              <Segment>
+                <Form size="large" className="form" onSubmit={this.onSubmit}>
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Email address"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                    required
+                  />
+                  <Message
+                    className="errorMessage"
+                    negative
+                    error
+                    header=""
+                    content={this.state.error}
+                  />
+
+                  <Button color="blue" fluid size="large">
+                    Register
+                  </Button>
+                </Form>
+              </Segment>
+              <Message>
+                Registered already? <Link to="/login">Sign In</Link>
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
       </div>
     );
   }

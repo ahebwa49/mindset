@@ -9,7 +9,8 @@ import {
   Header,
   Message,
   TextArea,
-  Button
+  Button,
+  Responsive
 } from "semantic-ui-react";
 
 class Contact extends React.Component {
@@ -84,14 +85,73 @@ class Contact extends React.Component {
   render() {
     return (
       <div>
-        <Segment>
-          <Header as="h2" icon textAlign="center">
-            <Icon name="talk" />
-            Let's talk
-            <Header.Subheader>
-              Please feel free to leave us a message
-            </Header.Subheader>
-          </Header>
+        <Header as="h2" icon textAlign="center">
+          <Icon name="talk" />
+          Let's talk
+          <Header.Subheader>
+            Please feel free to leave us a message
+          </Header.Subheader>
+        </Header>
+        <Responsive {...Responsive.onlyMobile}>
+          <Grid centered columns={1}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Message
+              </Header>
+              <Segment>
+                <Form size="large" onSubmit={this.onSubmit} className="form">
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="firstname"
+                    value={this.state.firstname}
+                    onChange={this.handleFirstnameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="lastname"
+                    value={this.state.lastname}
+                    onChange={this.handleLastnameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="mail"
+                    iconPosition="left"
+                    placeholder="email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    required
+                  />
+                  <Form.Field
+                    fluid
+                    control={TextArea}
+                    placeholder="Tell us more..."
+                    value={this.state.message}
+                    onChange={this.handleMessageChange}
+                    required
+                  />
+
+                  <Message
+                    className="message"
+                    success
+                    info
+                    header="Success!"
+                    content="Your message has been delivered!"
+                  />
+                  <Button color="blue" fluid size="large">
+                    Submit
+                  </Button>
+                </Form>
+              </Segment>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
+        <Responsive {...Responsive.onlyTablet}>
           <Grid centered columns={2}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
@@ -149,7 +209,67 @@ class Contact extends React.Component {
               </Segment>
             </Grid.Column>
           </Grid>
-        </Segment>
+        </Responsive>
+        <Responsive {...Responsive.onlyComputer}>
+          <Grid centered columns={2}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Message
+              </Header>
+              <Segment>
+                <Form size="large" onSubmit={this.onSubmit} className="form">
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="firstname"
+                    value={this.state.firstname}
+                    onChange={this.handleFirstnameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="lastname"
+                    value={this.state.lastname}
+                    onChange={this.handleLastnameChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="mail"
+                    iconPosition="left"
+                    placeholder="email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    required
+                  />
+                  <Form.Field
+                    fluid
+                    control={TextArea}
+                    placeholder="Tell us more..."
+                    value={this.state.message}
+                    onChange={this.handleMessageChange}
+                    required
+                  />
+
+                  <Message
+                    className="message"
+                    success
+                    info
+                    header="Success!"
+                    content="Your message has been delivered!"
+                  />
+                  <Button color="blue" fluid size="large">
+                    Submit
+                  </Button>
+                </Form>
+              </Segment>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
+
         <Footer />
       </div>
     );

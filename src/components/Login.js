@@ -6,6 +6,7 @@ import {
   Grid,
   Header,
   Message,
+  Responsive,
   Segment
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
@@ -15,7 +16,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      error: ""
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -26,8 +28,6 @@ class Login extends React.Component {
       username: this.state.username,
       password: this.state.password
     };
-    console.log("ready to login");
-    console.log(data);
     document.querySelector(".form").classList.add("loading");
 
     fetch("http://localhost:4000/login", {
@@ -39,17 +39,23 @@ class Login extends React.Component {
       credentials: "include"
     })
       .then(response => {
-        document.querySelector(".form").classList.remove("loading");
-        console.log("Successfully loged in");
-        return response.json();
+        if (response.ok) {
+          document.querySelector(".form").classList.remove("loading");
+          return response.json();
+        }
+        return response.json().then(body => {
+          document.querySelector(".form").classList.remove("loading");
+          throw new Error(body.error);
+        });
       })
       .then(data => {
-        //console.log(data);
         window.location.assign("/");
       })
-      .catch(err => {
-        console.log(`failed to post${err}`);
-        document.querySelector(".form").classList.add("err");
+      .catch(error => {
+        document.querySelector(".errorMessage").classList.remove("error");
+        this.setState({
+          error: error.message
+        });
       });
   }
   handleUsernameChange(e) {
@@ -66,56 +72,168 @@ class Login extends React.Component {
     return (
       <div>
         <br />
-        <Grid centered columns={3}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Sign In
-            </Header>
-            <Segment>
-              <Form size="large" onSubmit={this.onSubmit} className="form">
-                <Form.Input
-                  fluid
-                  icon="user"
-                  iconPosition="left"
-                  placeholder="Email address"
-                  value={this.state.username}
-                  onChange={this.handleUsernameChange}
-                />
-                <Form.Input
-                  fluid
-                  icon="lock"
-                  iconPosition="left"
-                  placeholder="Password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.handlePasswordChange}
-                />
-                <Message
-                  error
-                  header="Action Forbidden"
-                  content="Failed to login."
-                />
-                <Button color="blue" fluid size="large">
-                  Login
-                </Button>
-                <Message>
-                  Login with{" "}
-                  <Button color="github">
-                    <a
-                      style={{ textDecoration: "none", color: "black" }}
-                      href="http://localhost:4000/auth/github"
-                    >
-                      <Icon name="github" /> Github
-                    </a>
+        <Responsive {...Responsive.onlyComputer}>
+          <Grid centered columns={3}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Sign In
+              </Header>
+              <Segment>
+                <Form size="large" onSubmit={this.onSubmit} className="form">
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Email address"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                  />
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <Message
+                    className="errorMessage"
+                    negative
+                    error
+                    header=""
+                    content={this.state.error}
+                  />
+                  <Button color="blue" fluid size="large">
+                    Login
                   </Button>
-                </Message>
-              </Form>
-            </Segment>
-            <Message>
-              Not registered yet? <Link to="/register">Sign Up</Link>
-            </Message>
-          </Grid.Column>
-        </Grid>
+                  <Message>
+                    Login with{" "}
+                    <Button color="github">
+                      <a
+                        style={{ textDecoration: "none", color: "black" }}
+                        href="http://localhost:4000/auth/github"
+                      >
+                        <Icon name="github" /> Github
+                      </a>
+                    </Button>
+                  </Message>
+                </Form>
+              </Segment>
+              <Message>
+                Not registered yet? <Link to="/register">Sign Up</Link>
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
+        <Responsive {...Responsive.onlyTablet}>
+          <Grid centered columns={2}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Sign In
+              </Header>
+              <Segment>
+                <Form size="large" onSubmit={this.onSubmit} className="form">
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Email address"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                  />
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <Message
+                    className="errorMessage"
+                    negative
+                    error
+                    header=""
+                    content={this.state.error}
+                  />
+                  <Button color="blue" fluid size="large">
+                    Login
+                  </Button>
+                  <Message>
+                    Login with{" "}
+                    <Button color="github">
+                      <a
+                        style={{ textDecoration: "none", color: "black" }}
+                        href="http://localhost:4000/auth/github"
+                      >
+                        <Icon name="github" /> Github
+                      </a>
+                    </Button>
+                  </Message>
+                </Form>
+              </Segment>
+              <Message>
+                Not registered yet? <Link to="/register">Sign Up</Link>
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
+        <Responsive {...Responsive.onlyMobile}>
+          <Grid centered columns={1}>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">
+                Sign In
+              </Header>
+              <Segment>
+                <Form size="large" onSubmit={this.onSubmit} className="form">
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Email address"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                  />
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <Message
+                    className="errorMessage"
+                    negative
+                    error
+                    header=""
+                    content={this.state.error}
+                  />
+                  <Button color="blue" fluid size="large">
+                    Login
+                  </Button>
+                  <Message>
+                    Login with{" "}
+                    <Button color="github">
+                      <a
+                        style={{ textDecoration: "none", color: "black" }}
+                        href="http://localhost:4000/auth/github"
+                      >
+                        <Icon name="github" /> Github
+                      </a>
+                    </Button>
+                  </Message>
+                </Form>
+              </Segment>
+              <Message>
+                Not registered yet? <Link to="/register">Sign Up</Link>
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Responsive>
       </div>
     );
   }

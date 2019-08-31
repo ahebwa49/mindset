@@ -15,7 +15,8 @@ class StudentForm extends Component {
       firstname: "",
       lastname: "",
       contact: "",
-      email: ""
+      email: "",
+      error: ""
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleFirstnameChange = this.handleFirstnameChange.bind(this);
@@ -43,16 +44,29 @@ class StudentForm extends Component {
       credentials: "include"
     })
       .then(response => {
-        document.querySelector(".form").classList.remove("loading");
-        console.log("Successfully inserted document");
-        return response.json();
+        if (response.ok) {
+          document.querySelector(".form").classList.remove("loading");
+          return response.json();
+        }
+        return response.json().then(body => {
+          document.querySelector(".form").classList.remove("loading");
+          throw new Error(body.error);
+        });
       })
       .then(data => {
-        window.location.assign("/students");
+        document.querySelector(".successMessage").classList.remove("success");
+        this.setState({
+          firstname: "",
+          lastname: "",
+          contact: "",
+          email: ""
+        });
       })
-      .catch(err => {
-        console.log(`failed to post${err}`);
-        document.querySelector(".form").classList.add("err");
+      .catch(error => {
+        document.querySelector(".errorMessage").classList.remove("error");
+        this.setState({
+          error: error.message
+        });
       });
   }
   handleFirstnameChange(e) {
@@ -124,9 +138,18 @@ class StudentForm extends Component {
                   required
                 />
                 <Message
+                  className="successMessage"
+                  positive
+                  success
+                  header="Success!"
+                  content="Student has been successfully added"
+                />
+                <Message
+                  className="errorMessage"
+                  negative
                   error
-                  header="Action Forbidden"
-                  content="Failed to add student."
+                  header="Forbidden!"
+                  content={this.state.error}
                 />
 
                 <Button color="blue" fluid size="large">
