@@ -117,7 +117,7 @@ class CarouselComponent extends Component {
               src="/static/presentation.jpg"
               alt="about us"
               width="100%"
-              height="auto"
+              //height="auto"
               max-width="100%"
               max-height="100%"
             />
