@@ -20,7 +20,7 @@ class NavMenu extends Component {
     return (
       <Segment.Group>
         <Responsive {...Responsive.onlyMobile}>
-          <Menu>
+          <Menu borderless>
             <Container>
               <Menu.Item as="a" header>
                 <Image size="small" src="/static/mindset.png" />
@@ -38,7 +38,7 @@ class NavMenu extends Component {
           </Menu>
         </Responsive>
         <Responsive {...Responsive.onlyTablet}>
-          <Menu>
+          <Menu borderless>
             <Container>
               <Menu.Item as="a" header>
                 <Image size="small" src="/static/mindset.png" />
@@ -122,7 +122,7 @@ class NavMenu extends Component {
         </Responsive>
 
         <Responsive {...Responsive.onlyComputer}>
-          <Menu>
+          <Menu borderless>
             <Container>
               <Menu.Item as="a" header>
                 <Image size="small" src="/static/mindset.png" />

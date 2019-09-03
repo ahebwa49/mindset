@@ -3,25 +3,43 @@ import makeCarousel from "react-reveal/makeCarousel";
 import Slide from "react-reveal/Slide";
 import styled, { css } from "styled-components";
 
-const width = "auto",
-  height = "75vh";
+const width = "auto";
+const desktopHeight = "75vh";
+const mobileHeight = "30vh";
+
 const Container = styled.div`
   border: 1px solid blue;
   border-radius: 3px;
   position: relative;
   text-align: center;
   overflow: hidden;
-  width: ${width};
+  @media screen and (min-width: 1000px) {
+    height: ${desktopHeight};
+  }
+  @media screen and (max-width: 700px) {
+    height: ${mobileHeight};
+  }
 `;
 const Children = styled.div`
   width: ${width};
   position: relative;
-  height: ${height};
+  @media screen and (min-width: 1000px) {
+    height: ${desktopHeight};
+  }
+  @media screen and (max-width: 700px) {
+    height: ${mobileHeight};
+  }
 `;
 const Arrow = styled.div`
   text-shadow: 1px 1px 1px #fff;
   z-index: 100;
-  line-height: ${height};
+  @media screen and (min-width: 1000px) {
+    line-height: ${desktopHeight};
+  }
+  @media screen and (max-width: 700px) {
+    line-height: ${mobileHeight};
+  }
+
   text-align: center;
   position: absolute;
   top: 0;
@@ -77,28 +95,41 @@ class CarouselComponent extends Component {
       <div>
         <Carousel defaultWait={2000} /*wait for 1000 milliseconds*/>
           <Slide right>
-            <div>
-              <h1>THINK</h1>
-              <p>Slide Description</p>
-            </div>
+            <img
+              src="/static/class.jpg"
+              alt="about us"
+              max-width="100%"
+              max-height="100%"
+              width="100%"
+            />
           </Slide>
           <Slide right>
-            <div>
-              <h1>CODE</h1>
-              <p>Slide Description</p>
-            </div>
+            <img
+              src="/static/coding.jpg"
+              alt="about us"
+              width="100%"
+              max-width="100%"
+              max-height="100%"
+            />
           </Slide>
           <Slide right>
-            <div>
-              <h1>CREATE</h1>
-              <p>Slide Description</p>
-            </div>
+            <img
+              src="/static/presentation.jpg"
+              alt="about us"
+              width="100%"
+              height="auto"
+              max-width="100%"
+              max-height="100%"
+            />
           </Slide>
           <Slide right>
-            <div>
-              <h1>SOLVE</h1>
-              <p>Slide Description</p>
-            </div>
+            <img
+              src="/static/mindset.jpg"
+              alt="about us"
+              width="100%"
+              max-width="100%"
+              max-height="100%"
+            />
           </Slide>
         </Carousel>
       </div>

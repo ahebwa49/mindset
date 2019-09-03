@@ -10,6 +10,7 @@ import {
   Segment
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 class Login extends React.Component {
   constructor(props) {
@@ -234,6 +235,8 @@ class Login extends React.Component {
             </Grid.Column>
           </Grid>
         </Responsive>
+        <br />
+        <Footer />
       </div>
     );
   }

@@ -9,6 +9,7 @@ import {
   Responsive,
   Segment
 } from "semantic-ui-react";
+import Footer from "./Footer";
 
 class Register extends Component {
   constructor(props) {
@@ -209,6 +210,8 @@ class Register extends Component {
             </Grid.Column>
           </Grid>
         </Responsive>
+        <br />
+        <Footer />
       </div>
     );
   }

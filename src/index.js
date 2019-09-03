@@ -76,6 +76,7 @@ class Routing extends Component {
               visible={visible}
               width="thin"
               onClick={this.handleSidebarHide}
+              color={"blue"}
             >
               <Menu.Item as={Link} to="/">
                 <Icon name="home" />

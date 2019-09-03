@@ -15,6 +15,7 @@ body {
   margin: 0;
   padding: 2rem;
   font-family: sans-serif;
+  /*background-color: #f9f4ed;*/
 }
 .active {
   color: red;
@@ -39,4 +40,7 @@ SILVER PINK: #C9ADA7
 .userImage {
   width: 20px;
   height: 20px;
+}
+.footer {
+  color: aqua !important;
 }

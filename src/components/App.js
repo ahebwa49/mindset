@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import AdminPanel from "./AdminPanel";
 import CarouselComponent from "./CarouselComponent";
-import SuccessStories2 from "./SuccessStories2";
-import SuccessStories3 from "./SuccessStories3";
+import StudentStory from "./StudentStory";
+import ParentStory from "./ParentStory";
 import Footer from "./Footer";
+import Heading1 from "./Heading1";
 import { Button, Card, Header, Image } from "semantic-ui-react";
 
 class App extends Component {
@@ -29,9 +30,12 @@ class App extends Component {
       });
   }
   render() {
-    const description =
-      "Scratch is a block-based visual programming language and online community targeted primarily at children. Users of the site can create online projects using a block-like interface.";
-
+    const entDescription =
+      "Have an entrepreneurial skill-set and mindset that will enable them launch their innovation into profitable business";
+    const techDescription =
+      "Our first step is giving kids the tech skills required to be up to date in a fast changing world";
+    const innovationDescription =
+      "We instill in our students the ability to harness their skills and use them to solve societal problems";
     return (
       <div>
         {this.state.role_id === "SUPERADMIN" ? (
@@ -43,40 +47,36 @@ class App extends Component {
         )}
         <CarouselComponent />
         <br />
-        <Header
-          as="h2"
-          style={{ fontSize: "2.5em", transform: "skewX(-12deg)" }}
-          textAlign="center"
-        >
-          MIND-BLOWING COURSES THAT CHANGE CHILDREN'S LIVES!
-        </Header>
+        <br />
+        <Heading1 />
         <br />
         <Card.Group centered>
           <Card>
-            <Card.Content header="Scratch" textAlign="center" />
-            <Image src="/static/scratch.png" wrapped ui={false} />
-            <Card.Content description={description} />
-            <Button primary>view course</Button>
+            <Card.Content header="Technology" textAlign="center" />
+            <Image src="/static/technology.jpg" wrapped ui={false} />
+            <Card.Content description={techDescription} />
           </Card>
           <Card>
-            <Card.Content header="Progate" textAlign="center" />
-            <Image src="/static/scratch.png" wrapped ui={false} />
-            <Card.Content description={description} />
-            <Button primary>view course</Button>
+            <Card.Content header="Innovation" textAlign="center" />
+            <Image src="/static/innovation.jpg" wrapped ui={false} />
+            <Card.Content description={innovationDescription} />
           </Card>
           <Card>
-            <Card.Content header="Mind Sweeper" textAlign="center" />
-            <Image src="/static/scratch.png" wrapped ui={false} />
-            <Card.Content description={description} />
-            <Button primary>view course</Button>
+            <Card.Content header="Entreprenuership" textAlign="center" />
+            <Image src="/static/entreprenuership.jpg" wrapped ui={false} />
+            <Card.Content description={entDescription} />
           </Card>
         </Card.Group>
         <br />
-        <Header as="h3" style={{ fontSize: "2em" }} textAlign="center">
+        <Header
+          as="h3"
+          style={{ fontSize: "2em", fontFamily: "dosis" }}
+          textAlign="center"
+        >
           SUCCESS STORIES
         </Header>
-        <SuccessStories2 />
-        <SuccessStories3 />
+        <StudentStory />
+        <ParentStory />
         <Footer />
       </div>
     );
