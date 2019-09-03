@@ -8,7 +8,7 @@ const desktopHeight = "75vh";
 const mobileHeight = "30vh";
 
 const Container = styled.div`
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
   border-radius: 3px;
   position: relative;
   text-align: center;
