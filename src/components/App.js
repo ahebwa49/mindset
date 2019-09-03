@@ -5,7 +5,7 @@ import StudentStory from "./StudentStory";
 import ParentStory from "./ParentStory";
 import Footer from "./Footer";
 import Heading1 from "./Heading1";
-import { Button, Card, Header, Image } from "semantic-ui-react";
+import { Card, Header, Image } from "semantic-ui-react";
 
 class App extends Component {
   constructor(props) {

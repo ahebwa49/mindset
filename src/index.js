@@ -79,7 +79,6 @@ class Routing extends Component {
               color={"blue"}
             >
               <Menu.Item as={Link} to="/">
-                <Icon name="home" />
                 Home
               </Menu.Item>
               <Menu.Item as={Link} to="/about">
