@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import AdminPanel from "./AdminPanel";
 import CarouselComponent from "./CarouselComponent";
 import StudentStory from "./StudentStory";
@@ -7,28 +8,13 @@ import Footer from "./Footer";
 import Heading1 from "./Heading1";
 import { Card, Header, Image } from "semantic-ui-react";
 
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { role_id: "" };
-  }
-  componentDidMount() {
-    fetch("http://localhost:4000/profile", {
-      method: "GET",
-      credentials: "include"
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          role_id: data.role_id
-        });
-      })
-      .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
-      });
-  }
   render() {
     const entDescription =
       "Have an entrepreneurial skill-set and mindset that will enable them launch their innovation into profitable business";
@@ -38,9 +24,9 @@ class App extends Component {
       "We instill in our students the ability to harness their skills and use them to solve societal problems";
     return (
       <div>
-        {this.state.role_id === "SUPERADMIN" ? (
+        {this.props.user.role_id === "SUPERADMIN" ? (
           <AdminPanel />
-        ) : this.state.role_id === "ADMIN" ? (
+        ) : this.props.user.role_id === "ADMIN" ? (
           <AdminPanel />
         ) : (
           ""
@@ -83,4 +69,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  mapStateToProps,
+  null
+)(App);

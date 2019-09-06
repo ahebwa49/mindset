@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addUser } from "../actions/addUser";
 import {
   Button,
   Form,
@@ -11,6 +13,18 @@ import {
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  addNewUser: user => {
+    dispatch(addUser(user));
+  }
+});
 
 class Login extends React.Component {
   constructor(props) {
@@ -49,8 +63,10 @@ class Login extends React.Component {
           throw new Error(body.error);
         });
       })
-      .then(data => {
-        window.location.assign("/");
+      .then(async data => {
+        console.log(data);
+        await this.props.addNewUser(data);
+        this.props.history.replace("/");
       })
       .catch(error => {
         document.querySelector(".errorMessage").classList.remove("error");
@@ -241,4 +257,8 @@ class Login extends React.Component {
     );
   }
 }
-export default Login;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

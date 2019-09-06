@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Provider } from "react-redux";
+import { store } from "./store";
 import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./index.css";
 import App from "./components/App";
 import About from "./components/About";
@@ -20,35 +22,19 @@ import Message from "./components/Message";
 import EditStudent from "./components/EditStudent";
 import NavMenu from "./components/Menu";
 import Dashboard from "./components/Dashboard";
+import MobileMenu from "./components/MobileMenu";
 import * as serviceWorker from "./serviceWorker";
 import Admin from "./components/Admin";
-import { Sidebar, Icon, Menu } from "semantic-ui-react";
+import { Sidebar, Menu } from "semantic-ui-react";
 
 class Routing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
-      username: ""
+      visible: false
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:4000/profile", {
-      method: "GET",
-      credentials: "include"
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        this.setState({ username: data.username || data.email });
-      })
-      .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
-      });
-  }
   handleShowClick = () => {
     this.setState({ visible: !this.state.visible });
   };
@@ -58,11 +44,8 @@ class Routing extends Component {
     const { visible } = this.state;
     return (
       <Router>
-        <NavMenu
-          username={this.state.username}
-          visible={visible}
-          handleShowClick={this.handleShowClick}
-        />
+        <NavMenu visible={visible} handleShowClick={this.handleShowClick} />
+
         <div>
           <Sidebar.Pushable>
             <Sidebar
@@ -78,35 +61,7 @@ class Routing extends Component {
               onClick={this.handleSidebarHide}
               color={"blue"}
             >
-              <Menu.Item as={Link} to="/">
-                Home
-              </Menu.Item>
-              <Menu.Item as={Link} to="/about">
-                About
-              </Menu.Item>
-              <Menu.Item as={Link} to="/services">
-                Services
-              </Menu.Item>
-              <Menu.Item as={Link} to="/contact">
-                Contact
-              </Menu.Item>
-              {this.state.username ? (
-                <div>
-                  <Menu.Item as="a">{this.state.username}</Menu.Item>
-                  <Menu.Item as="a" href="http://localhost:4000/logout">
-                    logout
-                  </Menu.Item>
-                </div>
-              ) : (
-                <div>
-                  <Menu.Item as={Link} to="/login">
-                    Sign in
-                  </Menu.Item>
-                  <Menu.Item as={Link} to="/register">
-                    Register
-                  </Menu.Item>
-                </div>
-              )}
+              <MobileMenu />
             </Sidebar>
 
             <Sidebar.Pusher>
@@ -149,7 +104,12 @@ class Routing extends Component {
   }
 }
 
-ReactDOM.render(<Routing />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store()}>
+    <Routing />
+  </Provider>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

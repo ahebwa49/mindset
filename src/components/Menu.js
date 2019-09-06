@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import MenuButton from "./MenuButton";
+import { addUser } from "../actions/addUser";
+
 import {
   Container,
   Segment,
@@ -11,9 +14,35 @@ import {
 import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  addNewUser: user => {
+    dispatch(addUser(user));
+  }
+});
+
 class NavMenu extends Component {
   state = {};
-
+  componentWillMount() {
+    fetch("http://localhost:4000/profile", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(async data => {
+        await this.props.addNewUser(data);
+      })
+      .catch(error => {
+        console.log(`Failed to fetch profile data ${error}`);
+      });
+  }
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   render() {
     const { activeItem } = this.state;
@@ -86,8 +115,8 @@ class NavMenu extends Component {
                 </Menu.Item>
 
                 <Menu.Item>
-                  {this.props.username ? (
-                    <UserMenu username={this.props.username} />
+                  {this.props.user.username ? (
+                    <UserMenu username={this.props.user.username} />
                   ) : (
                     <Button.Group>
                       <Button
@@ -170,8 +199,8 @@ class NavMenu extends Component {
                 </Menu.Item>
 
                 <Menu.Item>
-                  {this.props.username ? (
-                    <UserMenu username={this.props.username} />
+                  {this.props.user.username ? (
+                    <UserMenu username={this.props.user.username} />
                   ) : (
                     <Button.Group>
                       <Button
@@ -208,4 +237,7 @@ class NavMenu extends Component {
     );
   }
 }
-export default NavMenu;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavMenu);
