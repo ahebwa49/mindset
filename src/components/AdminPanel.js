@@ -12,7 +12,15 @@ const AdminPanel = () => {
   return (
     <div style={styles.container}>
       <Link to="/dashboard">
-        <Button primary>dashboard</Button>
+        <Button
+          style={{
+            marginLeft: "0.5em",
+            color: "white",
+            backgroundColor: "#4BBBB5"
+          }}
+        >
+          dashboard
+        </Button>
       </Link>
 
       <br />

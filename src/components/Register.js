@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -9,7 +10,14 @@ import {
   Responsive,
   Segment
 } from "semantic-ui-react";
+import { addUser } from "../actions/addUser";
 import Footer from "./Footer";
+
+const mapDispatchToProps = dispatch => ({
+  addNewUser: user => {
+    dispatch(addUser(user));
+  }
+});
 
 class Register extends Component {
   constructor(props) {
@@ -48,8 +56,9 @@ class Register extends Component {
           throw new Error(body.error);
         });
       })
-      .then(data => {
-        window.location.assign("/");
+      .then(async data => {
+        await this.props.addNewUser(data);
+        this.props.history.push("/");
       })
       .catch(error => {
         document.querySelector(".errorMessage").classList.remove("error");
@@ -165,7 +174,7 @@ class Register extends Component {
           </Grid>
         </Responsive>
         <Responsive {...Responsive.onlyComputer}>
-          <Grid centered columns={1}>
+          <Grid centered columns={3}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
                 Register
@@ -216,4 +225,7 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+export default connect(
+  null,
+  mapDispatchToProps
+)(Register);

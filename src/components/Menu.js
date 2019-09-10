@@ -164,6 +164,7 @@ class NavMenu extends Component {
                   name="home"
                   active={activeItem === "home"}
                   onClick={this.handleItemClick}
+                  style={{ color: "#164C60" }}
                 >
                   Home
                 </Menu.Item>
@@ -174,6 +175,7 @@ class NavMenu extends Component {
                   name="about"
                   active={activeItem === "about"}
                   onClick={this.handleItemClick}
+                  style={{ color: "#164C60" }}
                 >
                   About
                 </Menu.Item>
@@ -184,6 +186,7 @@ class NavMenu extends Component {
                   name="services"
                   active={activeItem === "services"}
                   onClick={this.handleItemClick}
+                  style={{ color: "#164C60" }}
                 >
                   Services
                 </Menu.Item>
@@ -194,13 +197,18 @@ class NavMenu extends Component {
                   name="contact"
                   active={activeItem === "contact"}
                   onClick={this.handleItemClick}
+                  style={{ color: "#164C60" }}
                 >
                   Contact
                 </Menu.Item>
 
                 <Menu.Item>
-                  {this.props.user.username ? (
-                    <UserMenu username={this.props.user.username} />
+                  {this.props.user.username || this.props.user.email ? (
+                    <UserMenu
+                      username={
+                        this.props.user.username || this.props.user.email
+                      }
+                    />
                   ) : (
                     <Button.Group>
                       <Button
@@ -209,6 +217,7 @@ class NavMenu extends Component {
                         onClick={this.handleItemClick}
                         as={Link}
                         to="/login"
+                        style={{ color: "white", backgroundColor: "#164C60" }}
                       >
                         Sign In
                       </Button>
@@ -222,7 +231,11 @@ class NavMenu extends Component {
                         as={Link}
                         to="/register"
                         primary={true}
-                        style={{ marginLeft: "0.5em" }}
+                        style={{
+                          marginLeft: "0.5em",
+                          color: "white",
+                          backgroundColor: "#4BBBB5"
+                        }}
                       >
                         Register
                       </Button>

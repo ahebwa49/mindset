@@ -25,6 +25,7 @@ import Dashboard from "./components/Dashboard";
 import MobileMenu from "./components/MobileMenu";
 import * as serviceWorker from "./serviceWorker";
 import Admin from "./components/Admin";
+import SlideAnimation from "./components/SlideAnimation";
 import { Sidebar, Menu } from "semantic-ui-react";
 
 class Routing extends Component {
@@ -82,6 +83,7 @@ class Routing extends Component {
                   component={EditStudent}
                 />
                 <Route exact path="/messages" component={Messages} />
+                <Route exact path="/slide" component={SlideAnimation} />
                 <Route path="/menu" component={NavMenu} />
                 <Route path="/admins" component={Admins} />
                 <Route path="/students" component={Students} />

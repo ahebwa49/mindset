@@ -4,8 +4,17 @@ import Footer from "./Footer";
 import { Header, Image, Grid, Responsive } from "semantic-ui-react";
 
 const Services = () => {
+  const styles = {
+    container: {
+      color: "#164C60",
+      backgroundColor: "#EAEEEE"
+    },
+    header: {
+      color: "#164C60"
+    }
+  };
   return (
-    <div>
+    <div style={styles.container}>
       <Responsive {...Responsive.onlyMobile}>
         <Fade left>
           <div>
@@ -251,7 +260,7 @@ const Services = () => {
       <Responsive {...Responsive.onlyComputer}>
         <Fade left>
           <div>
-            <Header as="h1" textAlign="center">
+            <Header as="h1" textAlign="center" style={styles.header}>
               After school program
             </Header>
 
@@ -282,7 +291,7 @@ const Services = () => {
           </div>
           <br />
           <div>
-            <Header as="h1" textAlign="center">
+            <Header as="h1" textAlign="center" style={styles.header}>
               Weekend Code Program
             </Header>
 
@@ -311,7 +320,7 @@ const Services = () => {
           </div>
           <br />
           <div>
-            <Header as="h1" textAlign="center">
+            <Header as="h1" textAlign="center" style={styles.header}>
               Mid Year Program
             </Header>
             <Grid centered columns={2}>
@@ -339,7 +348,7 @@ const Services = () => {
           </div>
           <br />
           <div>
-            <Header as="h1" textAlign="center">
+            <Header as="h1" textAlign="center" style={styles.header}>
               Holiday Bootcamps
             </Header>
             <Grid centered columns={2}>

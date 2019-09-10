@@ -7,10 +7,10 @@ const Footer = () => {
       vertical
       style={{ padding: "1em 0em" }}
       color="blue"
-      className="footer"
+      className="claim_footer"
     >
       <Container>
-        <Grid divided inverted stackable>
+        <Grid centered divided inverted stackable>
           <Grid.Row>
             <Grid.Column width={6}>
               <Header inverted as="h4" content="Address" />

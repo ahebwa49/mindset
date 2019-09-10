@@ -61,4 +61,3 @@ export default withRouter(
     mapDispatchToProps
   )(UserMenu)
 );
-//withRouter(connect(mapStateToProps)(App));

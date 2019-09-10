@@ -3,10 +3,14 @@ import { connect } from "react-redux";
 import AdminPanel from "./AdminPanel";
 import CarouselComponent from "./CarouselComponent";
 import StudentStory from "./StudentStory";
-import ParentStory from "./ParentStory";
 import Footer from "./Footer";
 import Heading1 from "./Heading1";
-import { Card, Header, Image } from "semantic-ui-react";
+import HeroSection from "./HeroSection";
+import ParentDashboard from "./ParentDashboard";
+import TestimonialCarousel from "./TestimonialCarousel";
+import Heading2 from "./Heading2";
+import Cards from "./Cards";
+import Partners from "./Partners";
 
 const mapStateToProps = state => {
   return {
@@ -16,12 +20,11 @@ const mapStateToProps = state => {
 
 class App extends Component {
   render() {
-    const entDescription =
-      "Have an entrepreneurial skill-set and mindset that will enable them launch their innovation into profitable business";
-    const techDescription =
-      "Our first step is giving kids the tech skills required to be up to date in a fast changing world";
-    const innovationDescription =
-      "We instill in our students the ability to harness their skills and use them to solve societal problems";
+    const styles = {
+      conatiner: {
+        backgroundColor: "#EAEEEE"
+      }
+    };
     return (
       <div>
         {this.props.user.role_id === "SUPERADMIN" ? (
@@ -33,36 +36,22 @@ class App extends Component {
         )}
         <CarouselComponent />
         <br />
+        <HeroSection />
+        <ParentDashboard />
         <br />
         <Heading1 />
         <br />
-        <Card.Group centered>
-          <Card>
-            <Card.Content header="Technology" textAlign="center" />
-            <Image src="/static/technology.jpg" wrapped ui={false} />
-            <Card.Content description={techDescription} />
-          </Card>
-          <Card>
-            <Card.Content header="Innovation" textAlign="center" />
-            <Image src="/static/innovation.jpg" wrapped ui={false} />
-            <Card.Content description={innovationDescription} />
-          </Card>
-          <Card>
-            <Card.Content header="Entreprenuership" textAlign="center" />
-            <Image src="/static/entreprenuership.jpg" wrapped ui={false} />
-            <Card.Content description={entDescription} />
-          </Card>
-        </Card.Group>
+        <Cards />
         <br />
-        <Header
-          as="h3"
-          style={{ fontSize: "2em", fontFamily: "dosis" }}
-          textAlign="center"
-        >
-          SUCCESS STORIES
-        </Header>
+        <Heading2 />
         <StudentStory />
-        <ParentStory />
+        <TestimonialCarousel />
+        <br />
+        <br />
+        <Partners />
+        <br />
+        <br />
+        {/** <ParentStory />*/}
         <Footer />
       </div>
     );

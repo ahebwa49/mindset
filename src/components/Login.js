@@ -66,7 +66,7 @@ class Login extends React.Component {
       .then(async data => {
         console.log(data);
         await this.props.addNewUser(data);
-        this.props.history.replace("/");
+        this.props.history.push("/");
       })
       .catch(error => {
         document.querySelector(".errorMessage").classList.remove("error");

@@ -41,6 +41,14 @@ SILVER PINK: #C9ADA7
   width: 20px;
   height: 20px;
 }
-.footer {
-  color: aqua !important;
+.ui.inverted.blue.segment.claim_footer {
+  background-color: #164c60 !important;
 }
+.ui.card > .content > .header.card_header {
+  color: "#4BBBB5";
+}
+.ui.menu.claim_menu {
+  color: "#164C60";
+}
+
+/* slide animation*/

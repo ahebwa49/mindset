@@ -4,8 +4,17 @@ import { Header, Grid, Image, Responsive } from "semantic-ui-react";
 import Footer from "./Footer";
 
 const About = () => {
+  const styles = {
+    container: {
+      color: "#164C60",
+      backgroundColor: "#EAEEEE"
+    },
+    header: {
+      color: "#164C60"
+    }
+  };
   return (
-    <div>
+    <div style={styles.container}>
       <Responsive {...Responsive.onlyMobile}>
         <Zoom>
           <Header as="h1" textAlign="center">
@@ -158,7 +167,7 @@ const About = () => {
       </Responsive>
       <Responsive {...Responsive.onlyComputer}>
         <Zoom>
-          <Header as="h1" textAlign="center">
+          <Header as="h1" textAlign="center" style={styles.header}>
             Welcome to a world of Innovation and Creativity
           </Header>
           <br />
@@ -182,11 +191,11 @@ const About = () => {
             </Grid>
           </div>
           <br />
-          <Header as="h1" textAlign="center">
+          <Header as="h1" textAlign="center" style={styles.header}>
             Mission
           </Header>
           <br />
-          <Header as="h3" textAlign="center">
+          <Header as="h3" textAlign="center" style={styles.header}>
             To ensure every school going child in Uganda learns how to code.
           </Header>
           <br />
@@ -206,11 +215,11 @@ const About = () => {
           </div>
 
           <br />
-          <Header as="h1" textAlign="center">
+          <Header as="h1" textAlign="center" style={styles.header}>
             Vision
           </Header>
           <br />
-          <Header as="h3" textAlign="center">
+          <Header as="h3" textAlign="center" style={styles.header}>
             Introduce basic digital skills to the young generation in Uganda for
             them to thrive in tomorrow's society.
           </Header>

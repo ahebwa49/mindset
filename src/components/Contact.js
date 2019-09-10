@@ -83,12 +83,21 @@ class Contact extends React.Component {
     });
   }
   render() {
+    const styles = {
+      container: {
+        color: "#164C60",
+        backgroundColor: "#EAEEEE"
+      },
+      header: {
+        color: "#164C60"
+      }
+    };
     return (
-      <div>
-        <Header as="h2" icon textAlign="center">
+      <div style={styles.container}>
+        <Header as="h2" icon textAlign="center" style={styles.header}>
           <Icon name="talk" />
           Let's talk
-          <Header.Subheader>
+          <Header.Subheader style={styles.header}>
             Please feel free to leave us a message
           </Header.Subheader>
         </Header>
@@ -213,10 +222,10 @@ class Contact extends React.Component {
         <Responsive {...Responsive.onlyComputer}>
           <Grid centered columns={2}>
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={styles.header}>
                 Message
               </Header>
-              <Segment>
+              <Segment style={{ backgroundColor: "#EAEEEE" }}>
                 <Form size="large" onSubmit={this.onSubmit} className="form">
                   <Form.Input
                     fluid
@@ -261,7 +270,12 @@ class Contact extends React.Component {
                     header="Success!"
                     content="Your message has been delivered!"
                   />
-                  <Button color="blue" fluid size="large">
+                  <Button
+                    color="blue"
+                    fluid
+                    size="large"
+                    style={{ backgroundColor: "#164C60" }}
+                  >
                     Submit
                   </Button>
                 </Form>
@@ -269,7 +283,7 @@ class Contact extends React.Component {
             </Grid.Column>
           </Grid>
         </Responsive>
-
+        <br />
         <Footer />
       </div>
     );
