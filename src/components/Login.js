@@ -129,7 +129,7 @@ class Login extends React.Component {
                     <Button color="github">
                       <a
                         style={{ textDecoration: "none", color: "black" }}
-                        href="http://localhost:4000/auth/github"
+                        href="https://mindset-backend.herokuapp.com/auth/github"
                       >
                         <Icon name="github" /> Github
                       </a>
