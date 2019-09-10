@@ -45,7 +45,7 @@ class Login extends React.Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://localhost:4000/login", {
+    fetch("/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
