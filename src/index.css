@@ -45,10 +45,14 @@ SILVER PINK: #C9ADA7
   background-color: #164c60 !important;
 }
 .ui.card > .content > .header.card_header {
-  color: "#4BBBB5";
+  color: #4BBBB5;
 }
 .ui.menu.claim_menu {
-  color: "#164C60";
+  color: #164C60;
+}
+
+.ui.inverted.vertical.labeled.icon.ui.push.right.thin.visible.sidebar.mobileSideBar.menu {
+  background-color: #164C60 !important;
 }
 
 /* slide animation*/

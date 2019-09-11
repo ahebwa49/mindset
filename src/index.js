@@ -60,7 +60,8 @@ class Routing extends Component {
               visible={visible}
               width="thin"
               onClick={this.handleSidebarHide}
-              color={"blue"}
+              //color="blue"
+              className="mobileSideBar"
             >
               <MobileMenu />
             </Sidebar>

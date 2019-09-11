@@ -38,6 +38,7 @@ class MobileMenu extends Component {
       });
   }
   render() {
+    
     return (
       <div>
         <Menu.Item as={Link} to="/">
@@ -53,14 +54,14 @@ class MobileMenu extends Component {
           Contact
         </Menu.Item>
         {this.props.user.username || this.props.user.email ? (
-          <div>
+          <Menu>
             <Menu.Item as="a">
               {this.props.user.username || this.props.user.email}
             </Menu.Item>
             <Menu.Item as="a" onClick={this.handleLogout}>
               logout
             </Menu.Item>
-          </div>
+          </Menu>
         ) : (
           <div>
             <Menu.Item as={Link} to="/login">
