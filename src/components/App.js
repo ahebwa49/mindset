@@ -30,7 +30,6 @@ class App extends Component {
           ""
         )}
         <CarouselComponent />
-        <br />
         <HeroSection />
         <ParentDashboard />
         <br />
