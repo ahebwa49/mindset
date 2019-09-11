@@ -3,14 +3,7 @@ import { connect } from "react-redux";
 import MenuButton from "./MenuButton";
 import { addUser } from "../actions/addUser";
 
-import {
-  Container,
-  Segment,
-  Responsive,
-  Button,
-  Image,
-  Menu
-} from "semantic-ui-react";
+import { Container, Responsive, Button, Image, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
@@ -47,10 +40,10 @@ class NavMenu extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Segment.Group>
+      <>
         <Responsive {...Responsive.onlyMobile}>
           <Menu borderless>
-            <Container>
+            <>
               <Menu.Item as="a" header>
                 <Image size="small" src="/static/mindset.png" />
               </Menu.Item>
@@ -63,7 +56,7 @@ class NavMenu extends Component {
                   />
                 </Menu.Item>
               </Menu.Menu>
-            </Container>
+            </>
           </Menu>
         </Responsive>
         <Responsive {...Responsive.onlyTablet}>
@@ -246,7 +239,7 @@ class NavMenu extends Component {
             </Container>
           </Menu>
         </Responsive>
-      </Segment.Group>
+      </>
     );
   }
 }

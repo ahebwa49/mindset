@@ -1,26 +1,33 @@
 import React from "react";
-import { Header, Responsive, Container } from "semantic-ui-react";
+import { Header, Responsive, Container, Segment } from "semantic-ui-react";
 
 const Heading1 = () => {
   return (
     <div>
       <Responsive {...Responsive.onlyMobile}>
-        <Header
-          as="h2"
-          style={{
-            fontSize: "1.5em",
-            color: "#164C60" /*transform: "skewX(-12deg)"*/
-          }}
-          textAlign="start"
+        <Segment
+          style={{ padding: "1em 0em", backgroundColor: "", color: "#164C60" }}
+          vertical
         >
-          The most engaging way to learn computer science;
-        </Header>
-        <p style={{ textAlign: "start" }}>
-          We believe that it is not enough to learn how to code. Our students
-          should be able to use their coding skills to innovate and create
-          value. Our model is anchored on a three pronged approach of
-          Technology, Innovation, and Entrepreneurship
-        </p>
+          <Container text>
+            <Header
+              as="h2"
+              style={{
+                fontSize: "1.5em",
+                color: "#164C60" /*transform: "skewX(-12deg)"*/
+              }}
+              textAlign="start"
+            >
+              The most engaging way to learn computer science;
+            </Header>
+            <p style={{ textAlign: "start" }}>
+              We believe that it is not enough to learn how to code. Our
+              students should be able to use their coding skills to innovate and
+              create value. Our model is anchored on a three pronged approach of
+              Technology, Innovation, and Entrepreneurship
+            </p>
+          </Container>
+        </Segment>
       </Responsive>
       <Responsive {...Responsive.onlyTablet}>
         <Header
@@ -41,7 +48,7 @@ const Heading1 = () => {
         </p>
       </Responsive>
       <Responsive {...Responsive.onlyComputer}>
-        <Container text style={{ padding:"2em 0" }}>
+        <Container text style={{ padding: "2em 0" }}>
           <Header
             as="h2"
             style={{

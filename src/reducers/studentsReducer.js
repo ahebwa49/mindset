@@ -5,6 +5,7 @@ export const studentsReducer = (state = [], action) => {
     case ADD:
       const newState = [...state, action.students]
       return newState;
+      // eslint-disable-next-line
       break;
     default:
       return state;

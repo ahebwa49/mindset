@@ -46,8 +46,7 @@ class Routing extends Component {
     return (
       <Router>
         <NavMenu visible={visible} handleShowClick={this.handleShowClick} />
-
-        <div>
+        <>
           <Sidebar.Pushable>
             <Sidebar
               as={Menu}
@@ -101,7 +100,7 @@ class Routing extends Component {
               </Switch>
             </Sidebar.Pusher>
           </Sidebar.Pushable>
-        </div>
+        </>
       </Router>
     );
   }

@@ -20,11 +20,6 @@ const mapStateToProps = state => {
 
 class App extends Component {
   render() {
-    const styles = {
-      conatiner: {
-        backgroundColor: "#EAEEEE"
-      }
-    };
     return (
       <div>
         {this.props.user.role_id === "SUPERADMIN" ? (

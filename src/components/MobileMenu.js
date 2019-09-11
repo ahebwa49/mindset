@@ -32,15 +32,13 @@ class MobileMenu extends Component {
         return response.json();
       })
       .then(async data => {
-        //console.log(data);
         await this.props.addNewUser(data);
         this.props.history.push("/login");
       });
   }
   render() {
-    
     return (
-      <div>
+      <>
         <Menu.Item as={Link} to="/">
           Home
         </Menu.Item>
@@ -53,26 +51,27 @@ class MobileMenu extends Component {
         <Menu.Item as={Link} to="/contact">
           Contact
         </Menu.Item>
+
         {this.props.user.username || this.props.user.email ? (
-          <Menu>
+          <>
             <Menu.Item as="a">
               {this.props.user.username || this.props.user.email}
             </Menu.Item>
             <Menu.Item as="a" onClick={this.handleLogout}>
               logout
             </Menu.Item>
-          </Menu>
+          </>
         ) : (
-          <div>
+          <>
             <Menu.Item as={Link} to="/login">
               Sign in
             </Menu.Item>
             <Menu.Item as={Link} to="/register">
               Register
             </Menu.Item>
-          </div>
+          </>
         )}
-      </div>
+      </>
     );
   }
 }
