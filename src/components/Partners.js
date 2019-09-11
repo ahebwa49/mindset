@@ -23,6 +23,20 @@ const Partners = () => {
           <img height="50px" src="./static/afrosoft.jpg" alt="afrosoft" />
         </div>
       </Responsive>
+      <Responsive {...Responsive.onlyTablet}>
+        <Header
+          as="h1"
+          textAlign="center"
+          style={{ fontSize: "1.5em", color: "#164C60" }}
+        >
+          Companies working with mindset
+        </Header>
+        <div style={styles.container}>
+          <img height="75px" src="./static/acw.png" alt="acw" />
+          <img height="75px" src="./static/inv.png" alt="innovation village" />
+          <img height="75px" src="./static/afrosoft.jpg" alt="afrosoft" />
+        </div>
+      </Responsive>
       <Responsive {...Responsive.onlyComputer}>
         <Header
           as="h1"

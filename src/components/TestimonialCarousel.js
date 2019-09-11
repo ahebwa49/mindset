@@ -7,7 +7,9 @@ import { Responsive } from "semantic-ui-react";
 const width = "auto",
   height = "75vh";
 const desktopHeight = "75vh";
+const tabletHeight = "50vh";
 const mobileHeight = "30vh";
+
 const Container = styled.div`
   /*border: 1px solid red;*/
   position: relative;
@@ -16,7 +18,10 @@ const Container = styled.div`
   @media screen and (min-width: 1000px) {
     height: ${desktopHeight};
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 999px) {
+    height: ${tabletHeight};
+  }
+  @media screen and (max-width: 767px) {
     height: ${mobileHeight};
   }
 `;
@@ -28,7 +33,10 @@ const Children = styled.div`
   @media screen and (min-width: 1000px) {
     height: ${desktopHeight};
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 999px) {
+    height: ${tabletHeight};
+  }
+  @media screen and (max-width: 767px) {
     height: ${mobileHeight};
   }
 `;
@@ -40,7 +48,10 @@ const Arrow = styled.div`
   @media screen and (min-width: 1000px) {
     line-height: ${desktopHeight};
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 999px) {
+    line-height: ${tabletHeight};
+  }
+  @media screen and (max-width: 767px) {
     line-height: ${mobileHeight};
   }
   text-align: center;
@@ -132,12 +143,19 @@ class TestimonialCarousel extends Component {
       mobileP: {
         fontSize: "1em"
       },
+      tabletP: {
+        fontSize: "1.5em"
+      },
       name: {
         fontSize: "1.2em",
         fontStyle: "italic"
       },
       mobileName: {
         fontSize: "0.8em",
+        fontStyle: "italic"
+      },
+      tabletName: {
+        fontSize: "1.0em",
         fontStyle: "italic"
       }
     };
@@ -188,6 +206,55 @@ class TestimonialCarousel extends Component {
                 </p>
                 <br />
                 <p style={styles.mobileName}>Allegra Katto(10)</p>
+              </div>
+            </Slide>
+          </Carousel>
+        </Responsive>
+        <Responsive {...Responsive.onlyTablet}>
+          <Carousel maxTurns={0} /*wait for 1000 milliseconds*/>
+            <Slide right>
+              <div style={styles.container}>
+                <p style={styles.tabletP}>
+                  "I didn't have interest in coding the first time I came and
+                  with time, I started enjoying making games in scratch and I
+                  made the best game in my class"
+                </p>
+                <br />
+                <p style={styles.tabletName}>Bwire Francis (15)</p>
+              </div>
+            </Slide>
+            <Slide right>
+              <div style={styles.container}>
+                <p style={styles.tabletP}>
+                  I found the start to be a bit boring, but as we continued, and
+                  made my own first app and had it on my phone, I became very
+                  excited and I am now looking forward to making it an app and
+                  upload it on google play
+                </p>
+                <br />
+                <p style={styles.tabletName}>Joseph Muguluma (15)</p>
+              </div>
+            </Slide>
+
+            <Slide right>
+              <div style={styles.container}>
+                <p style={styles.tabletP}>
+                  "I enjoyed making games and playing my friends games and
+                  understanding how algorithims work, I enjoy coding"
+                </p>
+                <br />
+                <p style={styles.tabletName}>Hannah Bagarukayo (12)</p>
+              </div>
+            </Slide>
+            <Slide right>
+              <div style={styles.container}>
+                <p style={styles.tabletP}>
+                  I have learnt how to create a cool game, called Cool Beans,
+                  and in this game this cool girl is cool like beans, she goes
+                  around collecting gems, I really enjoy my coding sessions."
+                </p>
+                <br />
+                <p style={styles.tabletName}>Allegra Katto(10)</p>
               </div>
             </Slide>
           </Carousel>

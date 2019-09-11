@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 
 const width = "auto";
 const desktopHeight = "75vh";
+const tabletHeight = "60vh";
 const mobileHeight = "30vh";
 
 const Container = styled.div`
@@ -16,7 +17,10 @@ const Container = styled.div`
   @media screen and (min-width: 1000px) {
     height: ${desktopHeight};
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 999px) {
+    height: ${tabletHeight};
+  }
+  @media screen and (max-width: 767px) {
     height: ${mobileHeight};
   }
 `;
@@ -26,7 +30,10 @@ const Children = styled.div`
   @media screen and (min-width: 1000px) {
     height: ${desktopHeight};
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 999px) {
+    height: ${tabletHeight};
+  }
+  @media screen and (max-width: 767px) {
     height: ${mobileHeight};
   }
 `;
@@ -36,7 +43,10 @@ const Arrow = styled.div`
   @media screen and (min-width: 1000px) {
     line-height: ${desktopHeight};
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 999px) {
+    line-height: ${tabletHeight};
+  }
+  @media screen and (max-width: 767px) {
     line-height: ${mobileHeight};
   }
 
