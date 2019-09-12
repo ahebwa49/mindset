@@ -104,6 +104,7 @@ class Login extends React.Component {
                     placeholder="Email address"
                     value={this.state.username}
                     onChange={this.handleUsernameChange}
+                    required
                   />
                   <Form.Input
                     fluid
@@ -113,6 +114,7 @@ class Login extends React.Component {
                     type="password"
                     value={this.state.password}
                     onChange={this.handlePasswordChange}
+                    required
                   />
                   <Message
                     className="errorMessage"
