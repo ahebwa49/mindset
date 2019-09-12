@@ -52,8 +52,30 @@ SILVER PINK: #C9ADA7
   color: #164c60;
 }
 
-.ui.inverted.vertical.labeled.icon.ui.push.right.thin.visible.sidebar.mobileSideBar.menu {
+.ui.inverted.vertical.labeled.icon.ui.push.right.wide.visible.sidebar.mobileSideBar.menu {
   background-color: #164c60 !important;
 }
 
 /* slide animation*/
+.mobileMenu {
+  display: grid;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  grid-template-areas:
+    "leftSpace leftSpace closeButton"
+    "menuArea menuArea rightSpace";
+}
+.close {
+  display: grid;
+  grid-area: closeButton;
+  justify-items: center;
+  justify-self: end;
+  /*border: 1px solid blue;*/
+}
+.listItems {
+  display: grid;
+  justify-items: center;
+  font-size: 1.1rem;
+  grid-area: menuArea;
+  /*border: 1px solid green;*/
+}

@@ -51,7 +51,7 @@ class NavMenu extends Component {
               <Menu.Menu position="right">
                 <Menu.Item>
                   <MenuButton
-                    visible={this.props.visible}
+                    //visible={this.props.visible}
                     handleShowClick={this.props.handleShowClick}
                   />
                 </Menu.Item>

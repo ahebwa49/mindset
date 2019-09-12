@@ -45,7 +45,6 @@ class Routing extends Component {
     const { visible } = this.state;
     return (
       <Router>
-        <NavMenu visible={visible} handleShowClick={this.handleShowClick} />
         <>
           <Sidebar.Pushable>
             <Sidebar
@@ -54,18 +53,18 @@ class Routing extends Component {
               direction="right"
               inverted
               animation="push"
-              onHide={this.handleSidebarHide}
+              //onHide={this.handleSidebarHide}
               vertical
               visible={visible}
-              width="thin"
+              width="wide"
               onClick={this.handleSidebarHide}
-              //color="blue"
               className="mobileSideBar"
             >
-              <MobileMenu />
+              <MobileMenu handleSidebarHide={this.handleSidebarHide} />
             </Sidebar>
 
             <Sidebar.Pusher>
+              <NavMenu handleShowClick={this.handleShowClick} />
               <Switch>
                 <Route
                   exact
