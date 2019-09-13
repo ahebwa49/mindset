@@ -6,6 +6,7 @@ import {
   Form,
   Grid,
   Header,
+  Icon,
   Message,
   Responsive,
   Segment
@@ -128,10 +129,22 @@ class Register extends Component {
                   >
                     Register
                   </Button>
+                  <br />
+                  <section style={{ textAlign: "center" }}>
+                    Already registered? <Link to="/register">Sign In</Link>
+                  </section>
                 </Form>
               </Segment>
-              <Message>
-                Registered already? <Link to="/login">Sign In</Link>
+              <Message style={{ textAlign: "center" }}>
+                Login with{" "}
+                <Button color="github">
+                  <a
+                    style={{ textDecoration: "none", color: "black" }}
+                    href="https://mindset-backend.herokuapp.com/auth/github"
+                  >
+                    <Icon name="github" /> Github
+                  </a>
+                </Button>
               </Message>
             </Grid.Column>
           </Grid>
@@ -179,10 +192,22 @@ class Register extends Component {
                   >
                     Register
                   </Button>
+                  <br />
+                  <section style={{ textAlign: "center" }}>
+                    Already registered? <Link to="/register">Sign In</Link>
+                  </section>
                 </Form>
               </Segment>
-              <Message>
-                Registered already? <Link to="/login">Sign In</Link>
+              <Message style={{ textAlign: "center" }}>
+                Login with{" "}
+                <Button color="github">
+                  <a
+                    style={{ textDecoration: "none", color: "black" }}
+                    href="https://mindset-backend.herokuapp.com/auth/github"
+                  >
+                    <Icon name="github" /> Github
+                  </a>
+                </Button>
               </Message>
             </Grid.Column>
           </Grid>
@@ -230,10 +255,22 @@ class Register extends Component {
                   >
                     Register
                   </Button>
+                  <br />
+                  <section style={{ textAlign: "center" }}>
+                    Already registered? <Link to="/register">Sign In</Link>
+                  </section>
                 </Form>
               </Segment>
-              <Message>
-                Registered already? <Link to="/login">Sign In</Link>
+              <Message style={{ textAlign: "center" }}>
+                Login with{" "}
+                <Button color="github">
+                  <a
+                    style={{ textDecoration: "none", color: "black" }}
+                    href="https://mindset-backend.herokuapp.com/auth/github"
+                  >
+                    <Icon name="github" /> Github
+                  </a>
+                </Button>
               </Message>
             </Grid.Column>
           </Grid>

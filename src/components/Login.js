@@ -131,21 +131,22 @@ class Login extends React.Component {
                   >
                     Login
                   </Button>
-                  <Message>
-                    Login with{" "}
-                    <Button color="github">
-                      <a
-                        style={{ textDecoration: "none", color: "black" }}
-                        href="https://mindset-backend.herokuapp.com/auth/github"
-                      >
-                        <Icon name="github" /> Github
-                      </a>
-                    </Button>
-                  </Message>
+                  <br />
+                  <section style={{ textAlign: "center" }}>
+                    Not registered yet? <Link to="/register">Sign Up</Link>
+                  </section>
                 </Form>
               </Segment>
-              <Message>
-                Not registered yet? <Link to="/register">Sign Up</Link>
+              <Message style={{ textAlign: "center" }}>
+                Login with{" "}
+                <Button color="github">
+                  <a
+                    style={{ textDecoration: "none", color: "black" }}
+                    href="https://mindset-backend.herokuapp.com/auth/github"
+                  >
+                    <Icon name="github" /> Github
+                  </a>
+                </Button>
               </Message>
             </Grid.Column>
           </Grid>
@@ -190,21 +191,22 @@ class Login extends React.Component {
                   >
                     Login
                   </Button>
-                  <Message>
-                    Login with{" "}
-                    <Button color="github">
-                      <a
-                        style={{ textDecoration: "none", color: "black" }}
-                        href="https://mindset-backend.herokuapp.com/auth/github"
-                      >
-                        <Icon name="github" /> Github
-                      </a>
-                    </Button>
-                  </Message>
+                  <br />
+                  <section style={{ textAlign: "center" }}>
+                    Not registered yet? <Link to="/register">Sign Up</Link>
+                  </section>
                 </Form>
               </Segment>
-              <Message>
-                Not registered yet? <Link to="/register">Sign Up</Link>
+              <Message style={{ textAlign: "center" }}>
+                Login with{" "}
+                <Button color="github">
+                  <a
+                    style={{ textDecoration: "none", color: "black" }}
+                    href="https://mindset-backend.herokuapp.com/auth/github"
+                  >
+                    <Icon name="github" /> Github
+                  </a>
+                </Button>
               </Message>
             </Grid.Column>
           </Grid>
@@ -253,21 +255,22 @@ class Login extends React.Component {
                   >
                     Login
                   </Button>
-                  <Message>
-                    Login with{" "}
-                    <Button color="github">
-                      <a
-                        style={{ textDecoration: "none", color: "black" }}
-                        href="https://mindset-backend.herokuapp.com/auth/github"
-                      >
-                        <Icon name="github" /> Github
-                      </a>
-                    </Button>
-                  </Message>
+                  <br />
+                  <section style={{ textAlign: "center" }}>
+                    Not registered yet? <Link to="/register">Sign Up</Link>
+                  </section>
                 </Form>
               </Segment>
-              <Message>
-                Not registered yet? <Link to="/register">Sign Up</Link>
+              <Message style={{ textAlign: "center" }}>
+                Login with{" "}
+                <Button color="github">
+                  <a
+                    style={{ textDecoration: "none", color: "black" }}
+                    href="https://mindset-backend.herokuapp.com/auth/github"
+                  >
+                    <Icon name="github" /> Github
+                  </a>
+                </Button>
               </Message>
             </Grid.Column>
           </Grid>
