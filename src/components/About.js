@@ -8,11 +8,9 @@ import Footer from "./Footer";
 const About = () => {
   return (
     <>
-      <Responsive {...Responsive.onlyComputer}>
-        <AboutBanner />
-        <AboutMission />
-        <AboutTeam />
-      </Responsive>
+      <AboutBanner />
+      <AboutMission />
+      <AboutTeam />
 
       <Footer />
     </>

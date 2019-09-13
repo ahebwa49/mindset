@@ -45,7 +45,7 @@ class NavMenu extends Component {
           <Menu borderless>
             <>
               <Menu.Item as="a" header>
-                <Image size="small" src="/static/mindset.png" />
+                <Image size="small" src="/static/logo.png" />
               </Menu.Item>
 
               <Menu.Menu position="right">
@@ -63,7 +63,7 @@ class NavMenu extends Component {
           <Menu borderless>
             <Container>
               <Menu.Item as="a" header>
-                <Image size="small" src="/static/mindset.png" />
+                <Image size="small" src="/static/logo.png" />
               </Menu.Item>
 
               <Menu.Menu position="right">
@@ -147,7 +147,7 @@ class NavMenu extends Component {
           <Menu borderless>
             <Container>
               <Menu.Item as="a" header>
-                <Image size="small" src="/static/mindset.png" />
+                <Image size="small" src="/static/logo.png" />
               </Menu.Item>
 
               <Menu.Menu position="right">
