@@ -123,7 +123,12 @@ class Login extends React.Component {
                     header=""
                     content={this.state.error}
                   />
-                  <Button color="blue" size="large">
+                  <Button
+                    color="blue"
+                    size="large"
+                    fluid
+                    style={{ color: "white", backgroundColor: "#164C60" }}
+                  >
                     Login
                   </Button>
                   <Message>
@@ -177,7 +182,12 @@ class Login extends React.Component {
                     header=""
                     content={this.state.error}
                   />
-                  <Button color="blue" fluid size="large">
+                  <Button
+                    color="blue"
+                    fluid
+                    size="large"
+                    style={{ color: "white", backgroundColor: "#164C60" }}
+                  >
                     Login
                   </Button>
                   <Message>
@@ -235,7 +245,12 @@ class Login extends React.Component {
                     header=""
                     content={this.state.error}
                   />
-                  <Button color="blue" fluid size="large">
+                  <Button
+                    color="blue"
+                    fluid
+                    size="large"
+                    style={{ color: "white", backgroundColor: "#164C60" }}
+                  >
                     Login
                   </Button>
                   <Message>

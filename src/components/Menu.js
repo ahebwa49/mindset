@@ -44,16 +44,13 @@ class NavMenu extends Component {
         <Responsive {...Responsive.onlyMobile}>
           <Menu borderless>
             <>
-              <Menu.Item as="a" header>
+              <Menu.Item as={Link} to="/" header>
                 <Image size="small" src="/static/logo.png" />
               </Menu.Item>
 
               <Menu.Menu position="right">
                 <Menu.Item>
-                  <MenuButton
-                    //visible={this.props.visible}
-                    handleShowClick={this.props.handleShowClick}
-                  />
+                  <MenuButton handleShowClick={this.props.handleShowClick} />
                 </Menu.Item>
               </Menu.Menu>
             </>
@@ -62,7 +59,7 @@ class NavMenu extends Component {
         <Responsive {...Responsive.onlyTablet}>
           <Menu borderless>
             <Container>
-              <Menu.Item as="a" header>
+              <Menu.Item as={Link} to="/" header>
                 <Image size="small" src="/static/logo.png" />
               </Menu.Item>
 
@@ -146,7 +143,7 @@ class NavMenu extends Component {
         <Responsive {...Responsive.onlyComputer}>
           <Menu borderless>
             <Container>
-              <Menu.Item as="a" header>
+              <Menu.Item as={Link} to="/" header>
                 <Image size="small" src="/static/logo.png" />
               </Menu.Item>
 
