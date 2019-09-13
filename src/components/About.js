@@ -1,5 +1,4 @@
 import React from "react";
-import { Responsive } from "semantic-ui-react";
 import AboutMission from "./AboutMission";
 import AboutBanner from "./AboutBanner";
 import AboutTeam from "./AboutTeam";

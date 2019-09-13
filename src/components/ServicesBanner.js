@@ -1,6 +1,5 @@
 import React from "react";
 import { Header, Segment, Responsive } from "semantic-ui-react";
-import Footer from "./Footer";
 
 const ServicesBanner = () => {
   const styles = {

@@ -92,7 +92,7 @@ class Login extends React.Component {
         <Responsive {...Responsive.onlyComputer}>
           <Grid centered columns={3}>
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Sign In
               </Header>
               <Segment>
@@ -123,7 +123,7 @@ class Login extends React.Component {
                     header=""
                     content={this.state.error}
                   />
-                  <Button color="blue" fluid size="large">
+                  <Button color="blue" size="large">
                     Login
                   </Button>
                   <Message>
@@ -148,7 +148,7 @@ class Login extends React.Component {
         <Responsive {...Responsive.onlyTablet}>
           <Grid centered columns={2}>
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Sign In
               </Header>
               <Segment>
@@ -200,9 +200,13 @@ class Login extends React.Component {
           </Grid>
         </Responsive>
         <Responsive {...Responsive.onlyMobile}>
-          <Grid centered columns={1}>
+          <Grid
+            centered
+            columns={1}
+            style={{ padding: "1rem", backgroundColor: "#EAEEEE" }}
+          >
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Sign In
               </Header>
               <Segment>

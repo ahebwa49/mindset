@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Divider, Segment, Grid, Responsive } from "semantic-ui-react";
+import { Header, Segment, Responsive } from "semantic-ui-react";
 
 const AboutTeam = () => {
   const styles = {

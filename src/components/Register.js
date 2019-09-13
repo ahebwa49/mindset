@@ -82,9 +82,13 @@ class Register extends Component {
       <div>
         <br />
         <Responsive {...Responsive.onlyMobile}>
-          <Grid centered columns={1}>
+          <Grid
+            centered
+            columns={1}
+            style={{ backgroundColor: "#EAEEEE", padding: "1rem" }}
+          >
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Register
               </Header>
               <Segment>
