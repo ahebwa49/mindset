@@ -31,8 +31,8 @@ const AboutTeam = () => {
       borderRadius: "50%"
     },
     mobileImg: {
-      width: "100px",
-      height: "100px",
+      width: "150px",
+      height: "150px",
       borderRadius: "50%"
     },
     desktopName: {
@@ -44,7 +44,7 @@ const AboutTeam = () => {
       textAlign: "center"
     },
     tabletName: {
-      fontSize: "0.9rem",
+      fontSize: "1.1rem",
       textAlign: "center"
     },
     tabletRole: {
@@ -55,21 +55,30 @@ const AboutTeam = () => {
   return (
     <div>
       <Responsive {...Responsive.onlyMobile}>
-        <Segment style={{ padding: "1em 2em", backgroundColor: "white" }} vertical>
+        <Segment
+          style={{ padding: "1em 2em", backgroundColor: "white" }}
+          vertical
+        >
           <Header
             as="h3"
-            style={{ fontSize: "1.5rem", color: "#164C60", textAlign: "center" }}
+            style={{
+              fontSize: "1.5rem",
+              color: "#164C60",
+              textAlign: "center"
+            }}
           >
             Meet the mindset team
             <br />
           </Header>
           <br />
-          <p style={{ fontSize: "1.1rem", color: "#164C60", textAlign: "start" }}>
+          <p
+            style={{ fontSize: "1.1rem", color: "#164C60", textAlign: "start" }}
+          >
             We value open and respectful dialog, where the best idea wins. Our
             decisions are grounded in customer research and our process is
             focused on delivering tangible results for them. Everyone is
-            hands-on, from our CEO to our trainers, because we value
-            growth and learning in our team.
+            hands-on, from our CEO to our trainers, because we value growth and
+            learning in our team.
           </p>
 
           <div style={styles.mobileContainer}>
@@ -122,8 +131,8 @@ const AboutTeam = () => {
             We value open and respectful dialog, where the best idea wins. Our
             decisions are grounded in customer research and our process is
             focused on delivering tangible results for them. Everyone is
-            hands-on, from our CEO to our trainers, because we value
-            growth and learning in our team.
+            hands-on, from our CEO to our trainers, because we value growth and
+            learning in our team.
           </p>
 
           <div style={styles.container}>
@@ -177,8 +186,8 @@ const AboutTeam = () => {
             We value open and respectful dialog, where the best idea wins. Our
             decisions are grounded in customer research and our process is
             focused on delivering tangible results for them. Everyone is
-            hands-on, from our CEO to our trainers, because we value
-            growth and learning in our team.
+            hands-on, from our CEO to our trainers, because we value growth and
+            learning in our team.
           </p>
 
           <div style={styles.container}>
