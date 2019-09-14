@@ -21,7 +21,6 @@ const Heading1 = () => {
                 fontSize: "1.5em",
                 color: "#164C60" /*transform: "skewX(-12deg)"*/
               }}
-              textAlign="start"
             >
               The most engaging way to learn computer science;
             </Header>
@@ -35,14 +34,16 @@ const Heading1 = () => {
         </Segment>
       </Responsive>
       <Responsive {...Responsive.onlyTablet}>
-        <Container text style={{ padding: "3em 0", color: "#164C60", textAlign:"start" }}>
+        <Container
+          text
+          style={{ padding: "3em 0", color: "#164C60", textAlign: "start" }}
+        >
           <Header
             as="h2"
             style={{
               fontSize: "2.0em",
               color: "#164C60" /*transform: "skewX(-12deg)"*/
             }}
-            textAlign="start"
           >
             The most engaging way to learn computer science;
           </Header>
@@ -62,7 +63,6 @@ const Heading1 = () => {
               fontSize: "2.5em",
               color: "#164C60" /*transform: "skewX(-12deg)"*/
             }}
-            textAlign="start"
           >
             The most engaging way to learn computer science;
           </Header>

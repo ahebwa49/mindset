@@ -147,7 +147,7 @@ class NavMenu extends Component {
 
         <Responsive {...Responsive.onlyComputer}>
           <Menu borderless>
-            <Container>
+            <Container style={{ fontSize: "1.1rem" }}>
               <Menu.Item as={Link} to="/" header>
                 <Image size="small" src="/static/logo.png" />
               </Menu.Item>

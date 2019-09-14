@@ -16,7 +16,7 @@ const SuccessStories2 = () => {
                 We all have a “before mindset” and “after mindset” version of
                 ourselves.
               </Header>
-              <p style={{ fontSize: "1em", color: "white" }}>
+              <section style={{ fontSize: "1em", color: "white" }}>
                 At mindset, we strive to:
                 <ul>
                   <li>
@@ -36,7 +36,7 @@ const SuccessStories2 = () => {
                     graduates.
                   </li>
                 </ul>
-              </p>
+              </section>
             </Grid.Column>
             <Divider
               as="h6"
@@ -69,7 +69,7 @@ const SuccessStories2 = () => {
                 We all have a “before mindset” and “after mindset” version of
                 ourselves.
               </Header>
-              <p style={{ fontSize: "1.2em", color: "white" }}>
+              <section style={{ fontSize: "1.2em", color: "white" }}>
                 At mindset, we strive to:
                 <ul>
                   <li>
@@ -89,7 +89,7 @@ const SuccessStories2 = () => {
                     graduates.
                   </li>
                 </ul>
-              </p>
+              </section>
             </Grid.Column>
             <Divider
               as="h6"
@@ -123,7 +123,7 @@ const SuccessStories2 = () => {
                 We all have a “before mindset” and “after mindset” version of
                 ourselves.
               </Header>
-              <p style={{ fontSize: "1.2em", color: "white" }}>
+              <section style={{ fontSize: "1.2em", color: "white" }}>
                 At mindset, we strive to:
                 <ul>
                   <li>
@@ -143,7 +143,7 @@ const SuccessStories2 = () => {
                     graduates.
                   </li>
                 </ul>
-              </p>
+              </section>
               <br />
               <SignupButton />
             </Grid.Column>

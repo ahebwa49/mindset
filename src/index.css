@@ -59,6 +59,7 @@ SILVER PINK: #C9ADA7
 /* slide animation*/
 .mobileMenu {
   display: grid;
+  font-size: 1.1rem;
   padding-top: 1rem;
   padding-right: 1rem;
   grid-template-areas:

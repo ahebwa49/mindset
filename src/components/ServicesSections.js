@@ -36,7 +36,7 @@ const ServicesSection = () => {
     }
   };
   return (
-    <>
+    <div>
       <Responsive {...Responsive.onlyMobile}>
         <div style={styles.mobileContainer}>
           <div style={styles.program}>
@@ -282,7 +282,7 @@ const ServicesSection = () => {
         </div>
         <SignupButton />
       </Responsive>
-    </>
+    </div>
   );
 };
 export default ServicesSection;
