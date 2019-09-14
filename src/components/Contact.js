@@ -236,7 +236,7 @@ class Contact extends React.Component {
               <Header as="h2" textAlign="center" style={styles.header}>
                 Message
               </Header>
-              <Segment style={{ backgroundColor: "#EAEEEE" }}>
+              <Segment>
                 <Form size="large" onSubmit={this.onSubmit} className="form">
                   <Form.Input
                     fluid
