@@ -103,7 +103,11 @@ class Contact extends React.Component {
           </Header.Subheader>
         </Header>
         <Responsive {...Responsive.onlyMobile}>
-          <Grid centered columns={1} style={{ paddingBottom: "2rem" }}>
+          <Grid
+            centered
+            columns={1}
+            style={{ padding: "1rem", paddingBottom: "2rem" }}
+          >
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Message
