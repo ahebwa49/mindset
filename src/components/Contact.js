@@ -104,7 +104,7 @@ class Contact extends React.Component {
         <Responsive {...Responsive.onlyMobile}>
           <Grid centered columns={1}>
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Message
               </Header>
               <Segment>

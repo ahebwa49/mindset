@@ -60,7 +60,7 @@ const ServicesSection = () => {
               program.
             </p>
           </div>
-
+          <br />
           <div style={styles.program}>
             <Image src="/static/afterschool.png" style={styles.desktopImg} />
             <Header as="h3" style={{ fontSize: "1.5rem", color: "#4BBBB5" }}>
@@ -79,6 +79,7 @@ const ServicesSection = () => {
               Innovation Village on Saturday morning.
             </p>
           </div>
+          <br />
           <div style={styles.program}>
             <Image src="/static/midyear.jpg" style={styles.desktopImg} />
             <Header as="h3" style={{ fontSize: "1.5rem", color: "#4BBBB5" }}>
@@ -96,6 +97,7 @@ const ServicesSection = () => {
               going students(7-17 years) during the mid year holidays.
             </p>
           </div>
+          <br />
           <div style={styles.program}>
             <Image src="/static/holiday.png" style={styles.desktopImg} />
             <Header as="h3" style={{ fontSize: "1.5rem", color: "#4BBBB5" }}>
