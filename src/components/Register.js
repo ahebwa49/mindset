@@ -153,7 +153,7 @@ class Register extends Component {
         <Responsive {...Responsive.onlyTablet}>
           <Grid centered columns={2}>
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Register
               </Header>
               <Segment>
@@ -214,9 +214,13 @@ class Register extends Component {
           </Grid>
         </Responsive>
         <Responsive {...Responsive.onlyComputer}>
-          <Grid centered columns={3}>
+          <Grid
+            centered
+            columns={3}
+            style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
+          >
             <Grid.Column>
-              <Header as="h2" textAlign="center">
+              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Register
               </Header>
               <Segment>

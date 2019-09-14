@@ -95,7 +95,11 @@ class Login extends React.Component {
       <div style={styles.container}>
         <br />
         <Responsive {...Responsive.onlyComputer}>
-          <Grid centered columns={3}>
+          <Grid
+            centered
+            columns={3}
+            style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
+          >
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Sign In
