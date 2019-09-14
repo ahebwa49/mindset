@@ -102,7 +102,7 @@ class Contact extends React.Component {
           </Header.Subheader>
         </Header>
         <Responsive {...Responsive.onlyMobile}>
-          <Grid centered columns={1}>
+          <Grid centered columns={1} style={{ paddingBottom: "2rem" }}>
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Message
@@ -166,7 +166,7 @@ class Contact extends React.Component {
           </Grid>
         </Responsive>
         <Responsive {...Responsive.onlyTablet}>
-          <Grid centered columns={2}>
+          <Grid centered columns={2} style={{ paddingBottom: "4rem" }}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
                 Message
@@ -230,7 +230,7 @@ class Contact extends React.Component {
           </Grid>
         </Responsive>
         <Responsive {...Responsive.onlyComputer}>
-          <Grid centered columns={2}>
+          <Grid centered columns={2} style={{ paddingBottom: "4rem" }}>
             <Grid.Column>
               <Header as="h2" textAlign="center" style={styles.header}>
                 Message
