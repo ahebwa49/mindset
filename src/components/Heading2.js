@@ -46,7 +46,7 @@ const Heading2 = () => {
         </Segment>
       </Responsive>
       <Responsive {...Responsive.onlyTablet}>
-        <Segment style={{ padding: "2em 0em", backgroundColor: "" }} vertical>
+        <Segment style={{ padding: "3em 0em", backgroundColor: "" }} vertical>
           <Container text>
             <Header as="h1" style={{ fontSize: "2.0em", color: "#164C60" }}>
               If you want to learn to program, you need to write (a lot of)

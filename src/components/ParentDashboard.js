@@ -47,7 +47,7 @@ const ParentDashboard = () => {
       </Responsive>
       <Responsive {...Responsive.onlyTablet}>
         <Segment
-          style={{ padding: "1em 0em", backgroundColor: "#164C60" }}
+          style={{ padding: "3em 0em", backgroundColor: "#164C60" }}
           vertical
         >
           <Container text>
@@ -79,7 +79,7 @@ const ParentDashboard = () => {
       </Responsive>
       <Responsive {...Responsive.onlyComputer}>
         <Segment
-          style={{ padding: "2em 0em", backgroundColor: "#164C60" }}
+          style={{ padding: "3em 0em", backgroundColor: "#164C60" }}
           vertical
         >
           <Container text>

@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Header,
-  Divider,
-  Segment,
-  Grid,
-  Responsive
-} from "semantic-ui-react";
+import { Header, Divider, Segment, Grid, Responsive } from "semantic-ui-react";
 import SignupButton from "./SignupButton";
 
 const SuccessStories2 = () => {
@@ -66,12 +60,12 @@ const SuccessStories2 = () => {
       </Responsive>
       <Responsive {...Responsive.onlyTablet}>
         <Segment
-          style={{ padding: "1em 0em", backgroundColor: "#1E5145" }}
+          style={{ padding: "3em 2em", backgroundColor: "#1E5145" }}
           vertical
         >
-          <Grid centered columns={1} divided style={{ padding: "7% 5%" }}>
-            <Grid.Column floated={"left"} /* style={{ padding: "0% 5%" }}*/>
-              <Header as="h3" style={{ fontSize: "1.5em", color: "white" }}>
+          <Grid centered columns={1} divided>
+            <Grid.Column floated={"left"}>
+              <Header as="h3" style={{ fontSize: "2em", color: "white" }}>
                 We all have a “before mindset” and “after mindset” version of
                 ourselves.
               </Header>
@@ -117,7 +111,7 @@ const SuccessStories2 = () => {
           </Grid>
         </Segment>
       </Responsive>
-     
+
       <Responsive {...Responsive.onlyComputer}>
         <Segment
           style={{ padding: "2em 0em", backgroundColor: "#1E5145" }}
@@ -153,15 +147,6 @@ const SuccessStories2 = () => {
               <br />
               <SignupButton />
             </Grid.Column>
-
-            {/**  <Divider
-            as="h4"
-            className="header"
-            vertical
-            style={{ margin: "3em 0em", color: "white" }}
-          >
-            Meet Alegra, one of our course graduates
-          </Divider>*/}
             <Grid.Column floated={"right"}>
               <iframe
                 title="student"

@@ -52,7 +52,7 @@ const HeroSection = () => {
       <Responsive {...Responsive.onlyTablet}>
         <Segment
           style={{
-            padding: "1em 0em",
+            padding: "3em 0em",
             backgroundColor: "#EAEEEE",
             color: "#164C60"
           }}
@@ -89,7 +89,7 @@ const HeroSection = () => {
       <Responsive {...Responsive.onlyComputer}>
         <Segment
           style={{
-            padding: "2em 0em",
+            padding: "3em 0em",
             backgroundColor: "#EAEEEE",
             color: "#164C60"
           }}
