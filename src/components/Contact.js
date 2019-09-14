@@ -86,7 +86,8 @@ class Contact extends React.Component {
     const styles = {
       container: {
         color: "#164C60",
-        backgroundColor: "#EAEEEE"
+        backgroundColor: "#EAEEEE",
+        paddingTop: "2rem"
       },
       header: {
         color: "#164C60"
