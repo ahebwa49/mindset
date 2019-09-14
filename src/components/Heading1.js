@@ -2,11 +2,16 @@ import React from "react";
 import { Header, Responsive, Container, Segment } from "semantic-ui-react";
 
 const Heading1 = () => {
+  const styles = {
+    container: {
+      backgroundColor: "#EAEEEE"
+    }
+  };
   return (
-    <div>
+    <div style={styles.container}>
       <Responsive {...Responsive.onlyMobile}>
         <Segment
-          style={{ padding: "1em 0em", backgroundColor: "", color: "#164C60" }}
+          style={{ padding: "2rem 0em", backgroundColor: "", color: "#164C60" }}
           vertical
         >
           <Container text>

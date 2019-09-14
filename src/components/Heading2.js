@@ -7,8 +7,13 @@ import {
   Header
 } from "semantic-ui-react";
 const Heading2 = () => {
+  const styles = {
+    container: {
+      backgroundColor: "#EAEEEE"
+    }
+  };
   return (
-    <div>
+    <div style={styles.container}>
       <Responsive {...Responsive.onlyMobile}>
         <Segment style={{ padding: "1em 0em", backgroundColor: "" }} vertical>
           <Container text>

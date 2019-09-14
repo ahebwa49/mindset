@@ -32,11 +32,8 @@ class App extends Component {
         <CarouselComponent />
         <HeroSection />
         <ParentDashboard />
-        <br />
         <Heading1 />
-        <br />
         <Cards />
-        <br />
         <Heading2 />
         <StudentStory />
         <TestimonialCarousel />

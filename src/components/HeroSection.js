@@ -15,7 +15,7 @@ const HeroSection = () => {
       <Responsive {...Responsive.onlyMobile}>
         <Segment
           style={{
-            padding: "1em 0em",
+            padding: "2rem 0rem",
             backgroundColor: "#EAEEEE",
             color: "#164C60"
           }}

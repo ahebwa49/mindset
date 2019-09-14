@@ -15,7 +15,7 @@ const ParentDashboard = () => {
     <div>
       <Responsive {...Responsive.onlyMobile}>
         <Segment
-          style={{ padding: "1em 0em", backgroundColor: "#164C60" }}
+          style={{ padding: "2rem 0em", backgroundColor: "#164C60" }}
           vertical
         >
           <Container text>
