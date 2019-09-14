@@ -115,6 +115,7 @@ class NavMenu extends Component {
                         onClick={this.handleItemClick}
                         as={Link}
                         to="/login"
+                        style={{ color: "white", backgroundColor: "#164C60" }}
                       >
                         Sign In
                       </Button>
@@ -128,7 +129,11 @@ class NavMenu extends Component {
                         as={Link}
                         to="/register"
                         primary={true}
-                        style={{ marginLeft: "0.5em" }}
+                        style={{
+                          marginLeft: "0.5em",
+                          color: "white",
+                          backgroundColor: "#4BBBB5"
+                        }}
                       >
                         Register
                       </Button>
