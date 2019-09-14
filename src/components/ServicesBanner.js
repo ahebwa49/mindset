@@ -11,7 +11,7 @@ const ServicesBanner = () => {
     mobileSegment: {
       padding: "2rem 1rem",
       backgroundColor: "#164C60",
-      border: "1px solid red"
+      //border: "1px solid red"
     }
     
   };

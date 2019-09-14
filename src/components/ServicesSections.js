@@ -32,7 +32,6 @@ const ServicesSection = () => {
     desktopImg: {
       width: "100px",
       height: "100px",
-      //border: "1px solid red",
       borderRadius: "50%"
     }
   };
