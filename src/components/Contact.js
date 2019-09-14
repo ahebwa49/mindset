@@ -152,7 +152,12 @@ class Contact extends React.Component {
                     header="Success!"
                     content="Your message has been delivered!"
                   />
-                  <Button color="blue" fluid size="large">
+                  <Button
+                    color="blue"
+                    fluid
+                    size="large"
+                    style={{ color: "white", backgroundColor: "#164C60" }}
+                  >
                     Submit
                   </Button>
                 </Form>
@@ -211,7 +216,12 @@ class Contact extends React.Component {
                     header="Success!"
                     content="Your message has been delivered!"
                   />
-                  <Button color="blue" fluid size="large">
+                  <Button
+                    color="blue"
+                    fluid
+                    size="large"
+                    style={{ color: "white", backgroundColor: "#164C60" }}
+                  >
                     Submit
                   </Button>
                 </Form>
@@ -274,7 +284,7 @@ class Contact extends React.Component {
                     color="blue"
                     fluid
                     size="large"
-                    style={{ backgroundColor: "#164C60" }}
+                    style={{ color: "white", backgroundColor: "#164C60" }}
                   >
                     Submit
                   </Button>

@@ -79,15 +79,16 @@ class Register extends Component {
     });
   }
   render() {
+    const styles = {
+      container: {
+        backgroundColor: "#EAEEEE"
+      }
+    };
     return (
-      <div>
+      <div style={styles.container}>
         <br />
         <Responsive {...Responsive.onlyMobile}>
-          <Grid
-            centered
-            columns={1}
-            style={{ backgroundColor: "#EAEEEE", padding: "1rem" }}
-          >
+          <Grid centered columns={1} style={{ padding: "1rem" }}>
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Register
@@ -131,7 +132,7 @@ class Register extends Component {
                   </Button>
                   <br />
                   <section style={{ textAlign: "center" }}>
-                    Already registered? <Link to="/register">Sign In</Link>
+                    Already registered? <Link to="/login">Sign In</Link>
                   </section>
                 </Form>
               </Segment>
@@ -194,7 +195,7 @@ class Register extends Component {
                   </Button>
                   <br />
                   <section style={{ textAlign: "center" }}>
-                    Already registered? <Link to="/register">Sign In</Link>
+                    Already registered? <Link to="/login">Sign In</Link>
                   </section>
                 </Form>
               </Segment>
@@ -257,7 +258,7 @@ class Register extends Component {
                   </Button>
                   <br />
                   <section style={{ textAlign: "center" }}>
-                    Already registered? <Link to="/register">Sign In</Link>
+                    Already registered? <Link to="/login">Sign In</Link>
                   </section>
                 </Form>
               </Segment>

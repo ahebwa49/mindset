@@ -86,8 +86,13 @@ class Login extends React.Component {
     });
   }
   render() {
+    const styles = {
+      container: {
+        backgroundColor: "#EAEEEE"
+      }
+    };
     return (
-      <div>
+      <div style={styles.container}>
         <br />
         <Responsive {...Responsive.onlyComputer}>
           <Grid centered columns={3}>
