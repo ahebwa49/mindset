@@ -45,7 +45,7 @@ class Login extends React.Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("https://mindset-backend.herokuapp.com/login", {
+    fetch("http://157.245.42.251:4000/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

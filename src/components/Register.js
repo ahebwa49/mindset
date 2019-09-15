@@ -39,7 +39,7 @@ class Register extends Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("https://mindset-backend.herokuapp.com/register", {
+    fetch("http://157.245.42.251:4000/register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
