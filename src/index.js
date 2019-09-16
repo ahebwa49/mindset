@@ -28,7 +28,7 @@ import Admin from "./components/Admin";
 import SlideAnimation from "./components/SlideAnimation";
 import { Sidebar, Menu } from "semantic-ui-react";
 
-class Routing extends Component {
+export default class Routing extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +53,7 @@ class Routing extends Component {
               direction="right"
               inverted
               animation="push"
-              //onHide={this.handleSidebarHide}
+              /*onHide={this.handleSidebarHide}*/
               vertical
               visible={visible}
               width="wide"
