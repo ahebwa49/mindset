@@ -39,7 +39,7 @@ class Register extends Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://157.245.42.251:4000/register", {
+    fetch("https://www.backend.mindset-group.org/register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

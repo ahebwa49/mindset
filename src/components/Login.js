@@ -45,7 +45,7 @@ class Login extends React.Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://157.245.42.251:4000/login", {
+    fetch("https://www.backend.mindset-group.org/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
