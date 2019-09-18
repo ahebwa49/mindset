@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
 class NavMenu extends Component {
   state = {};
   componentWillMount() {
-    fetch("http://localhost:4000/profile", {
+    fetch("https://www.backend.mindset-group.org/profile", {
       method: "GET",
       credentials: "include"
     })
