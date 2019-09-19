@@ -16,7 +16,7 @@ class UserMenu extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
   handleLogout() {
-    fetch("http://localhost:4000/logout", {
+    fetch("https://www.backend.mindset-group.org/logout", {
       method: "GET",
       credentials: "include"
     })

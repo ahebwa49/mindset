@@ -25,7 +25,7 @@ class MobileMenu extends Component {
   }
 
   handleLogout() {
-    fetch("http://localhost:4000/logout", {
+    fetch("https://www.backend.mindset-group.org/logout", {
       method: "GET",
       credentials: "include"
     })
@@ -81,7 +81,6 @@ class MobileMenu extends Component {
     );
   }
 }
-//href="http://localhost:4000/logout"
 export default withRouter(
   connect(
     mapStateToProps,
