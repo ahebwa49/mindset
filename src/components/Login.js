@@ -151,7 +151,7 @@ class Login extends React.Component {
                 <Button color="github">
                   <a
                     style={{ textDecoration: "none", color: "black" }}
-                    href="https://mindset-backend.herokuapp.com/auth/github"
+                    href="https://www.backend.mindset-group.org/auth/github"
                   >
                     <Icon name="github" /> Github
                   </a>
@@ -211,7 +211,7 @@ class Login extends React.Component {
                 <Button color="github">
                   <a
                     style={{ textDecoration: "none", color: "black" }}
-                    href="https://mindset-backend.herokuapp.com/auth/github"
+                    href="https://www.backend.mindset-group.org/auth/github"
                   >
                     <Icon name="github" /> Github
                   </a>
@@ -275,7 +275,7 @@ class Login extends React.Component {
                 <Button color="github">
                   <a
                     style={{ textDecoration: "none", color: "black" }}
-                    href="https://mindset-backend.herokuapp.com/auth/github"
+                    href="https://www.backend.mindset-group.org/auth/github"
                   >
                     <Icon name="github" /> Github
                   </a>
