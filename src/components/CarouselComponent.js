@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import makeCarousel from "react-reveal/makeCarousel";
 import Slide from "react-reveal/Slide";
+import Bounce from "react-reveal/Bounce";
 import styled, { css } from "styled-components";
 
-const width = "auto";
-const desktopHeight = "75vh";
-const tabletHeight = "60vh";
-const mobileHeight = "30vh";
+const width = "100%";
+const desktopHeight = "500px";
+const tabletHeight = "450px";
+const mobileHeight = "350px";
 
 const Container = styled.div`
   /*border: 1px solid blue;*/
+  background-color: #eaeeee;
   border-radius: 3px;
   position: relative;
   text-align: center;
@@ -27,14 +29,15 @@ const Container = styled.div`
 const Children = styled.div`
   width: ${width};
   position: relative;
+  /*border: 1px solid green;*/
   @media screen and (min-width: 1000px) {
-    height: ${desktopHeight};
+    height: 95%;
   }
   @media screen and (max-width: 999px) {
-    height: ${tabletHeight};
+    height: 95%;
   }
   @media screen and (max-width: 767px) {
-    height: ${mobileHeight};
+    height: 95%;
   }
 `;
 const Arrow = styled.div`
@@ -74,6 +77,7 @@ const Dot = styled.span`
 `;
 const Dots = styled.span`
   text-align: center;
+
   width: ${width};
   z-index: 100;
 `;
@@ -101,45 +105,58 @@ const Carousel = makeCarousel(CarouselUI);
 
 class CarouselComponent extends Component {
   render() {
+    const styles = {
+      transparent: {
+        display: "grid",
+        position: "relative",
+        width: "50%",
+        height: "50%",
+        opacity: "0.5",
+        borderRadius: "3px",
+        backgroundColor: "white",
+        justifyItems: "center",
+        alignItems: "center",
+        //border: "1px solid red"
+      }
+    };
     return (
       <div>
         <Carousel defaultWait={2000} /*wait for 1000 milliseconds*/>
           <Slide right>
-            <img
-              src="/static/class.jpg"
-              alt="about us"
-              max-width="100%"
-              max-height="100%"
-              width="100%"
-            />
+            <div id="carousel-image1">
+              <div style={styles.transparent}>
+                <Bounce top>
+                  <p>THINK</p>
+                </Bounce>
+              </div>
+            </div>
           </Slide>
           <Slide right>
-            <img
-              src="/static/coding.jpg"
-              alt="about us"
-              width="100%"
-              max-width="100%"
-              max-height="100%"
-            />
+            <div id="carousel-image2">
+              <div style={styles.transparent}>
+                <Bounce bottom>
+                  <p>CODE</p>
+                </Bounce>
+              </div>
+            </div>
           </Slide>
           <Slide right>
-            <img
-              src="/static/presentation.jpg"
-              alt="about us"
-              width="100%"
-              //height="auto"
-              max-width="100%"
-              max-height="100%"
-            />
+            <div id="carousel-image3">
+              <div style={styles.transparent}>
+                <Bounce left>
+                  <p>CREATE</p>
+                </Bounce>
+              </div>
+            </div>
           </Slide>
           <Slide right>
-            <img
-              src="/static/mindset.jpg"
-              alt="about us"
-              width="100%"
-              max-width="100%"
-              max-height="100%"
-            />
+            <div id="carousel-image4">
+              <div style={styles.transparent}>
+                <Bounce right>
+                  <p>SOLVE</p>
+                </Bounce>
+              </div>
+            </div>
           </Slide>
         </Carousel>
       </div>
