@@ -10,7 +10,7 @@ const tabletHeight = "450px";
 const mobileHeight = "350px";
 
 const Container = styled.div`
-  /*border: 1px solid blue;*/
+  border: 1px solid blue;
   background-color: #eaeeee;
   border-radius: 3px;
   position: relative;
@@ -29,7 +29,7 @@ const Container = styled.div`
 const Children = styled.div`
   width: ${width};
   position: relative;
-  /*border: 1px solid green;*/
+  border: 1px solid green;
   @media screen and (min-width: 1000px) {
     height: 95%;
   }
@@ -37,7 +37,7 @@ const Children = styled.div`
     height: 95%;
   }
   @media screen and (max-width: 767px) {
-    height: 95%;
+    height: 92%;
   }
 `;
 const Arrow = styled.div`
