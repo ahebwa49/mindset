@@ -35,7 +35,7 @@ class Contact extends React.Component {
       email: this.state.email,
       message: this.state.message
     };
-    fetch("http://localhost:4000/messages", {
+    fetch("https://www.backend.mindset-group.org/messages", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
