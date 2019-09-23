@@ -15,7 +15,7 @@ class Admin extends Component {
     const {
       match: { params }
     } = this.props;
-    fetch(`http://localhost:4000/admins/${params.adminId}`, {
+    fetch(`https://www.backend.mindset-group.org/admins/${params.adminId}`, {
       method: "GET",
       credentials: "include"
     })
@@ -32,7 +32,7 @@ class Admin extends Component {
         });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch single admin ${error}`);
       });
   }
 
