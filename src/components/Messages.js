@@ -17,10 +17,14 @@ class Messages extends Component {
     this.setState({
       currentPage: this.state.currentPage + 1
     });
-    fetch(`http://localhost:4000/messages/page/${this.state.currentPage + 1}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/messages/page/${this.state
+        .currentPage + 1}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -35,10 +39,14 @@ class Messages extends Component {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
-    fetch(`http://localhost:4000/messages/page/${this.state.currentPage - 1}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/messages/page/${this.state
+        .currentPage - 1}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -50,10 +58,15 @@ class Messages extends Component {
       });
   }
   componentWillMount() {
-    fetch(`http://localhost:4000/messages/page/${this.state.currentPage}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/messages/page/${
+        this.state.currentPage
+      }`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -61,10 +74,10 @@ class Messages extends Component {
         this.setState({ messages: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch paginated message data ${error}`);
       });
 
-    fetch(`http://localhost:4000/messages`, {
+    fetch(`https://www.backend.mindset-group.org/messages`, {
       method: "GET",
       credentials: "include"
     })
@@ -77,7 +90,7 @@ class Messages extends Component {
         });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch messages ${error}`);
       });
   }
 
