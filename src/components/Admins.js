@@ -20,7 +20,7 @@ class Admins extends Component {
     this.setState({
       currentPage: this.state.currentPage + 1
     });
-    fetch(`http://localhost:4000/admins/page/${this.state.currentPage + 1}`, {
+    fetch(`https://www.backend.mindset-group.org/admins/page/${this.state.currentPage + 1}`, {
       method: "GET",
       credentials: "include"
     })
@@ -31,14 +31,14 @@ class Admins extends Component {
         this.setState({ admins: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch paginated admin data ${error}`);
       });
   }
   decrementPage() {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
-    fetch(`http://localhost:4000/admins/page/${this.state.currentPage - 1}`, {
+    fetch(`https://www.backend.mindset-group.org/admins/page/${this.state.currentPage - 1}`, {
       method: "GET",
       credentials: "include"
     })
@@ -49,11 +49,11 @@ class Admins extends Component {
         this.setState({ admins: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch paginated admin data ${error}`);
       });
   }
   componentWillMount() {
-    fetch(`http://localhost:4000/admins/page/${this.state.currentPage}`, {
+    fetch(`https://www.backend.mindset-group.org/admins/page/${this.state.currentPage}`, {
       method: "GET",
       credentials: "include"
     })
@@ -64,10 +64,10 @@ class Admins extends Component {
         this.setState({ admins: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch paginated admin data ${error}`);
       });
 
-    fetch(`http://localhost:4000/admins`, {
+    fetch(`https://www.backend.mindset-group.org/admins`, {
       method: "GET",
       credentials: "include"
     })
@@ -80,7 +80,7 @@ class Admins extends Component {
         });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch admin count ${error}`);
       });
   }
 
