@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 import { Icon, Menu, Table } from "semantic-ui-react";
 
 class Messages extends Component {
@@ -98,22 +99,25 @@ class Messages extends Component {
     const size = 4;
     const pages = Math.ceil(this.state.count / size);
 
-    const messagesRender = this.state.messages.map(item => (
-      <Table.Row>
-        <Table.Cell>{item.firstname}</Table.Cell>
-        <Table.Cell>{item.lastname}</Table.Cell>
-        <Table.Cell>{new Date().toLocaleTimeString()}</Table.Cell>
-        <Table.Cell>
-          <Link
-            to={{
-              pathname: `/messages/message/${item._id}`
-            }}
-          >
-            view more
-          </Link>{" "}
-        </Table.Cell>
-      </Table.Row>
-    ));
+    const messagesRender = this.state.messages.map(item => {
+      const date = moment(item.created_on);
+      return (
+        <Table.Row>
+          <Table.Cell>{item.firstname}</Table.Cell>
+          <Table.Cell>{item.lastname}</Table.Cell>
+          <Table.Cell>{date.format("MMMM Do YYYY, h:mm:ss a")}</Table.Cell>
+          <Table.Cell>
+            <Link
+              to={{
+                pathname: `/messages/message/${item._id}`
+              }}
+            >
+              view more
+            </Link>{" "}
+          </Table.Cell>
+        </Table.Row>
+      );
+    });
 
     return (
       <div>

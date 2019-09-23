@@ -13,7 +13,7 @@ class Dashboard extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Grid>
+      <Grid style={{ padding: "3rem" }}>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
             <Menu.Item

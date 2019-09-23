@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import AdminPanel from "./AdminPanel";
 
 class Message extends Component {
@@ -28,7 +29,8 @@ class Message extends Component {
           firstname: data.firstname,
           lastname: data.lastname,
           email: data.email,
-          message: data.message
+          message: data.message,
+          created_on: data.created_on
         });
       })
       .catch(error => {
@@ -37,6 +39,7 @@ class Message extends Component {
   }
 
   render() {
+    const date = moment(this.state.created_on);
     const styles = {
       container: {
         padding: "3rem"
@@ -46,6 +49,7 @@ class Message extends Component {
       <div style={styles.container}>
         <AdminPanel />
         <h1>Message</h1>
+        <h3>{date.format("MMMM Do YYYY, h:mm:ss a")}</h3>
         <h3>Firstname: {this.state.firstname}</h3>
         <h3>Lastname: {this.state.lastname}</h3>
         <p>Email: {this.state.email}</p>
