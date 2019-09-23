@@ -35,7 +35,7 @@ class AdminsForm extends Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://localhost:4000/admins", {
+    fetch("https://www.backend.mindset-group.org/admins", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
