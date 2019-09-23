@@ -18,10 +18,13 @@ class Student extends Component {
     const {
       match: { params }
     } = this.props;
-    fetch(`http://localhost:4000/students/${params.studentId}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/students/${params.studentId}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -41,7 +44,7 @@ class Student extends Component {
   }
 
   onDelete() {
-    fetch(`http://localhost:4000/students/${this.state._id}`, {
+    fetch(`https://www.backend.mindset-group.org/students/${this.state._id}`, {
       method: "DELETE",
       credentials: "include"
     })
