@@ -10,10 +10,15 @@ class Message extends Component {
     const {
       match: { params }
     } = this.props;
-    fetch(`http://localhost:4000/messages/message/${params.messageId}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/messages/message/${
+        params.messageId
+      }`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -27,7 +32,7 @@ class Message extends Component {
         });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch single message data ${error}`);
       });
   }
 
