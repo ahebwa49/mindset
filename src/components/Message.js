@@ -37,8 +37,13 @@ class Message extends Component {
   }
 
   render() {
+    const styles = {
+      container: {
+        padding: "3rem"
+      }
+    };
     return (
-      <div>
+      <div style={styles.container}>
         <AdminPanel />
         <h1>Message</h1>
         <h3>Firstname: {this.state.firstname}</h3>

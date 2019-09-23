@@ -59,6 +59,10 @@ class Student extends Component {
   render() {
     const styles = {
       container: {
+        padding: "3rem"
+      },
+
+      subContainer: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         border: "1px solid green"
@@ -73,10 +77,10 @@ class Student extends Component {
       }
     };
     return (
-      <div>
+      <div style={styles.container}>
         <AdminPanel />
         <h1>student</h1>
-        <div style={styles.container}>
+        <div style={styles.subContainer}>
           <div>
             <h3>firstname:{this.state.firstname}</h3>
             <h3>lastname:{this.state.lastname}</h3>

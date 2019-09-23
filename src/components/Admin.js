@@ -37,8 +37,13 @@ class Admin extends Component {
   }
 
   render() {
+    const styles = {
+      container: {
+        padding: "3rem"
+      }
+    };
     return (
-      <div>
+      <div style={styles.container}>
         <AdminPanel />
         <h1>Admin</h1>
         <h3>firstname:{this.state.firstname}</h3>
