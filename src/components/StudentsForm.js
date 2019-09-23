@@ -35,7 +35,7 @@ class StudentForm extends Component {
     console.log(data);
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://localhost:4000/students", {
+    fetch("https://www.backend.mindset-group.org/students", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
