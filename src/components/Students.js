@@ -20,7 +20,7 @@ class Students extends Component {
     this.setState({
       currentPage: this.state.currentPage + 1
     });
-    fetch(`http://localhost:4000/students/page/${this.state.currentPage + 1}`, {
+    fetch(`https://www.backend.mindset-group.org/students/page/${this.state.currentPage + 1}`, {
       method: "GET",
       credentials: "include"
     })
@@ -31,14 +31,14 @@ class Students extends Component {
         this.setState({ students: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch student paginated data ${error}`);
       });
   }
   decrementPage() {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
-    fetch(`http://localhost:4000/students/page/${this.state.currentPage - 1}`, {
+    fetch(`https://www.backend.mindset-group.org/students/page/${this.state.currentPage - 1}`, {
       method: "GET",
       credentials: "include"
     })
@@ -49,11 +49,11 @@ class Students extends Component {
         this.setState({ students: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch student paginated data ${error}`);
       });
   }
   componentWillMount() {
-    fetch(`http://localhost:4000/students/page/${this.state.currentPage}`, {
+    fetch(`https://www.backend.mindset-group.org/students/page/${this.state.currentPage}`, {
       method: "GET",
       credentials: "include"
     })
@@ -64,10 +64,10 @@ class Students extends Component {
         this.setState({ students: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch student data ${error}`);
       });
 
-    fetch(`http://localhost:4000/students`, {
+    fetch(`https://www.backend.mindset-group.org/students`, {
       method: "GET",
       credentials: "include"
     })
@@ -80,7 +80,7 @@ class Students extends Component {
         });
       })
       .catch(error => {
-        console.log(`Failed to fetch profile data ${error}`);
+        console.log(`Failed to fetch student count ${error}`);
       });
   }
   addStudent() {
