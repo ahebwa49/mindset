@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ahebwa49/mindset.svg?token=cnMPPfxkbGpqjuMgmirz&branch=master)](https://travis-ci.com/ahebwa49/mindset)
+
 # Mindset
 
 Mindset aims to get the young people in Uganda exposed to digital skills and to encourage them to dive more into tech related careers.
