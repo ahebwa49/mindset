@@ -2,7 +2,7 @@
 
 Mindset aims to get the young people in Uganda exposed to digital skills and to encourage them to dive more into tech related careers.
 
-## Getting Started
+## Getting Started with the frontend
 
 First things first, clone this repo
 
