@@ -11,7 +11,7 @@ const Cards = () => {
           <Card.Group stackable>
             <Card fluid>
               {/** */}
-              <Image src="/static/technology.jpg" wrapped ui={false} />
+              <Image src="/static/technology.jpeg" wrapped ui={false} />
               <Card.Content>
                 <Header textAlign="center" style={{ color: "#4BBBB5" }}>
                   Technology
@@ -64,7 +64,7 @@ const Cards = () => {
           <Card.Group stackable centered>
             <Card>
               {/** */}
-              <Image src="/static/technology.jpg" wrapped ui={false} />
+              <Image src="/static/technology.jpeg" wrapped ui={false} />
               <Card.Content>
                 <Header textAlign="center" style={{ color: "#4BBBB5" }}>
                   Technology
