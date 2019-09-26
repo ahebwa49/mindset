@@ -26,7 +26,7 @@ const Container = styled.div`
   }
 `;
 const Children = styled.div`
-  /*border: 1px solid green;*/
+  /*border: 1px solid red;*/
   width: ${width};
   position: relative;
   /*height: ${height};*/
@@ -119,11 +119,15 @@ class TestimonialCarousel extends Component {
         position: "absolute",
         textAlign: "center",
         left: "10%",
-        top: "20%",
+        top: "10%",
         width: "80%",
         color: "#164C60"
+        //border: "1px solid red"
 
         //border: "1px solid blue"
+      },
+      containerImage: {
+        width: "150px"
       },
       mobileContainer: {
         display: "grid",
@@ -133,9 +137,12 @@ class TestimonialCarousel extends Component {
         left: "10%",
         top: "10%",
         width: "80%",
-        color: "#164C60"
-
-        //border: "1px solid blue"
+        color: "#164C60",
+        //border: "1px solid red"
+      },
+      mobileContainerImage: {
+        width: "50px",
+       // border: "1px solid red"
       },
       p: {
         fontSize: "2em"
@@ -165,46 +172,73 @@ class TestimonialCarousel extends Component {
           <Carousel maxTurns={0} /*wait for 1000 milliseconds*/>
             <Slide right>
               <div style={styles.mobileContainer}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.mobileContainerImage}
+                  />
+                </div>
                 <p style={styles.mobileP}>
-                  "I didn't have interest in coding the first time I came and
+                  I didn't have interest in coding the first time I came and
                   with time, I started enjoying making games in scratch and I
                   made the best game in my class"
                 </p>
-                <br />
+
                 <p style={styles.mobileName}>Bwire Francis (15)</p>
               </div>
             </Slide>
             <Slide right>
               <div style={styles.mobileContainer}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.mobileContainerImage}
+                  />
+                </div>
                 <p style={styles.mobileP}>
                   I found the start to be a bit boring, but as we continued, and
                   made my own first app and had it on my phone, I became very
                   excited and I am now looking forward to making it an app and
-                  upload it on google play
+                  upload it on google play.
                 </p>
-                <br />
+
                 <p style={styles.mobileName}>Joseph Muguluma (15)</p>
               </div>
             </Slide>
 
             <Slide right>
               <div style={styles.mobileContainer}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.mobileContainerImage}
+                  />
+                </div>
+
                 <p style={styles.mobileP}>
-                  "I enjoyed making games and playing my friends games and
-                  understanding how algorithims work, I enjoy coding"
+                  I enjoyed making games and playing my friends games and
+                  understanding how algorithims work, I enjoy coding.
                 </p>
-                <br />
                 <p style={styles.mobileName}>Hannah Bagarukayo (12)</p>
               </div>
             </Slide>
             <Slide right>
               <div style={styles.mobileContainer}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.mobileContainerImage}
+                  />
+                </div>
                 <p style={styles.mobileP}>
                   I have learnt how to create a cool game, called Cool Beans,
                   and in this game this cool girl is cool like beans, she goes
-                  around collecting gems, I really enjoy my coding sessions."
+                  around collecting gems, I really enjoy my coding sessions.
                 </p>
-                <br />
                 <p style={styles.mobileName}>Allegra Katto(10)</p>
               </div>
             </Slide>
@@ -214,10 +248,18 @@ class TestimonialCarousel extends Component {
           <Carousel maxTurns={0} /*wait for 1000 milliseconds*/>
             <Slide right>
               <div style={styles.container}>
+              <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.tabletP}>
-                  "I didn't have interest in coding the first time I came and
+                  I didn't have interest in coding the first time I came and
                   with time, I started enjoying making games in scratch and I
-                  made the best game in my class"
+                  made the best game in my class.
                 </p>
                 <br />
                 <p style={styles.tabletName}>Bwire Francis (15)</p>
@@ -225,6 +267,14 @@ class TestimonialCarousel extends Component {
             </Slide>
             <Slide right>
               <div style={styles.container}>
+              <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.tabletP}>
                   I found the start to be a bit boring, but as we continued, and
                   made my own first app and had it on my phone, I became very
@@ -238,6 +288,14 @@ class TestimonialCarousel extends Component {
 
             <Slide right>
               <div style={styles.container}>
+              <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.tabletP}>
                   "I enjoyed making games and playing my friends games and
                   understanding how algorithims work, I enjoy coding"
@@ -248,6 +306,14 @@ class TestimonialCarousel extends Component {
             </Slide>
             <Slide right>
               <div style={styles.container}>
+              <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.tabletP}>
                   I have learnt how to create a cool game, called Cool Beans,
                   and in this game this cool girl is cool like beans, she goes
@@ -263,6 +329,14 @@ class TestimonialCarousel extends Component {
           <Carousel maxTurns={0} /*wait for 1000 milliseconds*/>
             <Slide right>
               <div style={styles.container}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.p}>
                   "I didn't have interest in coding the first time I came and
                   with time, I started enjoying making games in scratch and I
@@ -274,6 +348,14 @@ class TestimonialCarousel extends Component {
             </Slide>
             <Slide right>
               <div style={styles.container}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.p}>
                   I found the start to be a bit boring, but as we continued, and
                   made my own first app and had it on my phone, I became very
@@ -287,6 +369,14 @@ class TestimonialCarousel extends Component {
 
             <Slide right>
               <div style={styles.container}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.p}>
                   "I enjoyed making games and playing my friends games and
                   understanding how algorithims work, I enjoy coding"
@@ -297,6 +387,14 @@ class TestimonialCarousel extends Component {
             </Slide>
             <Slide right>
               <div style={styles.container}>
+                <div>
+                  <img
+                    src="/static/quotes.png"
+                    alt="quote"
+                    style={styles.containerImage}
+                  />
+                </div>
+                <br />
                 <p style={styles.p}>
                   I have learnt how to create a cool game, called Cool Beans,
                   and in this game this cool girl is cool like beans, she goes
