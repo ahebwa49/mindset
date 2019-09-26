@@ -6,9 +6,9 @@ import { Responsive } from "semantic-ui-react";
 
 const width = "auto",
   height = "75vh";
-const desktopHeight = "75vh";
-const tabletHeight = "50vh";
-const mobileHeight = "30vh";
+const desktopHeight = "500px";
+const tabletHeight = "450px";
+const mobileHeight = "250px";
 
 const Container = styled.div`
   /*border: 1px solid red;*/
@@ -42,6 +42,7 @@ const Children = styled.div`
 `;
 const Arrow = styled.div`
   /*border: 1px solid purple;*/
+  color:#164C60;
   text-shadow: 1px 1px 1px #fff;
   z-index: 100;
   /*line-height: ${height};*/
@@ -137,12 +138,12 @@ class TestimonialCarousel extends Component {
         left: "10%",
         top: "10%",
         width: "80%",
-        color: "#164C60",
+        color: "#164C60"
         //border: "1px solid red"
       },
       mobileContainerImage: {
-        width: "50px",
-       // border: "1px solid red"
+        width: "50px"
+        // border: "1px solid red"
       },
       p: {
         fontSize: "2em"
@@ -248,7 +249,7 @@ class TestimonialCarousel extends Component {
           <Carousel maxTurns={0} /*wait for 1000 milliseconds*/>
             <Slide right>
               <div style={styles.container}>
-              <div>
+                <div>
                   <img
                     src="/static/quotes.png"
                     alt="quote"
@@ -267,7 +268,7 @@ class TestimonialCarousel extends Component {
             </Slide>
             <Slide right>
               <div style={styles.container}>
-              <div>
+                <div>
                   <img
                     src="/static/quotes.png"
                     alt="quote"
@@ -288,7 +289,7 @@ class TestimonialCarousel extends Component {
 
             <Slide right>
               <div style={styles.container}>
-              <div>
+                <div>
                   <img
                     src="/static/quotes.png"
                     alt="quote"
@@ -306,7 +307,7 @@ class TestimonialCarousel extends Component {
             </Slide>
             <Slide right>
               <div style={styles.container}>
-              <div>
+                <div>
                   <img
                     src="/static/quotes.png"
                     alt="quote"
