@@ -94,20 +94,20 @@ const AboutTeam = () => {
             <div style={styles.mobilePersonDiv}>
               <img
                 style={styles.mobileImg}
-                src="./static/asaba.jpg"
+                src="./static/vaal.jpg"
                 alt="acw"
               />
-              <p style={styles.tabletName}>Livingstone Asabahebwa</p>
-              <p style={styles.tabletRole}>Software Engineer</p>
+              <p style={styles.tabletName}>Valentine Masicha</p>
+              <p style={styles.tabletRole}>Team Lead</p>
             </div>
             <div style={styles.mobilePersonDiv}>
               <img
                 style={styles.mobileImg}
-                src="./static/asaba.jpg"
+                src="./static/prossy.jpg"
                 alt="acw"
               />
-              <p style={styles.tabletName}>Livingstone Asabahebwa</p>
-              <p style={styles.tabletRole}>Software Engineer</p>
+              <p style={styles.tabletName}>Prossy Wanyana</p>
+              <p style={styles.tabletRole}>Program Manager</p>
             </div>
           </div>
         </Segment>
@@ -148,20 +148,20 @@ const AboutTeam = () => {
             <div style={styles.tabletPersonDiv}>
               <img
                 style={styles.desktopImg}
-                src="./static/asaba.jpg"
+                src="./static/vaal.jpg"
                 alt="acw"
               />
-              <p style={styles.tabletName}>Livingstone Asabahebwa</p>
-              <p style={styles.tabletRole}>Software Engineer</p>
+              <p style={styles.tabletName}>Valentine Masicha</p>
+              <p style={styles.tabletRole}>Team Lead</p>
             </div>
             <div style={styles.tabletPersonDiv}>
               <img
                 style={styles.desktopImg}
-                src="./static/asaba.jpg"
+                src="./static/prossy.jpg"
                 alt="acw"
               />
-              <p style={styles.tabletName}>Livingstone Asabahebwa</p>
-              <p style={styles.tabletRole}>Software Engineer</p>
+              <p style={styles.tabletName}>Prossy Wanyana</p>
+              <p style={styles.tabletRole}>Program Manager</p>
             </div>
           </div>
         </Segment>
@@ -195,7 +195,7 @@ const AboutTeam = () => {
               <img
                 style={styles.desktopImg}
                 src="./static/asaba.jpg"
-                alt="acw"
+                alt="software engineer"
               />
               <p style={styles.desktopName}>Livingstone Asabahebwa</p>
               <p style={styles.desktopRole}>Software Engineer</p>
@@ -203,20 +203,20 @@ const AboutTeam = () => {
             <div style={styles.desktopPersonDiv}>
               <img
                 style={styles.desktopImg}
-                src="./static/asaba.jpg"
-                alt="acw"
+                src="./static/vaal.jpg"
+                alt="team lead"
               />
-              <p style={styles.desktopName}>Livingstone Asabahebwa</p>
-              <p style={styles.desktopRole}>Software Engineer</p>
+              <p style={styles.desktopName}>Valentine Masicha</p>
+              <p style={styles.desktopRole}>Team Lead</p>
             </div>
             <div style={styles.desktopPersonDiv}>
               <img
                 style={styles.desktopImg}
-                src="./static/asaba.jpg"
-                alt="acw"
+                src="./static/prossy.jpg"
+                alt="prossy"
               />
-              <p style={styles.desktopName}>Livingstone Asabahebwa</p>
-              <p style={styles.desktopRole}>Software Engineer</p>
+              <p style={styles.desktopName}>Prossy Wanyana</p>
+              <p style={styles.desktopRole}>Program Manager</p>
             </div>
           </div>
         </Segment>

@@ -24,8 +24,12 @@ const AboutMission = () => {
               textAlign: "center"
             }}
           >
-            <h1>Our Mission</h1>
-            To ensure every school going child in Uganda learns how to code.
+            <h2 style={{ textDecoration: "underline", fontFamily: "dosis" }}>
+              Our Mission
+            </h2>
+            <h2 style={{ fontFamily: "dosis" }}>
+              To ensure every school going child in Uganda learns how to code.
+            </h2>
           </Header>
           <br />
 
@@ -68,11 +72,20 @@ const AboutMission = () => {
                 style={{
                   fontSize: "2em",
                   color: "#164C60",
-                  textAlign: "start"
+                  textAlign: "center",
+                  textDecoration: "underline"
                 }}
               >
-                Our Mission:
-                <br />
+                Our Mission
+              </Header>
+              <Header
+                style={{
+                  fontSize: "2em",
+                  color: "#164C60",
+                  textAlign: "center",
+                  fontFamily: "dosis"
+                }}
+              >
                 To ensure every school going child in Uganda learns how to code.
               </Header>
               <br />
@@ -123,11 +136,20 @@ const AboutMission = () => {
                 style={{
                   fontSize: "2em",
                   color: "#164C60",
-                  textAlign: "center"
+                  textAlign: "center",
+                  textDecoration: "underline"
                 }}
               >
-                Our Mission:
-                <br />
+                Our Mission
+              </Header>
+              <Header
+                style={{
+                  fontSize: "2em",
+                  color: "#164C60",
+                  textAlign: "center",
+                  fontFamily: "dosis"
+                }}
+              >
                 To ensure every school going child in Uganda learns how to code.
               </Header>
               <br />

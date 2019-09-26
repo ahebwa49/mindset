@@ -5,7 +5,6 @@ import {
   Container,
   Segment,
   Grid,
-  Image,
   Responsive
 } from "semantic-ui-react";
 import SignupButton from "./SignupButton";
