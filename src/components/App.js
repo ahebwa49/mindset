@@ -21,13 +21,8 @@ const mapStateToProps = state => {
 
 class App extends Component {
   render() {
-    const styles = {
-      container: {
-        backgroundColor: "#EAEEEE"
-      }
-    };
     return (
-      <div style={styles.container}>
+      <div>
         {this.props.user.role_id === "SUPERADMIN" ? (
           <AdminPanel />
         ) : this.props.user.role_id === "ADMIN" ? (

@@ -9,7 +9,7 @@ const Partners = () => {
   };
   return (
     <div>
-        <Responsive {...Responsive.onlyMobile}>
+      <Responsive {...Responsive.onlyMobile}>
         <Header
           as="h1"
           textAlign="center"
