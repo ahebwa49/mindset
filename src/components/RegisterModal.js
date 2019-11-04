@@ -129,159 +129,476 @@ class RegisterModal extends React.Component {
   }
   render() {
     return (
-      <Modal trigger={<Button>Register</Button>}>
-        <Modal.Header>Mindset coding program</Modal.Header>
-        <Modal.Content>
-          <Modal.Description>
-            <Header textAlign="center">
-              Venue: Ntinda Complex, Block B 3rd Floor.
-            </Header>
-            <Responsive {...Responsive.onlyComputer}>
-              <Grid
-                centered
-                columns={2}
-                style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
-              >
-                <Grid.Column>
-                  <Header
-                    as="h2"
-                    textAlign="center"
-                    style={{ color: "#164C60" }}
-                  >
-                    Register here
-                  </Header>
-                  <Segment>
-                    <Form
-                      size="large"
-                      onSubmit={this.onSubmit}
-                      className="form"
+      <>
+        <Responsive {...Responsive.onlyMobile}>
+          <Modal trigger={<Button>Register</Button>}>
+            <Modal.Header style={{ color: "#164C60" }}>
+              Mindset coding program
+            </Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                <Header style={{ color: "#164C60" }} textAlign="center">
+                  Venue: Ntinda Complex, Block B 3rd Floor.
+                </Header>
+
+                <Grid
+                  centered
+                  columns={1}
+                  style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
+                >
+                  <Grid.Column>
+                    <Header
+                      as="h3"
+                      textAlign="center"
+                      style={{ color: "#164C60" }}
                     >
-                      <Form.Input
-                        fluid
-                        icon="user"
-                        iconPosition="left"
-                        placeholder="Firstname"
-                        value={this.state.password}
-                        onChange={this.handleFirstnameChange}
-                        required
-                      />
-                      <Form.Input
-                        fluid
-                        icon="user"
-                        iconPosition="left"
-                        placeholder="Lastname"
-                        value={this.state.password}
-                        onChange={this.handleLastnameChange}
-                        required
-                      />
-                      <Form.Input
-                        fluid
-                        icon="mail"
-                        iconPosition="left"
-                        placeholder="Email address"
-                        value={this.state.email}
-                        onChange={this.handleEmailChange}
-                        required
-                      />
-                      <Form.Input
-                        fluid
-                        icon="phone"
-                        iconPosition="left"
-                        placeholder="Contact No."
-                        value={this.state.contact}
-                        onChange={this.handleContactChange}
-                        required
-                      />
-                      <Form.Input
-                        fluid
-                        icon="user"
-                        iconPosition="left"
-                        placeholder="Child's firstname"
-                        value={this.state.cFirstname}
-                        onChange={this.handleCFirstnameChange}
-                        required
-                      />
-                      <Form.Input
-                        fluid
-                        icon="user"
-                        iconPosition="left"
-                        placeholder="Child's lastname"
-                        value={this.state.cLastname}
-                        onChange={this.handleCLastnameChange}
-                        required
-                      />
-                      <Form.Group grouped>
-                        <label>Age</label>
-                        <Form.Radio
-                          label="7-12 years old UGX 200,000/-"
-                          value="7-12"
-                          checked={this.state.age === "7-12"}
-                          onChange={this.handleAgeChange}
-                        />
-                        <Form.Radio
-                          label="13-17 years old UGX 250,000/-"
-                          value="13-17"
-                          checked={this.state.age === "13-17"}
-                          onChange={this.handleAgeChange}
-                        />
-                      </Form.Group>
-                      <Form.Group grouped>
-                        <label>How did you hear about us?</label>
-                        <Form.Radio
-                          label="Website"
-                          value="website"
-                          checked={this.state.referral === "website"}
-                          onChange={this.handleReferralChange}
-                        />
-                        <Form.Radio
-                          label="Friend"
-                          value="friend"
-                          checked={this.state.referral === "friend"}
-                          onChange={this.handleReferralChange}
-                        />
-                        <Form.Radio
-                          label="Twitter"
-                          value="twitter"
-                          checked={this.state.referral === "twitter"}
-                          onChange={this.handleReferralChange}
-                        />
-                        <Form.Radio
-                          label="Facebook"
-                          value="facebook"
-                          checked={this.state.referral === "facebook"}
-                          onChange={this.handleReferralChange}
-                        />
-                      </Form.Group>
-                      <Form.Field
-                        fluid
-                        control={TextArea}
-                        placeholder="Comments and/or questions"
-                        value={this.state.message}
-                        onChange={this.handleMessageChange}
-                      />
-                      <Message
-                        className="message"
-                        success
-                        info
-                        header="Success!"
-                        content="You've Successfully registered..."
-                      />
-                      <Button
-                        color="blue"
+                      Register here
+                    </Header>
+                    <Segment>
+                      <Form
                         size="large"
-                        fluid
-                        style={{ color: "white", backgroundColor: "#164C60" }}
+                        onSubmit={this.onSubmit}
+                        className="form"
                       >
-                        Register
-                      </Button>
-                    </Form>
-                  </Segment>
-                </Grid.Column>
-              </Grid>
-            </Responsive>
-          </Modal.Description>
-        </Modal.Content>
-      </Modal>
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Firstname"
+                          value={this.state.password}
+                          onChange={this.handleFirstnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Lastname"
+                          value={this.state.password}
+                          onChange={this.handleLastnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="mail"
+                          iconPosition="left"
+                          placeholder="Email address"
+                          value={this.state.email}
+                          onChange={this.handleEmailChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="phone"
+                          iconPosition="left"
+                          placeholder="Contact No."
+                          value={this.state.contact}
+                          onChange={this.handleContactChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Child's firstname"
+                          value={this.state.cFirstname}
+                          onChange={this.handleCFirstnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Child's lastname"
+                          value={this.state.cLastname}
+                          onChange={this.handleCLastnameChange}
+                          required
+                        />
+                        <Form.Group grouped>
+                          <label>Age</label>
+                          <Form.Radio
+                            label="7-12 years old UGX 200,000/-"
+                            value="7-12"
+                            checked={this.state.age === "7-12"}
+                            onChange={this.handleAgeChange}
+                          />
+                          <Form.Radio
+                            label="13-17 years old UGX 250,000/-"
+                            value="13-17"
+                            checked={this.state.age === "13-17"}
+                            onChange={this.handleAgeChange}
+                          />
+                        </Form.Group>
+                        <Form.Group grouped>
+                          <label>How did you hear about us?</label>
+                          <Form.Radio
+                            label="Website"
+                            value="website"
+                            checked={this.state.referral === "website"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Friend"
+                            value="friend"
+                            checked={this.state.referral === "friend"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Twitter"
+                            value="twitter"
+                            checked={this.state.referral === "twitter"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Facebook"
+                            value="facebook"
+                            checked={this.state.referral === "facebook"}
+                            onChange={this.handleReferralChange}
+                          />
+                        </Form.Group>
+                        <Form.Field
+                          fluid
+                          control={TextArea}
+                          placeholder="Comments and/or questions"
+                          value={this.state.message}
+                          onChange={this.handleMessageChange}
+                        />
+                        <Message
+                          className="message"
+                          success
+                          info
+                          header="Success!"
+                          content="You've Successfully registered, We shall get back to you shortly"
+                        />
+                        <Button
+                          color="blue"
+                          size="large"
+                          fluid
+                          style={{ color: "white", backgroundColor: "#164C60" }}
+                        >
+                          Register
+                        </Button>
+                      </Form>
+                    </Segment>
+                  </Grid.Column>
+                </Grid>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
+        </Responsive>
+        <Responsive {...Responsive.onlyTablet}>
+          <Modal trigger={<Button>Register</Button>}>
+            <Modal.Header style={{ color: "#164C60" }}>
+              Mindset coding program
+            </Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                <Header style={{ color: "#164C60" }} textAlign="center">
+                  Venue: Ntinda Complex, Block B 3rd Floor.
+                </Header>
+
+                <Grid
+                  centered
+                  columns={2}
+                  style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
+                >
+                  <Grid.Column>
+                    <Header
+                      as="h2"
+                      textAlign="center"
+                      style={{ color: "#164C60" }}
+                    >
+                      Register here
+                    </Header>
+                    <Segment>
+                      <Form
+                        size="large"
+                        onSubmit={this.onSubmit}
+                        className="form"
+                      >
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Firstname"
+                          value={this.state.password}
+                          onChange={this.handleFirstnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Lastname"
+                          value={this.state.password}
+                          onChange={this.handleLastnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="mail"
+                          iconPosition="left"
+                          placeholder="Email address"
+                          value={this.state.email}
+                          onChange={this.handleEmailChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="phone"
+                          iconPosition="left"
+                          placeholder="Contact No."
+                          value={this.state.contact}
+                          onChange={this.handleContactChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Child's firstname"
+                          value={this.state.cFirstname}
+                          onChange={this.handleCFirstnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Child's lastname"
+                          value={this.state.cLastname}
+                          onChange={this.handleCLastnameChange}
+                          required
+                        />
+                        <Form.Group grouped>
+                          <label>Age</label>
+                          <Form.Radio
+                            label="7-12 years old UGX 200,000/-"
+                            value="7-12"
+                            checked={this.state.age === "7-12"}
+                            onChange={this.handleAgeChange}
+                          />
+                          <Form.Radio
+                            label="13-17 years old UGX 250,000/-"
+                            value="13-17"
+                            checked={this.state.age === "13-17"}
+                            onChange={this.handleAgeChange}
+                          />
+                        </Form.Group>
+                        <Form.Group grouped>
+                          <label>How did you hear about us?</label>
+                          <Form.Radio
+                            label="Website"
+                            value="website"
+                            checked={this.state.referral === "website"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Friend"
+                            value="friend"
+                            checked={this.state.referral === "friend"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Twitter"
+                            value="twitter"
+                            checked={this.state.referral === "twitter"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Facebook"
+                            value="facebook"
+                            checked={this.state.referral === "facebook"}
+                            onChange={this.handleReferralChange}
+                          />
+                        </Form.Group>
+                        <Form.Field
+                          fluid
+                          control={TextArea}
+                          placeholder="Comments and/or questions"
+                          value={this.state.message}
+                          onChange={this.handleMessageChange}
+                        />
+                        <Message
+                          className="message"
+                          success
+                          info
+                          header="Success!"
+                          content="You've Successfully registered, We shall get back to you shortly"
+                        />
+                        <Button
+                          color="blue"
+                          size="large"
+                          fluid
+                          style={{ color: "white", backgroundColor: "#164C60" }}
+                        >
+                          Register
+                        </Button>
+                      </Form>
+                    </Segment>
+                  </Grid.Column>
+                </Grid>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
+        </Responsive>
+        <Responsive {...Responsive.onlyComputer}>
+          <Modal trigger={<Button>Register</Button>}>
+            <Modal.Header style={{ color: "#164C60" }}>
+              Mindset coding program
+            </Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                <Header style={{ color: "#164C60" }} textAlign="center">
+                  Venue: Ntinda Complex, Block B 3rd Floor.
+                </Header>
+
+                <Grid
+                  centered
+                  columns={2}
+                  style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
+                >
+                  <Grid.Column>
+                    <Header
+                      as="h2"
+                      textAlign="center"
+                      style={{ color: "#164C60" }}
+                    >
+                      Register here
+                    </Header>
+                    <Segment>
+                      <Form
+                        size="large"
+                        onSubmit={this.onSubmit}
+                        className="form"
+                      >
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Firstname"
+                          value={this.state.password}
+                          onChange={this.handleFirstnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Lastname"
+                          value={this.state.password}
+                          onChange={this.handleLastnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="mail"
+                          iconPosition="left"
+                          placeholder="Email address"
+                          value={this.state.email}
+                          onChange={this.handleEmailChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="phone"
+                          iconPosition="left"
+                          placeholder="Contact No."
+                          value={this.state.contact}
+                          onChange={this.handleContactChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Child's firstname"
+                          value={this.state.cFirstname}
+                          onChange={this.handleCFirstnameChange}
+                          required
+                        />
+                        <Form.Input
+                          fluid
+                          icon="user"
+                          iconPosition="left"
+                          placeholder="Child's lastname"
+                          value={this.state.cLastname}
+                          onChange={this.handleCLastnameChange}
+                          required
+                        />
+                        <Form.Group grouped>
+                          <label>Age</label>
+                          <Form.Radio
+                            label="7-12 years old UGX 200,000/-"
+                            value="7-12"
+                            checked={this.state.age === "7-12"}
+                            onChange={this.handleAgeChange}
+                          />
+                          <Form.Radio
+                            label="13-17 years old UGX 250,000/-"
+                            value="13-17"
+                            checked={this.state.age === "13-17"}
+                            onChange={this.handleAgeChange}
+                          />
+                        </Form.Group>
+                        <Form.Group grouped>
+                          <label>How did you hear about us?</label>
+                          <Form.Radio
+                            label="Website"
+                            value="website"
+                            checked={this.state.referral === "website"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Friend"
+                            value="friend"
+                            checked={this.state.referral === "friend"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Twitter"
+                            value="twitter"
+                            checked={this.state.referral === "twitter"}
+                            onChange={this.handleReferralChange}
+                          />
+                          <Form.Radio
+                            label="Facebook"
+                            value="facebook"
+                            checked={this.state.referral === "facebook"}
+                            onChange={this.handleReferralChange}
+                          />
+                        </Form.Group>
+                        <Form.Field
+                          fluid
+                          control={TextArea}
+                          placeholder="Comments and/or questions"
+                          value={this.state.message}
+                          onChange={this.handleMessageChange}
+                        />
+                        <Message
+                          className="message"
+                          success
+                          info
+                          header="Success!"
+                          content="You've Successfully registered, We shall get back to you shortly"
+                        />
+                        <Button
+                          color="blue"
+                          size="large"
+                          fluid
+                          style={{ color: "white", backgroundColor: "#164C60" }}
+                        >
+                          Register
+                        </Button>
+                      </Form>
+                    </Segment>
+                  </Grid.Column>
+                </Grid>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
+        </Responsive>
+      </>
     );
   }
 }

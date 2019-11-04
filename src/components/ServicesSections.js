@@ -59,6 +59,7 @@ const ServicesSection = () => {
               equivalent in other educational systems] are eligible for the
               program.
             </p>
+            <RegisterModal />
           </div>
           <br />
           <div style={styles.program}>
@@ -78,6 +79,7 @@ const ServicesSection = () => {
               years through an 8-week programme that is delivered at the The
               Innovation Village on Saturday morning.
             </p>
+            <RegisterModal />
           </div>
           <br />
           <div style={styles.program}>
@@ -96,6 +98,7 @@ const ServicesSection = () => {
               maker.These are programs designed for primary and secondary school
               going students(7-17 years) during the mid year holidays.
             </p>
+            <RegisterModal />
           </div>
           <br />
           <div style={styles.program}>
@@ -115,6 +118,7 @@ const ServicesSection = () => {
               for 11-17 year olds. Every week during these program, we unpack
               and communicate a science topic in a fun way for our students.
             </p>
+            <RegisterModal />
           </div>
         </div>
         <SignupButton />
@@ -140,6 +144,7 @@ const ServicesSection = () => {
               equivalent in other educational systems] are eligible for the
               program.
             </p>
+            <RegisterModal />
           </div>
 
           <div style={styles.program}>
@@ -159,6 +164,7 @@ const ServicesSection = () => {
               years through an 8-week programme that is delivered at the The
               Innovation Village on Saturday morning.
             </p>
+            <RegisterModal />
           </div>
         </div>
 
@@ -179,6 +185,7 @@ const ServicesSection = () => {
               maker.These are programs designed for primary and secondary school
               going students(7-17 years) during the mid year holidays.
             </p>
+            <RegisterModal />
           </div>
           <div style={styles.program}>
             <Image src="/static/holiday.png" style={styles.desktopImg} />
@@ -197,6 +204,7 @@ const ServicesSection = () => {
               for 11-17 year olds. Every week during these program, we unpack
               and communicate a science topic in a fun way for our students.
             </p>
+            <RegisterModal />
           </div>
         </div>
         <SignupButton />
