@@ -258,7 +258,6 @@ class RegisterModal extends React.Component {
                         placeholder="Comments and/or questions"
                         value={this.state.message}
                         onChange={this.handleMessageChange}
-                        required
                       />
                       <Message
                         className="message"
