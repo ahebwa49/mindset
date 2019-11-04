@@ -40,7 +40,7 @@ const Cards = () => {
               <Image src="/static/entreprenuership.jpg" wrapped ui={false} />
               <Card.Content>
                 <Header textAlign="center" style={{ color: "#4BBBB5" }}>
-                  Entreprenuership
+                  Entrepreneurship
                 </Header>
 
                 <p style={{ textAlign: "left", color: "#164C60" }}>
@@ -93,7 +93,7 @@ const Cards = () => {
               <Image src="/static/entreprenuership.jpg" wrapped ui={false} />
               <Card.Content>
                 <Header textAlign="center" style={{ color: "#4BBBB5" }}>
-                  Entreprenuership
+                  Entrepreneurship
                 </Header>
 
                 <p style={{ textAlign: "left", color: "#164C60" }}>
@@ -146,7 +146,7 @@ const Cards = () => {
               <Image src="/static/entreprenuership.jpg" wrapped ui={false} />
               <Card.Content>
                 <Header textAlign="center" style={{ color: "#4BBBB5" }}>
-                  Entreprenuership
+                  Entrepreneurship
                 </Header>
 
                 <p style={{ textAlign: "left", color: "#164C60" }}>

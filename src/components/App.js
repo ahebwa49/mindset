@@ -11,6 +11,7 @@ import TestimonialCarousel from "./TestimonialCarousel";
 import Heading2 from "./Heading2";
 import Cards from "./Cards";
 import Partners from "./Partners";
+import HolidayButton from "./HolidayButton";
 
 const mapStateToProps = state => {
   return {
@@ -20,8 +21,13 @@ const mapStateToProps = state => {
 
 class App extends Component {
   render() {
+    const styles = {
+      container: {
+        backgroundColor: "#EAEEEE"
+      }
+    };
     return (
-      <div>
+      <div style={styles.container}>
         {this.props.user.role_id === "SUPERADMIN" ? (
           <AdminPanel />
         ) : this.props.user.role_id === "ADMIN" ? (
@@ -29,6 +35,8 @@ class App extends Component {
         ) : (
           ""
         )}
+        <br />
+        <HolidayButton />
         <CarouselComponent />
         <HeroSection />
         <ParentDashboard />
@@ -42,7 +50,6 @@ class App extends Component {
         <Partners />
         <br />
         <br />
-        {/** <ParentStory />*/}
         <Footer />
       </div>
     );
