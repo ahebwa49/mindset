@@ -1,8 +1,15 @@
 import React, { Component } from "react";
-import { Dropdown, Image } from "semantic-ui-react";
+import { Dropdown, Image, DropdownItem } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { addUser } from "../actions/addUser";
+import AdminPanel from "./AdminPanel";
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   addNewUser: user => {
@@ -48,6 +55,18 @@ class UserMenu extends Component {
           <Dropdown.Item>Student</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Header>Actions</Dropdown.Header>
+
+          {(this.props.user.role_id === "SUPERADMIN" && (
+            <Dropdown.Item>
+              <AdminPanel />
+            </Dropdown.Item>
+          )) ||
+            (this.props.user.role_id === "ADMIN" && (
+              <Dropdown.Item>
+                <AdminPanel />
+              </Dropdown.Item>
+            ))}
+
           <Dropdown.Item onClick={this.handleLogout}>Logout</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
@@ -57,7 +76,7 @@ class UserMenu extends Component {
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(UserMenu)
 );

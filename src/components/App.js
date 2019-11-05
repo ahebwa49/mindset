@@ -23,13 +23,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.props.user.role_id === "SUPERADMIN" ? (
-          <AdminPanel />
-        ) : this.props.user.role_id === "ADMIN" ? (
-          <AdminPanel />
-        ) : (
-          ""
-        )}
         <br />
         <HolidayButton />
         <CarouselComponent />
