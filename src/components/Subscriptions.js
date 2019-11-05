@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { Icon, Menu, Table } from "semantic-ui-react";
 
-class Messages extends Component {
+class Subscriptions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [],
+      subscriptions: [],
       currentPage: 1,
       count: ""
     };
@@ -19,7 +19,7 @@ class Messages extends Component {
       currentPage: this.state.currentPage + 1
     });
     fetch(
-      `https://www.backend.mindset-group.org/messages/page/${this.state
+      `https://www.backend.mindset-group.org/subscriptions/page/${this.state
         .currentPage + 1}`,
       {
         method: "GET",
@@ -41,7 +41,7 @@ class Messages extends Component {
       currentPage: this.state.currentPage - 1
     });
     fetch(
-      `https://www.backend.mindset-group.org/messages/page/${this.state
+      `https://www.backend.mindset-group.org/subscriptions/page/${this.state
         .currentPage - 1}`,
       {
         method: "GET",
@@ -60,7 +60,7 @@ class Messages extends Component {
   }
   componentWillMount() {
     fetch(
-      `https://www.backend.mindset-group.org/messages/page/${
+      `https://www.backend.mindset-group.org/subscriptions/page/${
         this.state.currentPage
       }`,
       {
@@ -72,13 +72,13 @@ class Messages extends Component {
         return response.json();
       })
       .then(data => {
-        this.setState({ messages: data });
+        this.setState({ subscriptions: data });
       })
       .catch(error => {
-        console.log(`Failed to fetch paginated message data ${error}`);
+        console.log(`Failed to fetch paginated subscriptions data ${error}`);
       });
 
-    fetch(`https://www.backend.mindset-group.org/messages`, {
+    fetch(`https://www.backend.mindset-group.org/subscriptions`, {
       method: "GET",
       credentials: "include"
     })
@@ -91,7 +91,7 @@ class Messages extends Component {
         });
       })
       .catch(error => {
-        console.log(`Failed to fetch messages ${error}`);
+        console.log(`Failed to fetch subscriptions ${error}`);
       });
   }
 
@@ -99,7 +99,7 @@ class Messages extends Component {
     const size = 4;
     const pages = Math.ceil(this.state.count / size);
 
-    const messagesRender = this.state.messages.map(item => {
+    const subscriptionsRender = this.state.subscriptions.map(item => {
       const date = moment(item.created_on);
       return (
         <Table.Row>
@@ -130,7 +130,7 @@ class Messages extends Component {
               <Table.HeaderCell>Actions</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-          {messagesRender}
+          {subscriptionsRender}
 
           <Table.Footer>
             <Table.Row>
@@ -165,4 +165,4 @@ class Messages extends Component {
     );
   }
 }
-export default Messages;
+export default Subscriptions;

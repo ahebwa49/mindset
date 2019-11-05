@@ -3,6 +3,7 @@ import { Grid, Menu, Segment } from "semantic-ui-react";
 import Messages from "./Messages";
 import Students from "./Students";
 import Admins from "./Admins";
+import Subscriptions from "./Subscriptions";
 
 class Dashboard extends Component {
   state = { activeItem: "messages" };
@@ -16,6 +17,11 @@ class Dashboard extends Component {
       <Grid style={{ padding: "3rem" }}>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
+            <Menu.Item
+              name="subscriptions"
+              active={activeItem === "subscriptions"}
+              onClick={this.handleItemClick}
+            />
             <Menu.Item
               name="messages"
               active={activeItem === "messages"}
@@ -36,6 +42,7 @@ class Dashboard extends Component {
 
         <Grid.Column stretched width={12}>
           <Segment>
+            {activeItem === "subscriptions" && <Subscriptions />}
             {activeItem === "messages" && <Messages />}
             {activeItem === "students" && <Students />}
             {activeItem === "admins" && <Admins />}
