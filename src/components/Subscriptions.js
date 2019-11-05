@@ -109,7 +109,7 @@ class Subscriptions extends Component {
           <Table.Cell>
             <Link
               to={{
-                pathname: `/messages/message/${item._id}`
+                pathname: `/subscriptions/subscription/${item._id}`
               }}
             >
               view more

@@ -6,7 +6,7 @@ import Admins from "./Admins";
 import Subscriptions from "./Subscriptions";
 
 class Dashboard extends Component {
-  state = { activeItem: "messages" };
+  state = { activeItem: "subscriptions" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 

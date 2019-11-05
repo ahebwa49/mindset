@@ -19,6 +19,7 @@ import Student from "./components/Student";
 import Messages from "./components/Messages";
 import Admins from "./components/Admins";
 import Message from "./components/Message";
+import Subscription from "./components/Subscription";
 import EditStudent from "./components/EditStudent";
 import NavMenu from "./components/Menu";
 import Dashboard from "./components/Dashboard";
@@ -75,6 +76,11 @@ export default class Routing extends Component {
                   exact
                   path="/messages/message/:messageId"
                   component={Message}
+                />
+                <Route
+                  exact
+                  path="/subscriptions/subscription/:subscriptionId"
+                  component={Subscription}
                 />
                 <Route path="/admins/admin/:adminId" component={Admin} />
                 <Route
