@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import AdminPanel from "./AdminPanel";
 import CarouselComponent from "./CarouselComponent";
 import StudentStory from "./StudentStory";
 import Footer from "./Footer";

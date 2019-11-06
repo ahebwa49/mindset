@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Dropdown, Image, DropdownItem } from "semantic-ui-react";
-import { withRouter } from "react-router-dom";
+import { Dropdown, Image } from "semantic-ui-react";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addUser } from "../actions/addUser";
-import AdminPanel from "./AdminPanel";
 
 const mapStateToProps = state => {
   return {
@@ -57,14 +56,14 @@ class UserMenu extends Component {
           <Dropdown.Header>Actions</Dropdown.Header>
 
           {(this.props.user.role_id === "SUPERADMIN" && (
-            <Dropdown.Item>
-              <AdminPanel />
-            </Dropdown.Item>
+            <Link to="/dashboard">
+              <Dropdown.Item>dashboard</Dropdown.Item>
+            </Link>
           )) ||
             (this.props.user.role_id === "ADMIN" && (
-              <Dropdown.Item>
-                <AdminPanel />
-              </Dropdown.Item>
+              <Link to="/dashboard">
+                <Dropdown.Item>dashboard</Dropdown.Item>
+              </Link>
             ))}
 
           <Dropdown.Item onClick={this.handleLogout}>Logout</Dropdown.Item>

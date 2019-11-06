@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AdminPanel from "./AdminPanel";
+import AdminPanelButton from "./AdminPanelButton";
 import { Link } from "react-router-dom";
 
 class Student extends Component {
@@ -78,7 +78,7 @@ class Student extends Component {
     };
     return (
       <div style={styles.container}>
-        <AdminPanel />
+        <AdminPanelButton />
         <h1>student</h1>
         <div style={styles.subContainer}>
           <div>

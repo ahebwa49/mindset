@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AdminPanel from "./AdminPanel";
+import AdminPanelButton from "./AdminPanelButton";
 
 class EditStudent extends Component {
   constructor(props) {
@@ -113,7 +113,7 @@ class EditStudent extends Component {
     };
     return (
       <div>
-        <AdminPanel />
+        <AdminPanelButton />
         <h1>Edit Student</h1>
         <div style={styles.container}>
           <form id="formElem" onSubmit={this.onSubmit}>

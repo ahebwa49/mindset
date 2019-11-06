@@ -80,7 +80,25 @@ SILVER PINK: #C9ADA7
   grid-area: menuArea;
   /*border: 1px solid green;*/
 }
-
+.subscription {
+  display: grid;
+  justify-items: center;
+  padding: 50px;
+  padding-top: 0;
+  grid-template-areas: "parent child";
+}
+.parent {
+  display: grid;
+  grid-area: parent;
+  width: 500px;
+  /* border: 1px solid blue !important; */
+}
+.child {
+  display: grid;
+  grid-area: child;
+  width: 500px;
+  /* border: 1px solid green !important; */
+}
 #carousel-image1 {
   display: grid;
   justify-items: center;

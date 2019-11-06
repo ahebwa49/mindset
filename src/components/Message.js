@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
-import AdminPanel from "./AdminPanel";
+import AdminPanelButton from "./AdminPanelButton";
 
 class Message extends Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class Message extends Component {
     };
     return (
       <div style={styles.container}>
-        <AdminPanel />
+        <AdminPanelButton />
         <h1>Message</h1>
         <h3>{date.format("MMMM Do YYYY, h:mm:ss a")}</h3>
         <h3>Firstname: {this.state.firstname}</h3>

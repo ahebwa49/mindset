@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AdminPanel from "./AdminPanel";
+import AdminPanelButton from "./AdminPanelButton";
 
 class Admin extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Admin extends Component {
     };
     return (
       <div style={styles.container}>
-        <AdminPanel />
+        <AdminPanelButton />
         <h1>Admin</h1>
         <h3>firstname:{this.state.firstname}</h3>
         <h3>lastname:{this.state.lastname}</h3>
