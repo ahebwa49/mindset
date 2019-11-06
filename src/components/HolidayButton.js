@@ -6,7 +6,8 @@ const HolidayButton = () => {
     container: {
       display: "grid",
       justifyItems: "center",
-      color: "#4BBBB5"
+      color: "#4BBBB5",
+      backgroundColor: "#EAEEEE"
     },
     a: {
       textDecoration: "none",
@@ -15,6 +16,7 @@ const HolidayButton = () => {
   };
   return (
     <div style={styles.container}>
+      <br />
       <Button style={{ backgroundColor: "#4BBBB5" }}>
         <a
           style={styles.a}
