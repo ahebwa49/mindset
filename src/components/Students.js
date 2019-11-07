@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import { Link } from "react-router-dom";
 import { Button, Icon, Menu, Table } from "semantic-ui-react";
 import StudentsForm from "./StudentsForm";
@@ -20,10 +21,14 @@ class Students extends Component {
     this.setState({
       currentPage: this.state.currentPage + 1
     });
-    fetch(`https://www.backend.mindset-group.org/students/page/${this.state.currentPage + 1}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/students/page/${this.state
+        .currentPage + 1}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -38,10 +43,14 @@ class Students extends Component {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
-    fetch(`https://www.backend.mindset-group.org/students/page/${this.state.currentPage - 1}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/students/page/${this.state
+        .currentPage - 1}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -53,10 +62,15 @@ class Students extends Component {
       });
   }
   componentWillMount() {
-    fetch(`https://www.backend.mindset-group.org/students/page/${this.state.currentPage}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://www.backend.mindset-group.org/students/page/${
+        this.state.currentPage
+      }`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -93,22 +107,25 @@ class Students extends Component {
     const size = 4;
     const pages = Math.ceil(this.state.count / size);
 
-    const studentsRender = this.state.students.map(item => (
-      <Table.Row>
-        <Table.Cell>{item.firstname}</Table.Cell>
-        <Table.Cell>{item.lastname}</Table.Cell>
-        <Table.Cell>{new Date().toLocaleTimeString()}</Table.Cell>
-        <Table.Cell>
-          <Link
-            to={{
-              pathname: `/students/student/${item._id}`
-            }}
-          >
-            view more
-          </Link>{" "}
-        </Table.Cell>
-      </Table.Row>
-    ));
+    const studentsRender = this.state.students.map(item => {
+      const date = moment(item.created_on);
+      return (
+        <Table.Row>
+          <Table.Cell>{item.firstname}</Table.Cell>
+          <Table.Cell>{item.lastname}</Table.Cell>
+          <Table.Cell>{date.format("MMMM Do YYYY, h:mm:ss a")}</Table.Cell>
+          <Table.Cell>
+            <Link
+              to={{
+                pathname: `/students/student/${item._id}`
+              }}
+            >
+              view more
+            </Link>{" "}
+          </Table.Cell>
+        </Table.Row>
+      );
+    });
 
     return (
       <div>
