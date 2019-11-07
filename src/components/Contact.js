@@ -20,11 +20,13 @@ class Contact extends React.Component {
       firstname: "",
       lastname: "",
       email: "",
+      contact: "",
       message: ""
     };
     this.handleFirstnameChange = this.handleFirstnameChange.bind(this);
     this.handleLastnameChange = this.handleLastnameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleContactChange = this.handleContactChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
   }
   onSubmit = () => {
@@ -33,6 +35,7 @@ class Contact extends React.Component {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       email: this.state.email,
+      contact: this.state.contact,
       message: this.state.message
     };
     fetch("https://www.backend.mindset-group.org/messages", {
@@ -50,6 +53,7 @@ class Contact extends React.Component {
           firstname: "",
           lastname: "",
           email: "",
+          contact: "",
           message: ""
         });
         return response.json();
@@ -75,6 +79,11 @@ class Contact extends React.Component {
   handleEmailChange(e) {
     this.setState({
       email: e.target.value
+    });
+  }
+  handleContactChange(e) {
+    this.setState({
+      contact: e.target.value
     });
   }
   handleMessageChange(e) {
@@ -141,6 +150,15 @@ class Contact extends React.Component {
                     onChange={this.handleEmailChange}
                     required
                   />
+                  <Form.Input
+                    fluid
+                    icon="phone"
+                    iconPosition="left"
+                    placeholder="contact"
+                    value={this.state.contact}
+                    onChange={this.handleContactChange}
+                    required
+                  />
                   <Form.Field
                     fluid
                     control={TextArea}
@@ -205,6 +223,15 @@ class Contact extends React.Component {
                     onChange={this.handleEmailChange}
                     required
                   />
+                  <Form.Input
+                    fluid
+                    icon="phone"
+                    iconPosition="left"
+                    placeholder="contact"
+                    value={this.state.contact}
+                    onChange={this.handleContactChange}
+                    required
+                  />
                   <Form.Field
                     fluid
                     control={TextArea}
@@ -267,6 +294,15 @@ class Contact extends React.Component {
                     placeholder="email"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
+                    required
+                  />
+                  <Form.Input
+                    fluid
+                    icon="phone"
+                    iconPosition="left"
+                    placeholder="contact"
+                    value={this.state.contact}
+                    onChange={this.handleContactChange}
                     required
                   />
                   <Form.Field
