@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import moment from "moment";
+import { Label, Button } from "semantic-ui-react";
 import AdminPanelButton from "./AdminPanelButton";
 import { Link } from "react-router-dom";
 
@@ -10,6 +12,7 @@ class Student extends Component {
       lastname: "",
       email: "",
       contact: "",
+      date: "",
       _id: ""
     };
     this.onDelete = this.onDelete.bind(this);
@@ -35,6 +38,7 @@ class Student extends Component {
           lastname: data.lastname,
           email: data.email,
           contact: data.contact,
+          date: data.created_on,
           _id: data._id
         });
       })
@@ -57,50 +61,74 @@ class Student extends Component {
     //this.props.history.push("/");
   }
   render() {
+    const date = moment(this.state.date);
     const styles = {
       container: {
-        padding: "3rem"
+        padding: "1rem 3rem",
+        // border:"1px solid red"
       },
 
       subContainer: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        border: "1px solid green"
+        // border: "1px solid green",
+        padding:"0rem 8rem"
       },
       modify: {
         display: "grid",
         justifyItems: "center",
-        justifySelf: "center",
+        justifySelf: "end",
         alignSelf: "center",
         cursor: "pointer",
-        fontSize: "1.6rem"
+        fontSize: "1.6rem",
+        // border: "1px solid blue"
+      },
+      label: {
+        fontSize: "16px",
+        marginBottom: "10px"
       }
     };
     return (
       <div style={styles.container}>
         <AdminPanelButton />
-        <h1>student</h1>
+        <h3 style={{ textAlign: "center", color:"#164C60" }}>student</h3>
         <div style={styles.subContainer}>
           <div>
-            <h3>firstname:{this.state.firstname}</h3>
-            <h3>lastname:{this.state.lastname}</h3>
-            <h3>email:{this.state.email}</h3>
-            <h3>contact:{this.state.contact}</h3>
+            <Label size="tiny" style={styles.label}>
+              Date created: {date.format("MMMM Do YYYY, h:mm:ss a")}
+            </Label>
+            <br />
+            <Label size="tiny" style={styles.label}>
+              firstname:{this.state.firstname}
+            </Label>
+            <br />
+            <Label size="tiny" style={styles.label}>
+              lastname:{this.state.lastname}
+            </Label>
+            <br />
+            <Label size="tiny" style={styles.label}>
+              email:{this.state.email}
+            </Label>
+            <br />
+            <Label size="tiny" style={styles.label}>
+              contact:{this.state.contact}
+            </Label>
           </div>
           <div style={styles.modify}>
-            <div>
+            <Button primary>
               <Link
+                style={{ color: "white" }}
                 to={{
                   pathname: `/students/edit/${this.state._id}`
                 }}
               >
                 Edit
               </Link>
-            </div>
+            </Button>
             <br />
-            <div onClick={this.onDelete} style={{ color: "red" }}>
+            <Button negative onClick={this.onDelete} style={{ color: "white" }}>
               Delete
-            </div>
+            </Button>
           </div>
         </div>
       </div>

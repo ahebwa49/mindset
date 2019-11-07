@@ -7,7 +7,7 @@ const AdminPanelButton = () => {
     container: {
       display: "flex",
       justifyContent: "center",
-      padding: "3rem"
+      padding: "1rem 3rem"
     }
   };
   return (

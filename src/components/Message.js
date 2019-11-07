@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Label } from "semantic-ui-react";
 import moment from "moment";
 import AdminPanelButton from "./AdminPanelButton";
 
