@@ -17,20 +17,29 @@ class StudentForm extends Component {
       lastname: "",
       contact: "",
       email: "",
-      error: ""
+      error: "",
+      scratchRating: "0",
+      cssRating: "0",
+      htmlRating: "0"
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleFirstnameChange = this.handleFirstnameChange.bind(this);
     this.handleLastnameChange = this.handleLastnameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
+    this.handleScratchRatingChange = this.handleScratchRatingChange.bind(this);
+    this.handleCssRatingChange = this.handleCssRatingChange.bind(this);
+    this.handleHtmlRatingChange = this.handleHtmlRatingChange.bind(this);
   }
   onSubmit() {
     const data = {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       email: this.state.email,
-      contact: this.state.contact
+      contact: this.state.contact,
+      scratchRating: this.state.scratchRating,
+      cssRating: this.state.cssRating,
+      htmlRating: this.state.htmlRating
     };
     console.log("ready to StudentsForm");
     console.log(data);
@@ -90,15 +99,22 @@ class StudentForm extends Component {
       contact: e.target.value
     });
   }
+  handleScratchRatingChange(e, { value }) {
+    this.setState({
+      scratchRating: value
+    });
+  }
+  handleCssRatingChange(e, { value }) {
+    this.setState({
+      cssRating: value
+    });
+  }
+  handleHtmlRatingChange(e, { value }) {
+    this.setState({
+      htmlRating: value
+    });
+  }
   render() {
-    const gradeOptions = [
-      { key: "zero", text: "0", value: 0 },
-      { key: "two", text: "2", value: 2 },
-      { key: "four", text: "4", value: 4 },
-      { key: "six", text: "6", value: 6 },
-      { key: "eight", text: "8", value: 8 },
-      { key: "ten", text: "10", value: 10 }
-    ];
     return (
       <div>
         <br />
@@ -159,6 +175,108 @@ class StudentForm extends Component {
                     value="2"
                     checked={this.state.scratchRating === "2"}
                     onChange={this.handleScratchRatingChange}
+                  />
+                  <Form.Radio
+                    label="4"
+                    value="4"
+                    checked={this.state.scratchRating === "4"}
+                    onChange={this.handleScratchRatingChange}
+                  />
+                  <Form.Radio
+                    label="6"
+                    value="6"
+                    checked={this.state.scratchRating === "6"}
+                    onChange={this.handleScratchRatingChange}
+                  />
+                  <Form.Radio
+                    label="8"
+                    value="8"
+                    checked={this.state.scratchRating === "8"}
+                    onChange={this.handleScratchRatingChange}
+                  />
+                  <Form.Radio
+                    label="10"
+                    value="10"
+                    checked={this.state.scratchRating === "10"}
+                    onChange={this.handleScratchRatingChange}
+                  />
+                </Form.Group>
+                <Form.Group inline>
+                  <label>CSS</label>
+                  <Form.Radio
+                    label="0"
+                    value="0"
+                    checked={this.state.cssRating === "0"}
+                    onChange={this.handleCssRatingChange}
+                  />
+                  <Form.Radio
+                    label="2"
+                    value="2"
+                    checked={this.state.cssRating === "2"}
+                    onChange={this.handleCssRatingChange}
+                  />
+                  <Form.Radio
+                    label="4"
+                    value="4"
+                    checked={this.state.cssRating === "4"}
+                    onChange={this.handleCssRatingChange}
+                  />
+                  <Form.Radio
+                    label="6"
+                    value="6"
+                    checked={this.state.cssRating === "6"}
+                    onChange={this.handleCssRatingChange}
+                  />
+                  <Form.Radio
+                    label="8"
+                    value="8"
+                    checked={this.state.cssRating === "8"}
+                    onChange={this.handleCssRatingChange}
+                  />
+                  <Form.Radio
+                    label="10"
+                    value="10"
+                    checked={this.state.cssRating === "10"}
+                    onChange={this.handleCssRatingChange}
+                  />
+                </Form.Group>
+                <Form.Group inline>
+                  <label>HTML</label>
+                  <Form.Radio
+                    label="0"
+                    value="0"
+                    checked={this.state.htmlRating === "0"}
+                    onChange={this.handleHtmlRatingChange}
+                  />
+                  <Form.Radio
+                    label="2"
+                    value="2"
+                    checked={this.state.htmlRating === "2"}
+                    onChange={this.handleHtmlRatingChange}
+                  />
+                  <Form.Radio
+                    label="4"
+                    value="4"
+                    checked={this.state.htmlRating === "4"}
+                    onChange={this.handleHtmlRatingChange}
+                  />
+                  <Form.Radio
+                    label="6"
+                    value="6"
+                    checked={this.state.htmlRating === "6"}
+                    onChange={this.handleHtmlRatingChange}
+                  />
+                  <Form.Radio
+                    label="8"
+                    value="8"
+                    checked={this.state.htmlRating === "8"}
+                    onChange={this.handleHtmlRatingChange}
+                  />
+                  <Form.Radio
+                    label="10"
+                    value="10"
+                    checked={this.state.htmlRating === "10"}
+                    onChange={this.handleHtmlRatingChange}
                   />
                 </Form.Group>
                 <Message
