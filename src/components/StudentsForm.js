@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
   Button,
   Form,
+  Select,
   Grid,
   Header,
   Message,
@@ -90,6 +91,14 @@ class StudentForm extends Component {
     });
   }
   render() {
+    const gradeOptions = [
+      { key: "zero", text: "0", value: 0 },
+      { key: "two", text: "2", value: 2 },
+      { key: "four", text: "4", value: 4 },
+      { key: "six", text: "6", value: 6 },
+      { key: "eight", text: "8", value: 8 },
+      { key: "ten", text: "10", value: 10 }
+    ];
     return (
       <div>
         <br />
@@ -137,6 +146,21 @@ class StudentForm extends Component {
                   onChange={this.handleContactChange}
                   required
                 />
+                <Form.Group inline>
+                  <label>Scratch</label>
+                  <Form.Radio
+                    label="0"
+                    value="0"
+                    checked={this.state.scratchRating === "0"}
+                    onChange={this.handleScratchRatingChange}
+                  />
+                  <Form.Radio
+                    label="2"
+                    value="2"
+                    checked={this.state.scratchRating === "2"}
+                    onChange={this.handleScratchRatingChange}
+                  />
+                </Form.Group>
                 <Message
                   className="successMessage"
                   positive

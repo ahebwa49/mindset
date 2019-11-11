@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Segment, Message, Form, Grid } from "semantic-ui-react";
 import AdminPanelButton from "./AdminPanelButton";
 
 class EditStudent extends Component {
@@ -11,20 +12,23 @@ class EditStudent extends Component {
       contact: "",
       _id: ""
     };
-    this.onFirstNameChange = this.onFirstNameChange.bind(this);
-    this.onLastNameChange = this.onLastNameChange.bind(this);
-    this.onEmailChange = this.onEmailChange.bind(this);
-    this.onContactChange = this.onContactChange.bind(this);
+    this.handleFirstnameChange = this.handleFirstnameChange.bind(this);
+    this.handleLastnameChange = this.handleLastnameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleContactChange = this.handleContactChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
   componentDidMount() {
     const {
       match: { params }
     } = this.props;
-    fetch(`http://localhost:4000/students/${params.studentId}`, {
-      method: "GET",
-      credentials: "include"
-    })
+    fetch(
+      `https://backend.mindset-group.org/students/student/${params.studentId}`,
+      {
+        method: "GET",
+        credentials: "include"
+      }
+    )
       .then(response => {
         return response.json();
       })
@@ -42,28 +46,29 @@ class EditStudent extends Component {
         console.log(`Failed to fetch profile data ${error}`);
       });
   }
-  onFirstNameChange(event) {
+  handleFirstnameChange(event) {
     this.setState({
       firstname: event.target.value
     });
   }
-  onLastNameChange(event) {
+  handleLastnameChange(event) {
     this.setState({
       lastname: event.target.value
     });
   }
-  onEmailChange(event) {
+  handleEmailChange(event) {
     this.setState({
       email: event.target.value
     });
   }
-  onContactChange(event) {
+  handleContactChange(event) {
     this.setState({
       contact: event.target.value
     });
   }
   onSubmit(e) {
     e.preventDefault();
+    document.querySelector(".form").classList.add("loading");
     console.log("Ready to fetch");
     const {
       match: { params }
@@ -76,18 +81,25 @@ class EditStudent extends Component {
       email: this.state.email
     };
 
-    fetch(`http://localhost:4000/students/${params.studentId}`, {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-    })
+    fetch(
+      `https://backend.mindset-group.org/students/student/${params.studentId}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      }
+    )
       .then(response => {
-        return response.json();
+        if (response.ok) {
+          document.querySelector(".form").classList.remove("loading");
+          return response.json();
+        }
       })
       .then(data => {
+        document.querySelector(".successMessage").classList.remove("success");
         console.log(data);
       })
       .catch(err => {
@@ -95,73 +107,80 @@ class EditStudent extends Component {
       });
   }
   render() {
-    const styles = {
-      container: {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        border: "1px solid green"
-      },
-      modify: {
-        display: "grid",
-        //border: "1px solid red",
-        justifyItems: "center",
-        justifySelf: "center",
-        alignSelf: "center",
-        cursor: "pointer",
-        fontSize: "1.6rem"
-      }
-    };
     return (
-      <div>
-        <AdminPanelButton />
-        <h1>Edit Student</h1>
-        <div style={styles.container}>
-          <form id="formElem" onSubmit={this.onSubmit}>
-            <div>
-              <h3>
-                firstname:
-                <input
-                  name="firstname"
-                  type="text"
+      <>
+        <div style={{ margin: "2rem 0" }}>
+          <AdminPanelButton />
+        </div>
+
+        <Grid centered columns={3}>
+          <Grid.Column>
+            <h3 style={{ textAlign: "center", color: "#164C60" }}>
+              Edit student details
+            </h3>
+
+            <Segment>
+              <Form size="large" className="form" onSubmit={this.onSubmit}>
+                <Form.Input
+                  fluid
+                  icon="user"
+                  iconPosition="left"
+                  placeholder="firstname"
                   value={this.state.firstname}
-                  onChange={this.onFirstNameChange}
+                  onChange={this.handleFirstnameChange}
+                  required
                 />
-              </h3>
-              <h3>
-                lastname:
-                <input
-                  name="lastname"
-                  type="text"
+                <Form.Input
+                  fluid
+                  icon="user"
+                  iconPosition="left"
+                  placeholder="lastname"
                   value={this.state.lastname}
-                  onChange={this.onLastNameChange}
+                  onChange={this.handleLastnameChange}
+                  required
                 />
-              </h3>
-              <h3>
-                email:{" "}
-                <input
-                  name="email"
-                  type="text"
+                <Form.Input
+                  fluid
+                  icon="mail"
+                  iconPosition="left"
+                  placeholder="email"
                   value={this.state.email}
-                  onChange={this.onEmailChange}
+                  onChange={this.handleEmailChange}
+                  required
                 />
-              </h3>
-              <h3>
-                contact:
-                <input
-                  name="contact"
+                <Form.Input
+                  fluid
+                  icon="call"
+                  iconPosition="left"
+                  placeholder="contact"
                   type="text"
                   value={this.state.contact}
-                  onChange={this.onContactChange}
+                  onChange={this.handleContactChange}
+                  required
                 />
-              </h3>
-            </div>
-            <br />
-            <div>
-              <button type="submit">submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
+                <Message
+                  className="successMessage"
+                  positive
+                  success
+                  header="Success!"
+                  content="Student details have been successfully updated"
+                />
+                <Message
+                  className="errorMessage"
+                  negative
+                  error
+                  header="Forbidden!"
+                  content={this.state.error}
+                />
+
+                <Button color="blue" fluid size="large">
+                  Edit
+                </Button>
+              </Form>
+            </Segment>
+          </Grid.Column>
+        </Grid>
+      </>
     );
   }
 }

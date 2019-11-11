@@ -84,7 +84,7 @@ export default class Routing extends Component {
                 />
                 <Route path="/admins/admin/:adminId" component={Admin} />
                 <Route
-                  path="/students/edit/:studentId"
+                  path="/students/student/edit/:studentId"
                   component={EditStudent}
                 />
                 <Route exact path="/messages" component={Messages} />

@@ -22,7 +22,7 @@ class Student extends Component {
       match: { params }
     } = this.props;
     fetch(
-      `https://www.backend.mindset-group.org/students/${params.studentId}`,
+      `https://www.backend.mindset-group.org/students/student/${params.studentId}`,
       {
         method: "GET",
         credentials: "include"
@@ -119,7 +119,7 @@ class Student extends Component {
               <Link
                 style={{ color: "white" }}
                 to={{
-                  pathname: `/students/edit/${this.state._id}`
+                  pathname: `/students/student/edit/${this.state._id}`
                 }}
               >
                 Edit

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Label } from "semantic-ui-react";
 import AdminPanelButton from "./AdminPanelButton";
 
 class Admin extends Component {
@@ -40,16 +41,32 @@ class Admin extends Component {
     const styles = {
       container: {
         padding: "3rem"
+      },
+      label: {
+        fontSize: "16px",
+        marginBottom: "10px"
       }
     };
     return (
       <div style={styles.container}>
         <AdminPanelButton />
-        <h1>Admin</h1>
-        <h3>firstname:{this.state.firstname}</h3>
-        <h3>lastname:{this.state.lastname}</h3>
-        <h3>email:{this.state.username}</h3>
-        <h3>role_id:{this.state.role_id}</h3>
+        <h3 style={{ textAlign: "center", color: "#164C60" }}>Admin</h3>
+
+        <Label size="tiny" style={styles.label}>
+          Firstname: {this.state.firstname}
+        </Label>
+        <br />
+        <Label size="tiny" style={styles.label}>
+          Lastname: {this.state.lastname}
+        </Label>
+        <br />
+        <Label size="tiny" style={styles.label}>
+          Email: {this.state.username}
+        </Label>
+        <br />
+        <Label size="tiny" style={styles.label}>
+          Role: {this.state.role_id}
+        </Label>
       </div>
     );
   }
