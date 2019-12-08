@@ -124,9 +124,15 @@ class ResetPassword extends React.Component {
       return <h1 style={styles.loading}>loading...</h1>;
     } else if (this.state.error) {
       return (
-        <h1 style={styles.loading}>
-          password reset link is invalid or has expired
-        </h1>
+        <>
+          <h1 style={styles.loading}>
+            Password reset link is either invalid or has expired.
+          </h1>
+          <br />
+          <Link style={{ textAlign: "center" }} to="/">
+            Home
+          </Link>
+        </>
       );
     } else {
       return (
