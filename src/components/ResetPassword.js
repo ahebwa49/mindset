@@ -197,59 +197,50 @@ class ResetPassword extends React.Component {
             <Grid centered columns={2}>
               <Grid.Column>
                 <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
-                  Enter your email address
+                  Reset your password here
                 </Header>
                 <Segment>
                   <Form size="large" onSubmit={this.onSubmit} className="form">
                     <Form.Input
                       fluid
-                      icon="user"
-                      iconPosition="left"
-                      placeholder="Email address"
-                      value={this.state.username}
-                      onChange={this.handleUsernameChange}
-                    />
-                    <Form.Input
-                      fluid
                       icon="lock"
                       iconPosition="left"
-                      placeholder="Password"
+                      placeholder="Enter new password"
                       type="password"
                       value={this.state.password}
                       onChange={this.handlePasswordChange}
+                      required
                     />
+
                     <Message
                       className="errorMessage"
                       negative
                       error
-                      header=""
+                      header="Error!"
                       content={this.state.error}
+                    />
+
+                    <Message
+                      className="message"
+                      success
+                      info
+                      header="Success!"
+                      content="Your password has been successfully reset, please try to log in with your new password"
                     />
                     <Button
                       color="blue"
-                      fluid
                       size="large"
+                      fluid
                       style={{ color: "white", backgroundColor: "#164C60" }}
                     >
-                      Login
+                      Reset Password
                     </Button>
                     <br />
                     <section style={{ textAlign: "center" }}>
-                      Not registered yet? <Link to="/register">Sign Up</Link>
+                      Not registered yet? <Link to="/login">Sign In</Link>
                     </section>
                   </Form>
                 </Segment>
-                <Message style={{ textAlign: "center" }}>
-                  Login with{" "}
-                  <Button color="github">
-                    <a
-                      style={{ textDecoration: "none", color: "black" }}
-                      href="https://www.backend.mindset-group.org/auth/github"
-                    >
-                      <Icon name="github" /> Github
-                    </a>
-                  </Button>
-                </Message>
               </Grid.Column>
             </Grid>
           </Responsive>
@@ -257,49 +248,55 @@ class ResetPassword extends React.Component {
             <Grid
               centered
               columns={1}
-              style={{ padding: "1rem", backgroundColor: "#EAEEEE" }}
+              style={{ padding: " 2rem 1rem", backgroundColor: "#EAEEEE" }}
             >
               <Grid.Column>
-                <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
-                  Sign In
+                <Header
+                  as="h2"
+                  textAlign="center"
+                  style={{ color: "#164C60", fontSize: "18px" }}
+                >
+                  Reset your password here
                 </Header>
                 <Segment>
                   <Form size="large" onSubmit={this.onSubmit} className="form">
                     <Form.Input
                       fluid
-                      icon="user"
-                      iconPosition="left"
-                      placeholder="Email address"
-                      value={this.state.username}
-                      onChange={this.handleUsernameChange}
-                    />
-                    <Form.Input
-                      fluid
                       icon="lock"
                       iconPosition="left"
-                      placeholder="Password"
+                      placeholder="Enter new password"
                       type="password"
                       value={this.state.password}
                       onChange={this.handlePasswordChange}
+                      required
                     />
+
                     <Message
                       className="errorMessage"
                       negative
                       error
-                      header=""
+                      header="Error!"
                       content={this.state.error}
+                    />
+
+                    <Message
+                      className="message"
+                      success
+                      info
+                      header="Success!"
+                      content="Your password has been successfully reset, please try to log in with your new password"
                     />
                     <Button
                       color="blue"
-                      fluid
                       size="large"
+                      fluid
                       style={{ color: "white", backgroundColor: "#164C60" }}
                     >
-                      Login
+                      Reset Password
                     </Button>
                     <br />
                     <section style={{ textAlign: "center" }}>
-                      Not registered yet? <Link to="/register">Sign Up</Link>
+                      Not registered yet? <Link to="/login">Sign In</Link>
                     </section>
                   </Form>
                 </Segment>

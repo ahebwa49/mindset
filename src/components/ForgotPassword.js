@@ -42,8 +42,8 @@ class ForgotPassword extends React.Component {
           return response.json();
         }
         return response.json().then(body => {
-            document.querySelector(".form").classList.remove("loading");
-            throw new Error(body.error);
+          document.querySelector(".form").classList.remove("loading");
+          throw new Error(body.error);
         });
       })
       .then(data => {
@@ -129,7 +129,11 @@ class ForgotPassword extends React.Component {
           </Grid>
         </Responsive>
         <Responsive {...Responsive.onlyTablet}>
-          <Grid centered columns={2}>
+          <Grid
+            centered
+            columns={2}
+            style={{ paddingBottom: "10rem", paddingTop: "8rem" }}
+          >
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
                 Enter your email address
@@ -141,32 +145,33 @@ class ForgotPassword extends React.Component {
                     icon="user"
                     iconPosition="left"
                     placeholder="Email address"
-                    value={this.state.username}
-                    onChange={this.handleUsernameChange}
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    required
                   />
-                  <Form.Input
-                    fluid
-                    icon="lock"
-                    iconPosition="left"
-                    placeholder="Password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.handlePasswordChange}
-                  />
+
                   <Message
                     className="errorMessage"
                     negative
                     error
-                    header=""
+                    header="Error!"
                     content={this.state.error}
+                  />
+
+                  <Message
+                    className="message"
+                    success
+                    info
+                    header="Success!"
+                    content="A password reset link has been sent to your email address."
                   />
                   <Button
                     color="blue"
-                    fluid
                     size="large"
+                    fluid
                     style={{ color: "white", backgroundColor: "#164C60" }}
                   >
-                    Login
+                    Submit
                   </Button>
                   <br />
                   <section style={{ textAlign: "center" }}>
@@ -174,17 +179,6 @@ class ForgotPassword extends React.Component {
                   </section>
                 </Form>
               </Segment>
-              <Message style={{ textAlign: "center" }}>
-                Login with{" "}
-                <Button color="github">
-                  <a
-                    style={{ textDecoration: "none", color: "black" }}
-                    href="https://www.backend.mindset-group.org/auth/github"
-                  >
-                    <Icon name="github" /> Github
-                  </a>
-                </Button>
-              </Message>
             </Grid.Column>
           </Grid>
         </Responsive>
@@ -192,11 +186,18 @@ class ForgotPassword extends React.Component {
           <Grid
             centered
             columns={1}
-            style={{ padding: "1rem", backgroundColor: "#EAEEEE" }}
+            style={{
+              padding: "2rem 1rem",
+              backgroundColor: "#EAEEEE"
+            }}
           >
             <Grid.Column>
-              <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
-                Sign In
+              <Header
+                as="h2"
+                textAlign="center"
+                style={{ color: "#164C60", fontSize: "18px" }}
+              >
+                Enter your email address
               </Header>
               <Segment>
                 <Form size="large" onSubmit={this.onSubmit} className="form">
@@ -205,32 +206,33 @@ class ForgotPassword extends React.Component {
                     icon="user"
                     iconPosition="left"
                     placeholder="Email address"
-                    value={this.state.username}
-                    onChange={this.handleUsernameChange}
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    required
                   />
-                  <Form.Input
-                    fluid
-                    icon="lock"
-                    iconPosition="left"
-                    placeholder="Password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.handlePasswordChange}
-                  />
+
                   <Message
                     className="errorMessage"
                     negative
                     error
-                    header=""
+                    header="Error!"
                     content={this.state.error}
+                  />
+
+                  <Message
+                    className="message"
+                    success
+                    info
+                    header="Success!"
+                    content="A password reset link has been sent to your email address."
                   />
                   <Button
                     color="blue"
-                    fluid
                     size="large"
+                    fluid
                     style={{ color: "white", backgroundColor: "#164C60" }}
                   >
-                    Login
+                    Submit
                   </Button>
                   <br />
                   <section style={{ textAlign: "center" }}>

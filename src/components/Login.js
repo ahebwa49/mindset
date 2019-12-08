@@ -209,6 +209,11 @@ class Login extends React.Component {
                   <section style={{ textAlign: "center" }}>
                     Not registered yet? <Link to="/register">Sign Up</Link>
                   </section>
+                  <br />
+                  <section style={{ textAlign: "center", color: "red" }}>
+                    Forgot password?{" "}
+                    <Link to="/forgot-password">reset here</Link>
+                  </section>
                 </Form>
               </Segment>
               <Message style={{ textAlign: "center" }}>
@@ -272,6 +277,11 @@ class Login extends React.Component {
                   <br />
                   <section style={{ textAlign: "center" }}>
                     Not registered yet? <Link to="/register">Sign Up</Link>
+                  </section>
+                  <br />
+                  <section style={{ textAlign: "center", color: "red" }}>
+                    Forgot password?{" "}
+                    <Link to="/forgot-password">reset here</Link>
                   </section>
                 </Form>
               </Segment>
