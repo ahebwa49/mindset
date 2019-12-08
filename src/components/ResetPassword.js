@@ -31,7 +31,7 @@ class ResetPassword extends React.Component {
       match: { params }
     } = this.props;
 
-    fetch(`http://localhost:4000/reset/${params.resetToken}`, {
+    fetch(`https://backend.mindset-group.org/reset/${params.resetToken}`, {
       method: "GET",
       credentials: "include"
     })
@@ -69,7 +69,7 @@ class ResetPassword extends React.Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://localhost:4000/update-password", {
+    fetch("https://backend.mindset-group.org/update-password", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

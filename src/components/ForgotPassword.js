@@ -28,7 +28,7 @@ class ForgotPassword extends React.Component {
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("http://localhost:4000/forgot-password", {
+    fetch("https://backend.mindset-group.org/forgot-password", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
