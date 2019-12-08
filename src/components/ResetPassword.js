@@ -113,7 +113,8 @@ class ResetPassword extends React.Component {
     const styles = {
       container: {
         backgroundColor: "#EAEEEE",
-        textAlign: "center"
+        textAlign: "center",
+        fontSize: "24px"
       },
       loading: {
         textAlign: "center",
@@ -124,7 +125,7 @@ class ResetPassword extends React.Component {
       return <h1 style={styles.loading}>loading...</h1>;
     } else if (this.state.error) {
       return (
-        <>
+        <div style={styles.container}>
           <h1 style={styles.loading}>
             Password reset link is either invalid or has expired.
           </h1>
@@ -132,7 +133,7 @@ class ResetPassword extends React.Component {
           <Link style={{ textAlign: "center" }} to="/">
             Home
           </Link>
-        </>
+        </div>
       );
     } else {
       return (
