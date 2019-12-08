@@ -24,8 +24,10 @@ import EditStudent from "./components/EditStudent";
 import NavMenu from "./components/Menu";
 import Dashboard from "./components/Dashboard";
 import MobileMenu from "./components/MobileMenu";
+import ForgotPassword from "./components/ForgotPassword";
 import * as serviceWorker from "./serviceWorker";
 import Admin from "./components/Admin";
+import ResetPassword from "./components/ResetPassword";
 import SlideAnimation from "./components/SlideAnimation";
 import { Sidebar, Menu } from "semantic-ui-react";
 
@@ -74,6 +76,11 @@ export default class Routing extends Component {
                 />
                 <Route
                   exact
+                  path="/reset/:resetToken"
+                  component={ResetPassword}
+                />
+                <Route
+                  exact
                   path="/messages/message/:messageId"
                   component={Message}
                 />
@@ -94,6 +101,7 @@ export default class Routing extends Component {
                 <Route path="/students" component={Students} />
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/success" component={Success} />
+                <Route path="/forgot-password" component={ForgotPassword} />
                 <Route exact path="/" component={App} />
                 <Route path="/about" component={About} />
                 <Route path="/services" component={Services} />

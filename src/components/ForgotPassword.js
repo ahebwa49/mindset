@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { addUser } from "../actions/addUser";
 import {
   Button,
   Form,
@@ -14,38 +12,23 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  addNewUser: user => {
-    dispatch(addUser(user));
-  }
-});
-
-class Login extends React.Component {
+class ForgotPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
+      email: "",
       error: ""
     };
     this.onSubmit = this.onSubmit.bind(this);
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
   }
   onSubmit() {
     const data = {
-      username: this.state.username,
-      password: this.state.password
+      email: this.state.email
     };
     document.querySelector(".form").classList.add("loading");
 
-    fetch("https://www.backend.mindset-group.org/login", {
+    fetch("http://localhost:4000/forgot-password", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -59,30 +42,27 @@ class Login extends React.Component {
           return response.json();
         }
         return response.json().then(body => {
-          document.querySelector(".form").classList.remove("loading");
-          throw new Error(body.error);
+            document.querySelector(".form").classList.remove("loading");
+            throw new Error(body.error);
         });
       })
-      .then(async data => {
-        console.log(data);
-        await this.props.addNewUser(data);
-        this.props.history.push("/");
+      .then(data => {
+        document.querySelector(".success").classList.remove("success");
+        // console.log(data);
+        // await this.props.addNewUser(data);
+        // this.props.history.push("/");
       })
       .catch(error => {
+        // document.querySelector(".form").classList.remove("loading");
         document.querySelector(".errorMessage").classList.remove("error");
         this.setState({
           error: error.message
         });
       });
   }
-  handleUsernameChange(e) {
+  handleEmailChange(e) {
     this.setState({
-      username: e.target.value
-    });
-  }
-  handlePasswordChange(e) {
-    this.setState({
-      password: e.target.value
+      email: e.target.value
     });
   }
   render() {
@@ -98,11 +78,11 @@ class Login extends React.Component {
           <Grid
             centered
             columns={3}
-            style={{ paddingBottom: "6rem", paddingTop: "2rem" }}
+            style={{ paddingBottom: "10rem", paddingTop: "8rem" }}
           >
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
-                Sign In
+                Enter your email address
               </Header>
               <Segment>
                 <Form size="large" onSubmit={this.onSubmit} className="form">
@@ -111,26 +91,25 @@ class Login extends React.Component {
                     icon="user"
                     iconPosition="left"
                     placeholder="Email address"
-                    value={this.state.username}
-                    onChange={this.handleUsernameChange}
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
                     required
                   />
-                  <Form.Input
-                    fluid
-                    icon="lock"
-                    iconPosition="left"
-                    placeholder="Password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.handlePasswordChange}
-                    required
-                  />
+
                   <Message
                     className="errorMessage"
                     negative
                     error
-                    header=""
+                    header="Error!"
                     content={this.state.error}
+                  />
+
+                  <Message
+                    className="message"
+                    success
+                    info
+                    header="Success!"
+                    content="Password reset details successfully sent to your email address"
                   />
                   <Button
                     color="blue"
@@ -138,30 +117,14 @@ class Login extends React.Component {
                     fluid
                     style={{ color: "white", backgroundColor: "#164C60" }}
                   >
-                    Login
+                    Submit
                   </Button>
                   <br />
                   <section style={{ textAlign: "center" }}>
                     Not registered yet? <Link to="/register">Sign Up</Link>
                   </section>
-                  <br />
-                  <section style={{ textAlign: "center", color: "red" }}>
-                    Forgot password?{" "}
-                    <Link to="/forgot-password">reset here</Link>
-                  </section>
                 </Form>
               </Segment>
-              <Message style={{ textAlign: "center" }}>
-                Login with{" "}
-                <Button color="github">
-                  <a
-                    style={{ textDecoration: "none", color: "black" }}
-                    href="https://www.backend.mindset-group.org/auth/github"
-                  >
-                    <Icon name="github" /> Github
-                  </a>
-                </Button>
-              </Message>
             </Grid.Column>
           </Grid>
         </Responsive>
@@ -169,7 +132,7 @@ class Login extends React.Component {
           <Grid centered columns={2}>
             <Grid.Column>
               <Header as="h2" textAlign="center" style={{ color: "#164C60" }}>
-                Sign In
+                Enter your email address
               </Header>
               <Segment>
                 <Form size="large" onSubmit={this.onSubmit} className="form">
@@ -275,17 +238,6 @@ class Login extends React.Component {
                   </section>
                 </Form>
               </Segment>
-              <Message style={{ textAlign: "center" }}>
-                Login with{" "}
-                <Button color="github">
-                  <a
-                    style={{ textDecoration: "none", color: "black" }}
-                    href="https://www.backend.mindset-group.org/auth/github"
-                  >
-                    <Icon name="github" /> Github
-                  </a>
-                </Button>
-              </Message>
             </Grid.Column>
           </Grid>
         </Responsive>
@@ -296,7 +248,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default ForgotPassword;

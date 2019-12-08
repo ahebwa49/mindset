@@ -12,6 +12,9 @@ class Student extends Component {
       lastname: "",
       email: "",
       contact: "",
+      cssRating: "",
+      scratchRating: "",
+      htmlRating: "",
       date: "",
       _id: ""
     };
@@ -22,7 +25,9 @@ class Student extends Component {
       match: { params }
     } = this.props;
     fetch(
-      `https://www.backend.mindset-group.org/students/student/${params.studentId}`,
+      `https://www.backend.mindset-group.org/students/student/${
+        params.studentId
+      }`,
       {
         method: "GET",
         credentials: "include"
@@ -38,6 +43,9 @@ class Student extends Component {
           lastname: data.lastname,
           email: data.email,
           contact: data.contact,
+          scratchRating: data.scratchRating,
+          cssRating: data.cssRating,
+          htmlRating: data.htmlRating,
           date: data.created_on,
           _id: data._id
         });
@@ -64,7 +72,7 @@ class Student extends Component {
     const date = moment(this.state.date);
     const styles = {
       container: {
-        padding: "1rem 3rem",
+        padding: "1rem 3rem"
         // border:"1px solid red"
       },
 
@@ -72,7 +80,7 @@ class Student extends Component {
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         // border: "1px solid green",
-        padding:"0rem 8rem"
+        padding: "0rem 8rem"
       },
       modify: {
         display: "grid",
@@ -80,7 +88,7 @@ class Student extends Component {
         justifySelf: "end",
         alignSelf: "center",
         cursor: "pointer",
-        fontSize: "1.6rem",
+        fontSize: "1.6rem"
         // border: "1px solid blue"
       },
       label: {
@@ -91,7 +99,7 @@ class Student extends Component {
     return (
       <div style={styles.container}>
         <AdminPanelButton />
-        <h3 style={{ textAlign: "center", color:"#164C60" }}>student</h3>
+        <h3 style={{ textAlign: "center", color: "#164C60" }}>student</h3>
         <div style={styles.subContainer}>
           <div>
             <Label size="tiny" style={styles.label}>
