@@ -109,7 +109,7 @@ class ForgotPassword extends React.Component {
                     success
                     info
                     header="Success!"
-                    content="Password reset details successfully sent to your email address"
+                    content="A password reset link has been sent to your email address."
                   />
                   <Button
                     color="blue"

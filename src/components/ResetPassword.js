@@ -112,19 +112,26 @@ class ResetPassword extends React.Component {
   render() {
     const styles = {
       container: {
-        backgroundColor: "#EAEEEE"
+        backgroundColor: "#EAEEEE",
+        textAlign: "center"
+      },
+      loading: {
+        textAlign: "center",
+        paddingTop: "4rem"
       }
     };
     if (this.state.isLoading) {
       return (
-        <div>
-          <h1>loading ...</h1>
+        <div style={styles.container}>
+          <h1 style={styles.loading}>loading...</h1>
         </div>
       );
     } else if (this.state.error) {
       return (
-        <div>
-          <h1>password reset link is invalid or has expired</h1>
+        <div style={styles.container}>
+          <h1 style={styles.loading}>
+            password reset link is invalid or has expired
+          </h1>
         </div>
       );
     } else {
@@ -167,7 +174,7 @@ class ResetPassword extends React.Component {
                       success
                       info
                       header="Success!"
-                      content="Your password has been successfully reset, please try logging in again"
+                      content="Your password has been successfully reset, please try to log in with your new password"
                     />
                     <Button
                       color="blue"
