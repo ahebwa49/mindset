@@ -10,7 +10,8 @@ import TestimonialCarousel from "./TestimonialCarousel";
 import Heading2 from "./Heading2";
 import Cards from "./Cards";
 import Partners from "./Partners";
-import HolidayButton from "./HolidayButton";
+// import HolidayButton from "./HolidayButton";
+import PatneringSchools from "./PatneringSchools";
 
 const mapStateToProps = state => {
   return {
@@ -35,6 +36,7 @@ class App extends Component {
         <br />
         <Partners />
         <br />
+        <PatneringSchools />
         <br />
         <Footer />
       </div>
