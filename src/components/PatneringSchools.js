@@ -67,7 +67,7 @@ const AboutTeam = () => {
               textAlign: "center"
             }}
           >
-            Schools patnering with mindset
+            Schools partnering with mindset
             <br />
           </Header>
           <br />
@@ -125,7 +125,7 @@ const AboutTeam = () => {
             as="h3"
             style={{ fontSize: "1.5em", color: "#164C60", textAlign: "center" }}
           >
-            Schools patnering with mindset
+            Schools partnering with mindset
             <br />
           </Header>
           <br />
@@ -184,7 +184,7 @@ const AboutTeam = () => {
             as="h3"
             style={{ fontSize: "2em", color: "#164C60", textAlign: "center" }}
           >
-            Schools patnering with mindset
+            Schools partnering with mindset
             <br />
           </Header>
           <br />

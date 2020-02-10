@@ -15,7 +15,7 @@ const Partners = () => {
           textAlign="center"
           style={{ fontSize: "1.5em", color: "#164C60" }}
         >
-          Brands working with mindset
+          Our Partners
         </Header>
         <div style={styles.container}>
           <img height="50px" src="./static/acw.png" alt="acw" />
@@ -30,7 +30,7 @@ const Partners = () => {
           textAlign="center"
           style={{ fontSize: "1.5em", color: "#164C60" }}
         >
-          Companies working with mindset
+          Our Partners
         </Header>
         <div style={styles.container}>
           <img height="75px" src="./static/acw.png" alt="acw" />
@@ -45,7 +45,7 @@ const Partners = () => {
           textAlign="center"
           style={{ fontSize: "2.5em", color: "#164C60" }}
         >
-          Brands working with mindset
+          Our Partners
         </Header>
         <div style={styles.container}>
           <img height="100px" src="./static/acw.png" alt="acw" />
